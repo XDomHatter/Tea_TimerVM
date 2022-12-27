@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/cpu/test.hpp
+stdio.h
+-
+
+C:/Users/Administrator/Desktop/tvm-1.0/main.cpp
+test.hpp
+C:/Users/Administrator/Desktop/tvm-1.0/test.hpp
+

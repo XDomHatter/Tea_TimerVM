@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="tvm_1_0"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tvm_1_0">
+				<Option output="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/tvm_1_0.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/aarch64"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/arm"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/ppc"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/s390"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/sparc"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/x86"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/zero"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/share/utilities"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 tvm_1_0"/>
+					<CompileFile command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tvm_1_0/fast">
+				<Option output="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/tvm_1_0.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/aarch64"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/arm"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/ppc"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/s390"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/sparc"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/x86"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/cpu/zero"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm-1.0/./src/share/utilities"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"/>
+					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 tvm_1_0/fast"/>
+					<CompileFile command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/MinGW64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/tvm-1.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/main.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/aarch64/MacroAssembler_aarch64.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/aarch64/MacroAssembler_aarch64.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/arm/MacroAssembler_arm.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/arm/MacroAssembler_arm.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/ppc/MacroAssembler_ppc.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/ppc/MacroAssembler_ppc.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/s390/MacroAssembler_s390.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/s390/MacroAssembler_s390.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/sparc/MacroAssembler_sparc.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/sparc/MacroAssembler_sparc.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/x86/MacroAssembler_x86.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/x86/MacroAssembler_x86.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/zero/MacroAssembler_zero.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/cpu/zero/MacroAssembler_zero.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/share/structures/Stack.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/share/structures/Stack.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/share/utilities/macros.hpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/src/share/utilities/types.h">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm-1.0/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
