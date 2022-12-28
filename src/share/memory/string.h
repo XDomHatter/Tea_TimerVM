@@ -15,5 +15,14 @@
 //	BECAUSE OF USER,STRING MAYBE NOT SAFE
 //
 
+#include "types.h"
 
-
+class New{
+public:
+    Str str;
+    static void flush();
+    New();
+    ~New();
+private:
+    Str empty();
+};
