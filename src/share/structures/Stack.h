@@ -5,7 +5,7 @@
 #ifndef TVM_1_0_STACK_H
 #define TVM_1_0_STACK_H
 
-#include "types.h" //for u1,u2,u4
+#include "../types/types.h" //for u1,u2,u4
 
 class Stack_u4 {
 private:
