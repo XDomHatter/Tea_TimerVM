@@ -1,0 +1,17 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "本地计算机": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\share",
+    "\\src\\share\\memony",
+    "\\src\\share\\utilities"
+  ],
+  "SelectedNode": "\\src\\share\\memony\\String.cpp",
+  "PreviewInSolutionExplorer": false
+}
