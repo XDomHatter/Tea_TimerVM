@@ -4,19 +4,40 @@
 
 #include "tstring.hpp"
 
-String::New::New() {
-
+boolean String::utils::_import(String* str_ptr) {
+    this->str_ptr = str_ptr;
+    if (str_ptr == nullptr && this->str_ptr == nullptr){
+        return false;
+    }else{
+        return true;
+    }
 }
 
-String::New::~New() {
-
+u4 String::utils::getLength() {
+    length = str_ptr->ptrs.size();
+    return length;
 }
 
-u4 String::New::getLength() {
-    return 0;
-}
-
-String::String String::New::getEmpty() {
-    String str;
+String::String String::utils::getEmpty() {
+    String str = *new String;
     return str;
+}
+
+boolean String::utils::save(u1 const* text) {
+    int text_length = sizeof(text);
+    if (text_length == 0){
+        return false;
+    }
+    for (int index = 0; index < text_length; ++index) {
+        str_ptr->chars.push_back(text[index]);
+    }
+}
+boolean String::utils::edit(u1 const* text) {
+    return save(text);
+}
+
+String::utils::utils() {
+}
+
+String::utils::~utils() {
 }

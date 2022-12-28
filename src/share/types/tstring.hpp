@@ -31,13 +31,19 @@ namespace String{
 
 #endif //TVM_1_0_TSTRING_HPP
 
-    class New{
+    class utils{
     private:
-        New();
-        ~New();
+        boolean save(u1 const* text);
+    protected:
         u4 length;
+        String* str_ptr;
     public:
+        boolean _import(String* str);
         u4 getLength();
+        boolean edit(u1 const* text);
         static String getEmpty();
+        utils();
+
+        ~utils();
     };
 }

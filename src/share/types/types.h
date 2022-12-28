@@ -8,6 +8,7 @@
 #define u1 char
 #define u2 short
 #define u4 int
+#define boolean bool
 //u8 is indefinitely
 
 #endif //TVM_1_0_TYPES_H

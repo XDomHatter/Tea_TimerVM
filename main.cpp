@@ -8,7 +8,13 @@
 #include "src/share/types/tstring.hpp"
 
 int main(){
-
+    using namespace std;
+    String::String a = String::utils::getEmpty();
+    String::utils a_util;
+    a_util._import(&a);
+    a_util.getLength();
+    a_util.edit("hello");
+    cout << a.chars.at(0) << endl;
 }
 #else
 int main(int argc, char *argv[]) {
