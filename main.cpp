@@ -1,6 +1,16 @@
 #include "stdio.h"
 #include "Stack.h"
 
+#define RSGHOST_DEBUG
+
+#ifdef RSGHOST_DEBUG
+#include <iostream>
+#include "src/share/types/tstring.hpp"
+
+int main(){
+
+}
+#else
 int main(int argc, char *argv[]) {
     
     puts("developing");
@@ -12,3 +22,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+#endif

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/abbyl/Desktop/XDH/tvm/tvm
+# Install script for directory: C:/Users/RSGhost/Desktop/Projects/tvm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,6 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/objdump.exe")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -40,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/abbyl/Desktop/XDH/tvm/tvm/cmake-build-release-mingw/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/RSGhost/Desktop/Projects/tvm/cmake-build-release-mingw/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
