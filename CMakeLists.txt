@@ -11,6 +11,7 @@ include_directories(.\\src\\cpu\\x86    )
 include_directories(.\\src\\cpu\\zero   )
 
 include_directories(.\\src\\share\\utilities\\)
+include_directories(.\\src\\share\\structures)
 
 set(CMAKE_CXX_STANDARD 14)
 

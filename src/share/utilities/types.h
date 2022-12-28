@@ -8,6 +8,6 @@
 #define u1 char
 #define u2 short
 #define u4 int
-#define u8 long
+//u8 is indefinetely
 
 #endif //TVM_1_0_TYPES_H

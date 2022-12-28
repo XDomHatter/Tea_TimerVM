@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../src/cpu/test.hpp
-stdio.h
--
+../src/share/structures/Stack.h
+types.h
+../src/share/structures/types.h
 
-C:/Users/Administrator/Desktop/tvm-1.0/main.cpp
-test.hpp
-C:/Users/Administrator/Desktop/tvm-1.0/test.hpp
+../src/share/utilities/types.h
+
+C:/Users/Administrator/Desktop/tvm/tvm/main.cpp
+stdio.h
+C:/Users/Administrator/Desktop/tvm/tvm/stdio.h
+Stack.h
+C:/Users/Administrator/Desktop/tvm/tvm/Stack.h
 
