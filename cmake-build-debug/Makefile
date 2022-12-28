@@ -338,6 +338,33 @@ src/cpu/zero/MacroAssembler_zero.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.s
 .PHONY : src/cpu/zero/MacroAssembler_zero.cpp.s
 
+src/share/memory/string.obj: src/share/memory/string.cpp.obj
+
+.PHONY : src/share/memory/string.obj
+
+# target to build an object file
+src/share/memory/string.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.obj
+.PHONY : src/share/memory/string.cpp.obj
+
+src/share/memory/string.i: src/share/memory/string.cpp.i
+
+.PHONY : src/share/memory/string.i
+
+# target to preprocess a source file
+src/share/memory/string.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.i
+.PHONY : src/share/memory/string.cpp.i
+
+src/share/memory/string.s: src/share/memory/string.cpp.s
+
+.PHONY : src/share/memory/string.s
+
+# target to generate assembly for a file
+src/share/memory/string.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.s
+.PHONY : src/share/memory/string.cpp.s
+
 src/share/structures/Stack.obj: src/share/structures/Stack.cpp.obj
 
 .PHONY : src/share/structures/Stack.obj
@@ -398,6 +425,9 @@ help:
 	@echo ... src/cpu/zero/MacroAssembler_zero.obj
 	@echo ... src/cpu/zero/MacroAssembler_zero.i
 	@echo ... src/cpu/zero/MacroAssembler_zero.s
+	@echo ... src/share/memory/string.obj
+	@echo ... src/share/memory/string.i
+	@echo ... src/share/memory/string.s
 	@echo ... src/share/structures/Stack.obj
 	@echo ... src/share/structures/Stack.i
 	@echo ... src/share/structures/Stack.s

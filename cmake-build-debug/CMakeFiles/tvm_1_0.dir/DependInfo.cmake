@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/sparc/MacroAssembler_sparc.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/x86/MacroAssembler_x86.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/zero/MacroAssembler_zero.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj"
+  "C:/Users/Administrator/Desktop/tvm/tvm/src/share/memory/string.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/share/structures/Stack.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

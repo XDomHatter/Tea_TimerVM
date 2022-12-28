@@ -2,52 +2,46 @@
 // Created by Administrator on 2022-12-26.
 //
 
-//	INCLUDES
-//	/////////////////////////////////////////////////
-//	HEADERS
-//	/////////////////////////////////////////////////
-//		CPP
-//	/////////////////////////////////////////////////
-#include <vector>
-
-//	/////////////////////////////////////////////////
-//		C	
-//	/////////////////////////////////////////////////
 
 
-//CONFIGS
-//	/////////////////////////////////////////////////
-#define USING_NAMESPACE_STD
-//	/////////////////////////////////////////////////
-
-#ifdef USING_NAMESPACE_STD
-using namespace std;
-#endif
 
 #ifndef TVM_1_0_TYPES_H
 #define TVM_1_0_TYPES_H
 
+#include <vector>
 
+#define USING_NAMESPACE_STD
+
+#ifdef USING_NAMESPACE_STD
+using namespace std;
+#endif
 //	BASIC TYPES
-//	/////////////////////////////////////////////////
-//	YOU CAN USE IT,AND DEFAULT:COPY TRAIT
-#define u1 char
-#define u2 short
-#define u4 int
-#define u8 long
+#define u1 char  //one byte
+#define u2 short //two bytes
+#define u4 int   //three bytes
+/*
+ * u2/u4 should care about endian
+ * when in little endian, to turn them into big endian,
+ * should use 'swap_u2(u2) or swap_u4(u4)
+ */
+u2 swap_u2(u2 _u2) {
+    /* for example:
+     * _u2 : 11111111 00000000
+     */
+    return ((_u2 >> 8) + (_u2 << 8));
+}
+
 #define boolean bool
 
 //	STRING TYPE
-//	/////////////////////////////////////////////////
 //	IT IS A STRUCT
-struct Sstring
-{
-	u4* ptr[];
-	vector<char> chars;
-	u8 length;
-	//A CHAR -> A PTR
+struct Sstring {
+
+    vector<char> chars;
+    u4 length;
+    //A CHAR -> A PTR
+    u4 *ptr[];
 };
-typedef Sstring string
 
 //u8 is indefinetely
 

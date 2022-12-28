@@ -25,6 +25,8 @@ CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj: ../src/cpu/x86/Ma
 CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj: ../src/cpu/zero/MacroAssembler_zero.cpp
 CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj: ../src/cpu/zero/MacroAssembler_zero.h
 
+CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.obj: ../src/share/memory/string.cpp
+
 CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj: ../src/share/utilities/types.h
 CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj: ../src/share/structures/Stack.cpp
 CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj: ../src/share/structures/Stack.h

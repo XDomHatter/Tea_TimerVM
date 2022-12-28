@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj"
+  "CMakeFiles/tvm_1_0.dir/src/share/memory/string.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj"
   "libtvm_1_0.dll.a"
   "tvm_1_0.exe"

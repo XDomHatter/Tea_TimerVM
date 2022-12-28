@@ -8,7 +8,6 @@
 
 class MacroAssembler {
 public:
-    int test();
 };
 
 
