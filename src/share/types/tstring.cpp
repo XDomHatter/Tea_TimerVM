@@ -4,7 +4,7 @@
 #include <iostream>
 #include "tstring.hpp"
 
-boolean String::utils::_import(String* str_ptr) {
+boolean TStringUtil::_import(TString* str_ptr) {
     this->str_ptr = str_ptr;
     if (str_ptr == nullptr && this->str_ptr == nullptr){
         return false;
@@ -18,17 +18,17 @@ boolean String::utils::_import(String* str_ptr) {
     }
 }
 
-u4 String::utils::getLength() {
+u4 TStringUtil::getLength() {
     length = str_ptr->ptrs.size();
     return length;
 }
 
-String::String String::utils::getEmpty() {
-    String str = *new String;
+TString TStringUtil::getEmpty() {
+    TString str;
     return str;
 }
 
-boolean String::utils::save(u1 const* text) {
+boolean TStringUtil::save(u1 const* text) {
     int text_length = sizeof(text);
     if (text_length == 0){
         return false;
@@ -37,18 +37,18 @@ boolean String::utils::save(u1 const* text) {
         str_ptr->chars.push_back(text[index]);
     }
 }
-boolean String::utils::edit(u1 const* text) {
+boolean TStringUtil::edit(u1 const* text) {
     return save(text);
 }
 
-String::utils::utils() {
+TStringUtil::TStringUtil() {
 }
 
-String::utils::~utils() {
+TStringUtil::~TStringUtil() {
     _break();
 }
 
-boolean String::utils::_break() {
+boolean TStringUtil::_break() {
     if (isImport){
         std::free(&length);
         std::free(str_ptr);
@@ -57,9 +57,9 @@ boolean String::utils::_break() {
         return false;
     }
 }
-u1 String::utils::at(u4 index) {
+u1 TStringUtil::at(u4 index) {
     return str_ptr->chars.at(index);
 }
-u1* String::utils::get_ptr(u4 index) {
+u1* TStringUtil::get_ptr(u4 index) {
     return ptr.at(index);
 }

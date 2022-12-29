@@ -1,7 +1,7 @@
-#include "stdio.h"
-#include "Stack.h"
 
-#define RSGHOST_DEBUG
+
+//#define RSGHOST_DEBUG
+#define swap_u2_DEBUG
 
 #ifdef RSGHOST_DEBUG
 #include <iostream>
@@ -13,17 +13,22 @@ int main(){
     String::utils a_util;
     a_util._import(&a);
     a_util.getLength();
-    a_util.edit("ÄãºÃ");
+    a_util.edit("");
 
 }
-#else
+#endif
+
+#ifdef swap_u2_DEBUG
+#include "stdio.h"
+#include "Stack.h"
+#include "bytes.hpp"
 int main(int argc, char *argv[]) {
     
     puts("developing");
     puts("test");
     u2 inp;
     scanf("%x", &inp);
-    inp = swap_u2(inp);
+    inp = wrap_u2(inp);
     printf("%x", inp);
 
     return 0;
