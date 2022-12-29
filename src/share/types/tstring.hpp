@@ -29,8 +29,6 @@ namespace String{
 //typedef
     typedef TString String;
 
-#endif //TVM_1_0_TSTRING_HPP
-
     class utils{
     private:
         boolean save(u1 const* text);
@@ -43,7 +41,7 @@ namespace String{
         boolean edit(u1 const* text);
         static String getEmpty();
         utils();
-
         ~utils();
     };
+#endif //TVM_1_0_TSTRING_HPP
 }

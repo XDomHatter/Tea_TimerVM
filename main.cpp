@@ -13,8 +13,8 @@ int main(){
     String::utils a_util;
     a_util._import(&a);
     a_util.getLength();
-    a_util.edit("hello");
-    cout << a.chars.at(0) << endl;
+    a_util.edit("ÄãºÃ");
+    cout << a_util.toArray() << endl;
 }
 #else
 int main(int argc, char *argv[]) {

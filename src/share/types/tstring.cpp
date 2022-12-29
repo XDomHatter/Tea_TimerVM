@@ -9,6 +9,7 @@ boolean String::utils::_import(String* str_ptr) {
     if (str_ptr == nullptr && this->str_ptr == nullptr){
         return false;
     }else{
+        length = getLength();
         return true;
     }
 }
