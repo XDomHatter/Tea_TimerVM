@@ -32,13 +32,18 @@ namespace String{
     class utils{
     private:
         boolean save(u1 const* text);
+        boolean _break();
     protected:
+        boolean isImport = false;
         u4 length;
         String* str_ptr;
+        std::map<int,char*> ptr;
     public:
         boolean _import(String* str);
         u4 getLength();
         boolean edit(u1 const* text);
+        u1 at(u4 index);
+        u1* get_ptr(u4 index);
         static String getEmpty();
         utils();
         ~utils();

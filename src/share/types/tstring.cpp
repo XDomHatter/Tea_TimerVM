@@ -1,7 +1,7 @@
 //
 // Created by abbyl on 2022/12/28.
 //
-
+#include <iostream>
 #include "tstring.hpp"
 
 boolean String::utils::_import(String* str_ptr) {
@@ -10,6 +10,10 @@ boolean String::utils::_import(String* str_ptr) {
         return false;
     }else{
         length = getLength();
+        isImport = true;
+        for (int index = 0; index < length; ++index) {
+            ptr.insert(std::pair<int,char*>(index,&str_ptr->chars.at(index)));
+        }
         return true;
     }
 }
@@ -41,4 +45,21 @@ String::utils::utils() {
 }
 
 String::utils::~utils() {
+    _break();
+}
+
+boolean String::utils::_break() {
+    if (isImport){
+        std::free(&length);
+        std::free(str_ptr);
+        std::free(&isImport);
+    }else{
+        return false;
+    }
+}
+u1 String::utils::at(u4 index) {
+    return str_ptr->chars.at(index);
+}
+u1* String::utils::get_ptr(u4 index) {
+    return ptr.at(index);
 }

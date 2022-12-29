@@ -14,7 +14,7 @@ int main(){
     a_util._import(&a);
     a_util.getLength();
     a_util.edit("ÄãºÃ");
-    cout << a_util.toArray() << endl;
+
 }
 #else
 int main(int argc, char *argv[]) {
