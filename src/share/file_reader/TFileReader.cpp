@@ -6,5 +6,7 @@
 
 TFileReader::TFileReader(FILE *fileobj) {
     this->tfile = fileobj;
-
+}
+inline FILE * TFileReader::getFileObj() {
+    return this->getFileObj();
 }

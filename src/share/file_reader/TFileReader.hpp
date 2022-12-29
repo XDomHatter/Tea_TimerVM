@@ -10,8 +10,10 @@
 class TFileReader {
 private:
     FILE *tfile;
+
 public:
     TFileReader(FILE *file);
+    inline FILE *getFileObj();
 };
 
 
