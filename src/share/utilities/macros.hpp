@@ -19,6 +19,8 @@
 #define PASTE_TOKENS_AUX(x, y) PASTE_TOKENS_AUX2(x, y)
 #define PASTE_TOKENS_AUX2(x, y) x ## y
 
+#define CPU_HEADER()
+
 //bsd:
 #if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__APPLE__)
 #ifndef BSD
