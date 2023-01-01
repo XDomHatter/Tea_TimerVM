@@ -30,10 +30,7 @@
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/s390"/>
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/sparc"/>
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/x86"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/zero"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/utilities"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/structures"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/types"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"/>
@@ -62,10 +59,7 @@
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/s390"/>
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/sparc"/>
 					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/x86"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/cpu/zero"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/utilities"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/structures"/>
-					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share/types"/>
+					<Add directory="C:/Users/Administrator/Desktop/tvm/tvm/./src/share"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="D:/Program Files (x86)/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"/>
@@ -139,12 +133,6 @@
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/x86/MacroAssembler_x86.h">
-			<Option target="tvm_1_0"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/zero/MacroAssembler_zero.cpp">
-			<Option target="tvm_1_0"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/zero/MacroAssembler_zero.h">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/tvm/src/os/linux/FileMapperLinux.cpp">

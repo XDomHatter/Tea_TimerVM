@@ -5,7 +5,7 @@
 #ifndef TVM_1_0_STACK_H
 #define TVM_1_0_STACK_H
 
-#include "bytes.hpp" //for u1,u2,u4
+#include "types/bytes.hpp" //for u1,u2,u4
 
 class Stack_u4 {
 private:

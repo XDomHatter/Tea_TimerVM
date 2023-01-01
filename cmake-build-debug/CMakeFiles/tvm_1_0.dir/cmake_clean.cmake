@@ -6,7 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/tvm_1_0.dir/src/cpu/s390/MacroAssembler_s390.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj"
-  "CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapperLinux.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj"

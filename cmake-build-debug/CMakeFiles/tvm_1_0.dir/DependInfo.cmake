@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/s390/MacroAssembler_s390.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/s390/MacroAssembler_s390.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/sparc/MacroAssembler_sparc.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/x86/MacroAssembler_x86.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj"
-  "C:/Users/Administrator/Desktop/tvm/tvm/src/cpu/zero/MacroAssembler_zero.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/os/linux/FileMapperLinux.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapperLinux.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/os/windows/FileMapper_win.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/tvm/src/share/file_reader/TFileReader.cpp" "C:/Users/Administrator/Desktop/tvm/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj"
@@ -27,10 +26,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   ".././src/cpu/s390"
   ".././src/cpu/sparc"
   ".././src/cpu/x86"
-  ".././src/cpu/zero"
-  ".././src/share/utilities"
-  ".././src/share/structures"
-  ".././src/share/types"
+  ".././src/share"
   )
 
 # Targets to which this target links.

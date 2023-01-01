@@ -311,33 +311,6 @@ src/cpu/x86/MacroAssembler_x86.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.s
 .PHONY : src/cpu/x86/MacroAssembler_x86.cpp.s
 
-src/cpu/zero/MacroAssembler_zero.obj: src/cpu/zero/MacroAssembler_zero.cpp.obj
-
-.PHONY : src/cpu/zero/MacroAssembler_zero.obj
-
-# target to build an object file
-src/cpu/zero/MacroAssembler_zero.cpp.obj:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.obj
-.PHONY : src/cpu/zero/MacroAssembler_zero.cpp.obj
-
-src/cpu/zero/MacroAssembler_zero.i: src/cpu/zero/MacroAssembler_zero.cpp.i
-
-.PHONY : src/cpu/zero/MacroAssembler_zero.i
-
-# target to preprocess a source file
-src/cpu/zero/MacroAssembler_zero.cpp.i:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.i
-.PHONY : src/cpu/zero/MacroAssembler_zero.cpp.i
-
-src/cpu/zero/MacroAssembler_zero.s: src/cpu/zero/MacroAssembler_zero.cpp.s
-
-.PHONY : src/cpu/zero/MacroAssembler_zero.s
-
-# target to generate assembly for a file
-src/cpu/zero/MacroAssembler_zero.cpp.s:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/zero/MacroAssembler_zero.cpp.s
-.PHONY : src/cpu/zero/MacroAssembler_zero.cpp.s
-
 src/os/linux/FileMapperLinux.obj: src/os/linux/FileMapperLinux.cpp.obj
 
 .PHONY : src/os/linux/FileMapperLinux.obj
@@ -476,9 +449,6 @@ help:
 	@echo ... src/cpu/x86/MacroAssembler_x86.obj
 	@echo ... src/cpu/x86/MacroAssembler_x86.i
 	@echo ... src/cpu/x86/MacroAssembler_x86.s
-	@echo ... src/cpu/zero/MacroAssembler_zero.obj
-	@echo ... src/cpu/zero/MacroAssembler_zero.i
-	@echo ... src/cpu/zero/MacroAssembler_zero.s
 	@echo ... src/os/linux/FileMapperLinux.obj
 	@echo ... src/os/linux/FileMapperLinux.i
 	@echo ... src/os/linux/FileMapperLinux.s
