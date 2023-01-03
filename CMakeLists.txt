@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(tvm_1_0)
+project(tvm)
 
 #cpu headers
 include_directories(.\\src\\cpu\\aarch64)
