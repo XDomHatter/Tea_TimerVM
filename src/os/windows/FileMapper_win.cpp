@@ -3,3 +3,7 @@
 //
 
 #include "FileMapper_win.hpp"
+
+address FileMapper::map_file(FILE *fileObj) {
+
+}

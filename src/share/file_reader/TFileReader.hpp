@@ -6,6 +6,7 @@
 #define TVM_1_0_TFILEREADER_H
 
 #include <stdio.h>
+#include "types/bytes.hpp"
 
 class TFileReader {
 private:
@@ -14,6 +15,9 @@ private:
 public:
     TFileReader(FILE *file);
     inline FILE *getFileObj();
+    address map_file(){
+
+    }
 };
 
 

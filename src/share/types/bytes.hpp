@@ -10,6 +10,8 @@
 #define u4 int
 //u8 is indefinitely
 
+#define address void *
+
 u2 wrap_u2(u2 data) {
     return (u2)((data << 8) + (data >> 8));
 }

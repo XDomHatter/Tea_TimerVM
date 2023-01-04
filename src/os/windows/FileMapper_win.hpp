@@ -5,9 +5,12 @@
 #ifndef TVM_1_0_FILEMAPPER_WIN_HPP
 #define TVM_1_0_FILEMAPPER_WIN_HPP
 
+#include "types/bytes.hpp"
+#include "stdio.h"
 
 class FileMapper {
-
+public:
+    static address map_file(FILE* fileObj);
 };
 
 

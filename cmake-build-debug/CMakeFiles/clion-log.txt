@@ -1,31 +1,4 @@
-"D:\Program Files\JetBrains\CLion 2020.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\tvm
--- The C compiler identification is GNU 6.3.0
--- The CXX compiler identification is GNU 6.3.0
--- Check for working C compiler: D:/Program Files (x86)/MinGW/bin/gcc.exe
--- Check for working C compiler: D:/Program Files (x86)/MinGW/bin/gcc.exe -- broken
-CMake Error at D:/Program Files/JetBrains/CLion 2020.1.3/bin/cmake/win/share/cmake-3.16/Modules/CMakeTestCCompiler.cmake:60 (message):
-  The C compiler
-
-    "D:/Program Files (x86)/MinGW/bin/gcc.exe"
-
-  is not able to compile a simple test program.
-
-  It fails with the following output:
-
-    Change Dir: D:/tvm/cmake-build-debug/CMakeFiles/CMakeTmp
-    
-    Run Build Command(s):D:/Program Files (x86)/MinGW/bin/mingw32-make.exe cmTC_0a589/fast && mingw32-make.exe: *** INTERNAL: readdir: Invalid argument
-    .  Stop.
-    
-    
-
-  
-
-  CMake will not be able to correctly generate this project.
-Call Stack (most recent call first):
-  CMakeLists.txt:2 (project)
-
-
--- Configuring incomplete, errors occurred!
-See also "D:/tvm/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "D:/tvm/cmake-build-debug/CMakeFiles/CMakeError.log".
+"D:\Program Files\JetBrains\CLion 2020.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Administrator\Desktop\tvm
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Administrator/Desktop/tvm/cmake-build-debug

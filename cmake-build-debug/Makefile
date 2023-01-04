@@ -311,32 +311,32 @@ src/cpu/x86/MacroAssembler_x86.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.s
 .PHONY : src/cpu/x86/MacroAssembler_x86.cpp.s
 
-src/os/linux/FileMapperLinux.obj: src/os/linux/FileMapperLinux.cpp.obj
+src/os/linux/FileMapper_linux.obj: src/os/linux/FileMapper_linux.cpp.obj
 
-.PHONY : src/os/linux/FileMapperLinux.obj
+.PHONY : src/os/linux/FileMapper_linux.obj
 
 # target to build an object file
-src/os/linux/FileMapperLinux.cpp.obj:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapperLinux.cpp.obj
-.PHONY : src/os/linux/FileMapperLinux.cpp.obj
+src/os/linux/FileMapper_linux.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj
+.PHONY : src/os/linux/FileMapper_linux.cpp.obj
 
-src/os/linux/FileMapperLinux.i: src/os/linux/FileMapperLinux.cpp.i
+src/os/linux/FileMapper_linux.i: src/os/linux/FileMapper_linux.cpp.i
 
-.PHONY : src/os/linux/FileMapperLinux.i
+.PHONY : src/os/linux/FileMapper_linux.i
 
 # target to preprocess a source file
-src/os/linux/FileMapperLinux.cpp.i:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapperLinux.cpp.i
-.PHONY : src/os/linux/FileMapperLinux.cpp.i
+src/os/linux/FileMapper_linux.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.i
+.PHONY : src/os/linux/FileMapper_linux.cpp.i
 
-src/os/linux/FileMapperLinux.s: src/os/linux/FileMapperLinux.cpp.s
+src/os/linux/FileMapper_linux.s: src/os/linux/FileMapper_linux.cpp.s
 
-.PHONY : src/os/linux/FileMapperLinux.s
+.PHONY : src/os/linux/FileMapper_linux.s
 
 # target to generate assembly for a file
-src/os/linux/FileMapperLinux.cpp.s:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapperLinux.cpp.s
-.PHONY : src/os/linux/FileMapperLinux.cpp.s
+src/os/linux/FileMapper_linux.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.s
+.PHONY : src/os/linux/FileMapper_linux.cpp.s
 
 src/os/windows/FileMapper_win.obj: src/os/windows/FileMapper_win.cpp.obj
 
@@ -364,6 +364,60 @@ src/os/windows/FileMapper_win.s: src/os/windows/FileMapper_win.cpp.s
 src/os/windows/FileMapper_win.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.s
 .PHONY : src/os/windows/FileMapper_win.cpp.s
+
+src/share/asm/AsmCode.obj: src/share/asm/AsmCode.cpp.obj
+
+.PHONY : src/share/asm/AsmCode.obj
+
+# target to build an object file
+src/share/asm/AsmCode.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj
+.PHONY : src/share/asm/AsmCode.cpp.obj
+
+src/share/asm/AsmCode.i: src/share/asm/AsmCode.cpp.i
+
+.PHONY : src/share/asm/AsmCode.i
+
+# target to preprocess a source file
+src/share/asm/AsmCode.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.i
+.PHONY : src/share/asm/AsmCode.cpp.i
+
+src/share/asm/AsmCode.s: src/share/asm/AsmCode.cpp.s
+
+.PHONY : src/share/asm/AsmCode.s
+
+# target to generate assembly for a file
+src/share/asm/AsmCode.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.s
+.PHONY : src/share/asm/AsmCode.cpp.s
+
+src/share/asm/CodeBuffer.obj: src/share/asm/CodeBuffer.cpp.obj
+
+.PHONY : src/share/asm/CodeBuffer.obj
+
+# target to build an object file
+src/share/asm/CodeBuffer.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj
+.PHONY : src/share/asm/CodeBuffer.cpp.obj
+
+src/share/asm/CodeBuffer.i: src/share/asm/CodeBuffer.cpp.i
+
+.PHONY : src/share/asm/CodeBuffer.i
+
+# target to preprocess a source file
+src/share/asm/CodeBuffer.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.i
+.PHONY : src/share/asm/CodeBuffer.cpp.i
+
+src/share/asm/CodeBuffer.s: src/share/asm/CodeBuffer.cpp.s
+
+.PHONY : src/share/asm/CodeBuffer.s
+
+# target to generate assembly for a file
+src/share/asm/CodeBuffer.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.s
+.PHONY : src/share/asm/CodeBuffer.cpp.s
 
 src/share/file_reader/TFileReader.obj: src/share/file_reader/TFileReader.cpp.obj
 
@@ -449,12 +503,18 @@ help:
 	@echo ... src/cpu/x86/MacroAssembler_x86.obj
 	@echo ... src/cpu/x86/MacroAssembler_x86.i
 	@echo ... src/cpu/x86/MacroAssembler_x86.s
-	@echo ... src/os/linux/FileMapperLinux.obj
-	@echo ... src/os/linux/FileMapperLinux.i
-	@echo ... src/os/linux/FileMapperLinux.s
+	@echo ... src/os/linux/FileMapper_linux.obj
+	@echo ... src/os/linux/FileMapper_linux.i
+	@echo ... src/os/linux/FileMapper_linux.s
 	@echo ... src/os/windows/FileMapper_win.obj
 	@echo ... src/os/windows/FileMapper_win.i
 	@echo ... src/os/windows/FileMapper_win.s
+	@echo ... src/share/asm/AsmCode.obj
+	@echo ... src/share/asm/AsmCode.i
+	@echo ... src/share/asm/AsmCode.s
+	@echo ... src/share/asm/CodeBuffer.obj
+	@echo ... src/share/asm/CodeBuffer.i
+	@echo ... src/share/asm/CodeBuffer.s
 	@echo ... src/share/file_reader/TFileReader.obj
 	@echo ... src/share/file_reader/TFileReader.i
 	@echo ... src/share/file_reader/TFileReader.s

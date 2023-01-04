@@ -5,6 +5,16 @@
 #ifndef TVM_1_0_MACROS_HPP
 #define TVM_1_0_MACROS_HPP
 
+
+#define DEBUG
+#ifdef DEBUG
+#define INCLUDE_SUFFIX_CPU _x86
+#define INCLUDE_SUFFIX_OS  _win
+#define LITTLE_ENDIAN
+#endif
+
+
+
 //to change a token to string
 #define STR(x) #x
 #define XSTR(x) STR(x)
@@ -44,5 +54,15 @@
 #define NOT_X86(code) code
 #endif
 
+#if defined(BIG_ENDIAN)
+#define ENDIAN_CODE(big, little) big
+#endif
+#ifdef  LITTLE_ENDIAN
+#define ENDIAN_CODE(big, little) little
+#endif
+
+
+#define CPU_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_CPU)
+#define OS_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_OS)
 
 #endif //TVM_1_0_MACROS_HPP
