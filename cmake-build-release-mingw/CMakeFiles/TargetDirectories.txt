@@ -1,3 +1,0 @@
-C:/Users/abbyl/Desktop/XDH/tvm/tvm/cmake-build-release-mingw/CMakeFiles/tvm_1_0.dir
-C:/Users/abbyl/Desktop/XDH/tvm/tvm/cmake-build-release-mingw/CMakeFiles/edit_cache.dir
-C:/Users/abbyl/Desktop/XDH/tvm/tvm/cmake-build-release-mingw/CMakeFiles/rebuild_cache.dir
