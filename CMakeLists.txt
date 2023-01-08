@@ -13,7 +13,8 @@ include_directories(src/share)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(tvm_1_0 main.cpp
+
+    add_executable(tvm_1_0 main.cpp
         src/share/utilities/macros.hpp
         src/cpu/aarch32/MacroAssembler_aarch32.cpp src/cpu/aarch32/MacroAssembler_aarch32.hpp
         src/cpu/arm/MacroAssembler_arm.cpp src/cpu/arm/MacroAssembler_arm.hpp
@@ -23,9 +24,9 @@ add_executable(tvm_1_0 main.cpp
         src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
         src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/types/bytes.hpp
+        src/os/windows/FileMapper_win.hpp src/os/windows/FileMapper_win.cpp
+        src/os/linux/FileMapper_linux.hpp src/os/linux/FileMapper_linux.cpp
         src/share/file_reader/TFileReader.cpp src/share/file_reader/TFileReader.hpp
-        src/os/windows/FileMapper_win.cpp src/os/windows/FileMapper_win.hpp
-        src/os/linux/FileMapper_linux.cpp src/os/linux/FileMapper_linux.hpp
         src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
         src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
         src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp)

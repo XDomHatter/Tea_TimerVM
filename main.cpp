@@ -20,8 +20,8 @@ int main(){
 
 #ifdef swap_u2_DEBUG
 #include "stdio.h"
-#include "Stack.h"
-#include "bytes.hpp"
+#include "structures/Stack.hpp"
+#include "types/bytes.hpp"
 int main(int argc, char *argv[]) {
     
     puts("developing");

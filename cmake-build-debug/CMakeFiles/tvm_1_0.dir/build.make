@@ -70,19 +70,19 @@ CMakeFiles/tvm_1_0.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/main.cpp.s"
 	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\main.cpp -o CMakeFiles\tvm_1_0.dir\main.cpp.s
 
-CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
-CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
-CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj: ../src/cpu/aarch64/MacroAssembler_aarch64.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\cpu\aarch64\MacroAssembler_aarch64.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\cpu\aarch64\MacroAssembler_aarch64.cpp
+CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
+CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
+CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj: ../src/cpu/aarch32/MacroAssembler_aarch32.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\cpu\aarch32\MacroAssembler_aarch32.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\cpu\aarch32\MacroAssembler_aarch32.cpp
 
-CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.i"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\tvm\src\cpu\aarch64\MacroAssembler_aarch64.cpp > CMakeFiles\tvm_1_0.dir\src\cpu\aarch64\MacroAssembler_aarch64.cpp.i
+CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.i"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\tvm\src\cpu\aarch32\MacroAssembler_aarch32.cpp > CMakeFiles\tvm_1_0.dir\src\cpu\aarch32\MacroAssembler_aarch32.cpp.i
 
-CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.s"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\cpu\aarch64\MacroAssembler_aarch64.cpp -o CMakeFiles\tvm_1_0.dir\src\cpu\aarch64\MacroAssembler_aarch64.cpp.s
+CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.s"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\cpu\aarch32\MacroAssembler_aarch32.cpp -o CMakeFiles\tvm_1_0.dir\src\cpu\aarch32\MacroAssembler_aarch32.cpp.s
 
 CMakeFiles/tvm_1_0.dir/src/cpu/arm/MacroAssembler_arm.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
 CMakeFiles/tvm_1_0.dir/src/cpu/arm/MacroAssembler_arm.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
@@ -168,24 +168,10 @@ CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.s"
 	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\share\structures\Stack.cpp -o CMakeFiles\tvm_1_0.dir\src\share\structures\Stack.cpp.s
 
-CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
-CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
-CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: ../src/share/file_reader/TFileReader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp
-
-CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.i"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp > CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.i
-
-CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.s"
-	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp -o CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.s
-
 CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
 CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
 CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: ../src/os/windows/FileMapper_win.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj"
 	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\os\windows\FileMapper_win.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\os\windows\FileMapper_win.cpp
 
 CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.i: cmake_force
@@ -199,7 +185,7 @@ CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.s: cmake_force
 CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
 CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
 CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: ../src/os/linux/FileMapper_linux.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj"
 	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\os\linux\FileMapper_linux.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\os\linux\FileMapper_linux.cpp
 
 CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.i: cmake_force
@@ -209,6 +195,20 @@ CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.i: cmake_force
 CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.s"
 	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\os\linux\FileMapper_linux.cpp -o CMakeFiles\tvm_1_0.dir\src\os\linux\FileMapper_linux.cpp.s
+
+CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
+CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
+CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj: ../src/share/file_reader/TFileReader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\Desktop\tvm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.obj -c C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp
+
+CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.i"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp > CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.i
+
+CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.s"
+	"D:\Program Files (x86)\MinGW64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Administrator\Desktop\tvm\src\share\file_reader\TFileReader.cpp -o CMakeFiles\tvm_1_0.dir\src\share\file_reader\TFileReader.cpp.s
 
 CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj: CMakeFiles/tvm_1_0.dir/flags.make
 CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj: CMakeFiles/tvm_1_0.dir/includes_CXX.rsp
@@ -255,16 +255,16 @@ CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.s: cmake_force
 # Object files for target tvm_1_0
 tvm_1_0_OBJECTS = \
 "CMakeFiles/tvm_1_0.dir/main.cpp.obj" \
-"CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj" \
+"CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/arm/MacroAssembler_arm.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/ppc/MacroAssembler_ppc.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/s390/MacroAssembler_s390.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj" \
-"CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj" \
+"CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj" \
 "CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.obj"
@@ -273,16 +273,16 @@ tvm_1_0_OBJECTS = \
 tvm_1_0_EXTERNAL_OBJECTS =
 
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/main.cpp.obj
-tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj
+tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/arm/MacroAssembler_arm.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/ppc/MacroAssembler_ppc.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/s390/MacroAssembler_s390.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj
-tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj
+tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj
 tvm_1_0.exe: CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.obj

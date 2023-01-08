@@ -149,32 +149,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/cpu/aarch64/MacroAssembler_aarch64.obj: src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj
+src/cpu/aarch32/MacroAssembler_aarch32.obj: src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj
 
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.obj
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.obj
 
 # target to build an object file
-src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj
+src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj
 
-src/cpu/aarch64/MacroAssembler_aarch64.i: src/cpu/aarch64/MacroAssembler_aarch64.cpp.i
+src/cpu/aarch32/MacroAssembler_aarch32.i: src/cpu/aarch32/MacroAssembler_aarch32.cpp.i
 
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.i
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.i
 
 # target to preprocess a source file
-src/cpu/aarch64/MacroAssembler_aarch64.cpp.i:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.i
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.cpp.i
+src/cpu/aarch32/MacroAssembler_aarch32.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.i
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.cpp.i
 
-src/cpu/aarch64/MacroAssembler_aarch64.s: src/cpu/aarch64/MacroAssembler_aarch64.cpp.s
+src/cpu/aarch32/MacroAssembler_aarch32.s: src/cpu/aarch32/MacroAssembler_aarch32.cpp.s
 
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.s
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.s
 
 # target to generate assembly for a file
-src/cpu/aarch64/MacroAssembler_aarch64.cpp.s:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.s
-.PHONY : src/cpu/aarch64/MacroAssembler_aarch64.cpp.s
+src/cpu/aarch32/MacroAssembler_aarch32.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.s
+.PHONY : src/cpu/aarch32/MacroAssembler_aarch32.cpp.s
 
 src/cpu/arm/MacroAssembler_arm.obj: src/cpu/arm/MacroAssembler_arm.cpp.obj
 
@@ -512,9 +512,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... src/cpu/aarch64/MacroAssembler_aarch64.obj
-	@echo ... src/cpu/aarch64/MacroAssembler_aarch64.i
-	@echo ... src/cpu/aarch64/MacroAssembler_aarch64.s
+	@echo ... src/cpu/aarch32/MacroAssembler_aarch32.obj
+	@echo ... src/cpu/aarch32/MacroAssembler_aarch32.i
+	@echo ... src/cpu/aarch32/MacroAssembler_aarch32.s
 	@echo ... src/cpu/arm/MacroAssembler_arm.obj
 	@echo ... src/cpu/arm/MacroAssembler_arm.i
 	@echo ... src/cpu/arm/MacroAssembler_arm.s

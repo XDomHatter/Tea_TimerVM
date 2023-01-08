@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tvm_1_0.dir/main.cpp.obj"
-  "CMakeFiles/tvm_1_0.dir/src/cpu/aarch64/MacroAssembler_aarch64.cpp.obj"
+  "CMakeFiles/tvm_1_0.dir/src/cpu/aarch32/MacroAssembler_aarch32.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/arm/MacroAssembler_arm.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/ppc/MacroAssembler_ppc.cpp.obj"
   "CMakeFiles/tvm_1_0.dir/src/cpu/s390/MacroAssembler_s390.cpp.obj"

@@ -4,6 +4,7 @@
 
 #ifndef TVM_1_0_FILEMAPPER_WIN_HPP
 #define TVM_1_0_FILEMAPPER_WIN_HPP
+#if defined(WIN10) || defined(WIN7) || defined(WINNT)
 
 #include "types/bytes.hpp"
 #include "stdio.h"
@@ -13,5 +14,5 @@ public:
     static address map_file(FILE* fileObj);
 };
 
-
+#endif
 #endif //TVM_1_0_FILEMAPPER_WIN_HPP

@@ -5,17 +5,20 @@
 #define TVM_1_0_BYTES_HPP
 
 //	BASIC TYPES
-#define u1 char
-#define u2 short
-#define u4 int
-//u8 is indefinitely
+typedef unsigned char  u1;
+typedef unsigned short u2;
+typedef unsigned int   u4;
 
-#define address void *
+typedef signed char  s1;
+typedef signed short s2;
+typedef signed int   s4;
+//u8,s8 is indefinitely
+
+typedef void * address;
 
 u2 wrap_u2(u2 data) {
     return (u2)((data << 8) + (data >> 8));
 }
 
-#define boolean bool
 
 #endif //TVM_1_0_BYTES_HPP

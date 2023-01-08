@@ -4,8 +4,8 @@
 
 #ifndef TVM_1_0_FILEMAPPERLINUX_HPP
 #define TVM_1_0_FILEMAPPERLINUX_HPP
+#ifdef LINUX
 
-#include <sys/mman.h>
 #include <stdio.h>
 #include "types/bytes.hpp"
 
@@ -14,5 +14,5 @@ public:
     static address map_file(FILE* fileObj);
 };
 
-
+#endif
 #endif //TVM_1_0_FILEMAPPERLINUX_HPP
