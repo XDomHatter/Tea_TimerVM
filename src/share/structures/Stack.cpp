@@ -2,7 +2,7 @@
 // Created by Administrator on 2022-12-26.
 //
 
-#include "Stack.h"
+#include "Stack.hpp"
 #include "malloc.h"
 
 Stack_u4::Stack_u4(int max_stack_size) {

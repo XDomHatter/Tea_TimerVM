@@ -1,0 +1,40 @@
+macros when you compile to define:
+    1. endian about:
+        big endian: BIG_ENDIAN
+        little endian: LITTLE_ENDIAN
+    2. CPU about:
+        aarch64:
+            INCLUDE_SUFFIX_CPU _aarch64
+            AARCH64
+        IA32 AMD46 Intel-core (any one of them):
+            INCLUDE_SUFFIX_CPU _x86
+            X86
+        S390:
+            INCLUDE_SUFFIX_CPU _s390
+            S390
+        PPC32 or PPC64:
+            INCLUDE_SUFFIX_CPU _ppc
+            PPC
+        ARM32 or AArch64:
+            INCLUDE_SUFFIX_CPU _aarch32
+            AARCH32
+
+    3.OS about:
+        Windows10:
+            INCLUDE_SUFFIX_OS _win10
+            WIN10
+        Windows7:
+            INCLUDE_SUFFIX_OS _win7
+            WIN7
+        Linux:
+            INCLUDE_SUFFIX_OS _linux
+            LINUX
+        MAC FreeBSD OpenBSD( bsd-based ):
+            INCLUDE_SUFFIX_OS _bsd
+            BSD
+
+    4.bit about:
+        32bit:
+            BIT_32
+        64bit:
+            BIT_64s

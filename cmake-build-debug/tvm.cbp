@@ -102,37 +102,43 @@
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/aarch64/MacroAssembler_aarch64.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/aarch64/MacroAssembler_aarch64.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/aarch64/MacroAssembler_aarch64.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/arm/MacroAssembler_arm.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/arm/MacroAssembler_arm.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/arm/MacroAssembler_arm.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/ppc/MacroAssembler_ppc.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/ppc/MacroAssembler_ppc.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/ppc/MacroAssembler_ppc.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/s390/MacroAssembler_s390.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/s390/MacroAssembler_s390.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/s390/MacroAssembler_s390.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/sparc/MacroAssembler_sparc.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/sparc/MacroAssembler_sparc.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/sparc/MacroAssembler_sparc.hpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/x86/AsmCode_x86.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/x86/AsmCode_x86.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/x86/MacroAssembler_x86.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/x86/MacroAssembler_x86.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/cpu/x86/MacroAssembler_x86.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/os/linux/FileMapper_linux.cpp">
@@ -168,7 +174,7 @@
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.cpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.h">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/types/bytes.hpp">

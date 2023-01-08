@@ -284,6 +284,33 @@ src/cpu/sparc/MacroAssembler_sparc.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.s
 .PHONY : src/cpu/sparc/MacroAssembler_sparc.cpp.s
 
+src/cpu/x86/AsmCode_x86.obj: src/cpu/x86/AsmCode_x86.cpp.obj
+
+.PHONY : src/cpu/x86/AsmCode_x86.obj
+
+# target to build an object file
+src/cpu/x86/AsmCode_x86.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.obj
+.PHONY : src/cpu/x86/AsmCode_x86.cpp.obj
+
+src/cpu/x86/AsmCode_x86.i: src/cpu/x86/AsmCode_x86.cpp.i
+
+.PHONY : src/cpu/x86/AsmCode_x86.i
+
+# target to preprocess a source file
+src/cpu/x86/AsmCode_x86.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.i
+.PHONY : src/cpu/x86/AsmCode_x86.cpp.i
+
+src/cpu/x86/AsmCode_x86.s: src/cpu/x86/AsmCode_x86.cpp.s
+
+.PHONY : src/cpu/x86/AsmCode_x86.s
+
+# target to generate assembly for a file
+src/cpu/x86/AsmCode_x86.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.s
+.PHONY : src/cpu/x86/AsmCode_x86.cpp.s
+
 src/cpu/x86/MacroAssembler_x86.obj: src/cpu/x86/MacroAssembler_x86.cpp.obj
 
 .PHONY : src/cpu/x86/MacroAssembler_x86.obj
@@ -500,6 +527,9 @@ help:
 	@echo ... src/cpu/sparc/MacroAssembler_sparc.obj
 	@echo ... src/cpu/sparc/MacroAssembler_sparc.i
 	@echo ... src/cpu/sparc/MacroAssembler_sparc.s
+	@echo ... src/cpu/x86/AsmCode_x86.obj
+	@echo ... src/cpu/x86/AsmCode_x86.i
+	@echo ... src/cpu/x86/AsmCode_x86.s
 	@echo ... src/cpu/x86/MacroAssembler_x86.obj
 	@echo ... src/cpu/x86/MacroAssembler_x86.i
 	@echo ... src/cpu/x86/MacroAssembler_x86.s

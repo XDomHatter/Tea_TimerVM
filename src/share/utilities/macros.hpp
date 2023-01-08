@@ -29,7 +29,24 @@
 #define PASTE_TOKENS_AUX(x, y) PASTE_TOKENS_AUX2(x, y)
 #define PASTE_TOKENS_AUX2(x, y) x ## y
 
-#define CPU_HEADER()
+#define CPU_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_CPU)
+#define OS_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_OS)
+
+// Include platform dependent files.
+//
+// This macro constructs from basename and INCLUDE_SUFFIX_OS /
+// INCLUDE_SUFFIX_CPU / INCLUDE_SUFFIX_COMPILER, which are set on
+// the command line, the name of platform dependent files to be included.
+// Example: INCLUDE_SUFFIX_OS=_linux / INCLUDE_SUFFIX_CPU=_sparc
+//   CPU_HEADER_INLINE(macroAssembler) --> macroAssembler_sparc.inline.hpp
+//   OS_CPU_HEADER(vmStructs)          --> vmStructs_linux_sparc.hpp
+//
+// basename<cpu>.hpp / basename<cpu>.inline.hpp
+#define CPU_HEADER_H(basename)         XSTR(CPU_HEADER_STEM(basename).h)
+#define CPU_HEADER(basename)           XSTR(CPU_HEADER_STEM(basename).hpp)
+// basename<os>.hpp / basename<os>.inline.hpp
+#define OS_HEADER_H(basename)          XSTR(OS_HEADER_STEM(basename).h)
+#define OS_HEADER(basename)            XSTR(OS_HEADER_STEM(basename).hpp)
 
 //bsd:
 #if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__APPLE__)

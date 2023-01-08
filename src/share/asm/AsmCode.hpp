@@ -6,6 +6,7 @@
 #define TVM_ASMCODE_HPP
 
 #include "types/bytes.hpp"
+#include "utilities/macros.hpp"
 
 class AsmCode {
 private:
@@ -13,7 +14,7 @@ private:
     u1       *args;
 public:
     int length;
-    u1 * make_code();
+    virtual u1 * make_code();
 
 };
 
