@@ -24,9 +24,8 @@ set(CMAKE_CXX_STANDARD 14)
         src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
         src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/types/bytes.hpp
-        src/os/windows/FileMapper_win.hpp src/os/windows/FileMapper_win.cpp
-        src/os/linux/FileMapper_linux.hpp src/os/linux/FileMapper_linux.cpp
-        src/share/file_reader/TFileReader.cpp src/share/file_reader/TFileReader.hpp
+        src/os/windows/FileMapper_win.hpp
+            src/share/file_reader/TFileReader.cpp src/share/file_reader/TFileReader.hpp
         src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
         src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
         src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp)

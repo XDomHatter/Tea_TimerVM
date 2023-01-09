@@ -25,6 +25,14 @@ CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.obj: ../src/cpu/x86/AsmCode_x
 CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj: ../src/cpu/x86/MacroAssembler_x86.cpp
 CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj: ../src/cpu/x86/MacroAssembler_x86.hpp
 
+CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: ../src/share/types/bytes.hpp
+CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: ../src/os/linux/FileMapper_linux.cpp
+CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj: ../src/os/linux/FileMapper_linux.hpp
+
+CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: ../src/share/types/bytes.hpp
+CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: ../src/os/windows/FileMapper_win.cpp
+CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj: ../src/os/windows/FileMapper_win.hpp
+
 CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj: ../src/share/types/bytes.hpp
 CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj: ../src/share/utilities/macros.hpp
 CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj: ../src/share/asm/AsmCode.cpp
