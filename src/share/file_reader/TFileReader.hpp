@@ -5,19 +5,28 @@
 #ifndef TVM_1_0_TFILEREADER_H
 #define TVM_1_0_TFILEREADER_H
 
+#pragma pack(1)
+
 #include <stdio.h>
 #include "types/bytes.hpp"
 
 class TFileReader {
 private:
-    FILE *tfile;
+    FILE        *tfile;
+    size_t   buff_size;
+    size_t   file_size;
+    size_t current_idx;
+    address  start_adr;
+    // feof doesn't work cuz there are some 0xFF in the file
+    // but dosn't means EOF(end-of-file)
+    bool           eof;
+    char   endian_type;
 
 public:
-    TFileReader(FILE *file);
+    TFileReader(const char *fname, size_t buff_size);
     inline FILE *getFileObj();
-    address map_file(){
-
-    }
+    void           map_file();
+    bool             is_end();
 };
 
 

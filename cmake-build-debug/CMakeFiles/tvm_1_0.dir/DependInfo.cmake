@@ -12,12 +12,12 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Administrator/Desktop/tvm/src/cpu/sparc/MacroAssembler_sparc.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/sparc/MacroAssembler_sparc.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/cpu/x86/AsmCode_x86.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/x86/AsmCode_x86.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/cpu/x86/MacroAssembler_x86.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.obj"
-  "C:/Users/Administrator/Desktop/tvm/src/os/linux/FileMapper_linux.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj"
-  "C:/Users/Administrator/Desktop/tvm/src/os/windows/FileMapper_win.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/share/asm/AsmCode.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/asm/AsmCode.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/share/asm/CodeBuffer.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/asm/CodeBuffer.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/share/file_reader/TFileReader.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.obj"
+  "C:/Users/Administrator/Desktop/tvm/src/share/main.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/main.cpp.obj"
   "C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.obj"
+  "C:/Users/Administrator/Desktop/tvm/src/share/structures/TFile.cpp" "C:/Users/Administrator/Desktop/tvm/cmake-build-debug/CMakeFiles/tvm_1_0.dir/src/share/structures/TFile.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

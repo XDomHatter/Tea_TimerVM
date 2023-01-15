@@ -338,60 +338,6 @@ src/cpu/x86/MacroAssembler_x86.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/cpu/x86/MacroAssembler_x86.cpp.s
 .PHONY : src/cpu/x86/MacroAssembler_x86.cpp.s
 
-src/os/linux/FileMapper_linux.obj: src/os/linux/FileMapper_linux.cpp.obj
-
-.PHONY : src/os/linux/FileMapper_linux.obj
-
-# target to build an object file
-src/os/linux/FileMapper_linux.cpp.obj:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.obj
-.PHONY : src/os/linux/FileMapper_linux.cpp.obj
-
-src/os/linux/FileMapper_linux.i: src/os/linux/FileMapper_linux.cpp.i
-
-.PHONY : src/os/linux/FileMapper_linux.i
-
-# target to preprocess a source file
-src/os/linux/FileMapper_linux.cpp.i:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.i
-.PHONY : src/os/linux/FileMapper_linux.cpp.i
-
-src/os/linux/FileMapper_linux.s: src/os/linux/FileMapper_linux.cpp.s
-
-.PHONY : src/os/linux/FileMapper_linux.s
-
-# target to generate assembly for a file
-src/os/linux/FileMapper_linux.cpp.s:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/linux/FileMapper_linux.cpp.s
-.PHONY : src/os/linux/FileMapper_linux.cpp.s
-
-src/os/windows/FileMapper_win.obj: src/os/windows/FileMapper_win.cpp.obj
-
-.PHONY : src/os/windows/FileMapper_win.obj
-
-# target to build an object file
-src/os/windows/FileMapper_win.cpp.obj:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.obj
-.PHONY : src/os/windows/FileMapper_win.cpp.obj
-
-src/os/windows/FileMapper_win.i: src/os/windows/FileMapper_win.cpp.i
-
-.PHONY : src/os/windows/FileMapper_win.i
-
-# target to preprocess a source file
-src/os/windows/FileMapper_win.cpp.i:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.i
-.PHONY : src/os/windows/FileMapper_win.cpp.i
-
-src/os/windows/FileMapper_win.s: src/os/windows/FileMapper_win.cpp.s
-
-.PHONY : src/os/windows/FileMapper_win.s
-
-# target to generate assembly for a file
-src/os/windows/FileMapper_win.cpp.s:
-	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/os/windows/FileMapper_win.cpp.s
-.PHONY : src/os/windows/FileMapper_win.cpp.s
-
 src/share/asm/AsmCode.obj: src/share/asm/AsmCode.cpp.obj
 
 .PHONY : src/share/asm/AsmCode.obj
@@ -473,6 +419,33 @@ src/share/file_reader/TFileReader.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/file_reader/TFileReader.cpp.s
 .PHONY : src/share/file_reader/TFileReader.cpp.s
 
+src/share/main.obj: src/share/main.cpp.obj
+
+.PHONY : src/share/main.obj
+
+# target to build an object file
+src/share/main.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/main.cpp.obj
+.PHONY : src/share/main.cpp.obj
+
+src/share/main.i: src/share/main.cpp.i
+
+.PHONY : src/share/main.i
+
+# target to preprocess a source file
+src/share/main.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/main.cpp.i
+.PHONY : src/share/main.cpp.i
+
+src/share/main.s: src/share/main.cpp.s
+
+.PHONY : src/share/main.s
+
+# target to generate assembly for a file
+src/share/main.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/main.cpp.s
+.PHONY : src/share/main.cpp.s
+
 src/share/structures/Stack.obj: src/share/structures/Stack.cpp.obj
 
 .PHONY : src/share/structures/Stack.obj
@@ -499,6 +472,33 @@ src/share/structures/Stack.s: src/share/structures/Stack.cpp.s
 src/share/structures/Stack.cpp.s:
 	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/structures/Stack.cpp.s
 .PHONY : src/share/structures/Stack.cpp.s
+
+src/share/structures/TFile.obj: src/share/structures/TFile.cpp.obj
+
+.PHONY : src/share/structures/TFile.obj
+
+# target to build an object file
+src/share/structures/TFile.cpp.obj:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/structures/TFile.cpp.obj
+.PHONY : src/share/structures/TFile.cpp.obj
+
+src/share/structures/TFile.i: src/share/structures/TFile.cpp.i
+
+.PHONY : src/share/structures/TFile.i
+
+# target to preprocess a source file
+src/share/structures/TFile.cpp.i:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/structures/TFile.cpp.i
+.PHONY : src/share/structures/TFile.cpp.i
+
+src/share/structures/TFile.s: src/share/structures/TFile.cpp.s
+
+.PHONY : src/share/structures/TFile.s
+
+# target to generate assembly for a file
+src/share/structures/TFile.cpp.s:
+	$(MAKE) -f CMakeFiles\tvm_1_0.dir\build.make CMakeFiles/tvm_1_0.dir/src/share/structures/TFile.cpp.s
+.PHONY : src/share/structures/TFile.cpp.s
 
 # Help Target
 help:
@@ -533,12 +533,6 @@ help:
 	@echo ... src/cpu/x86/MacroAssembler_x86.obj
 	@echo ... src/cpu/x86/MacroAssembler_x86.i
 	@echo ... src/cpu/x86/MacroAssembler_x86.s
-	@echo ... src/os/linux/FileMapper_linux.obj
-	@echo ... src/os/linux/FileMapper_linux.i
-	@echo ... src/os/linux/FileMapper_linux.s
-	@echo ... src/os/windows/FileMapper_win.obj
-	@echo ... src/os/windows/FileMapper_win.i
-	@echo ... src/os/windows/FileMapper_win.s
 	@echo ... src/share/asm/AsmCode.obj
 	@echo ... src/share/asm/AsmCode.i
 	@echo ... src/share/asm/AsmCode.s
@@ -548,9 +542,15 @@ help:
 	@echo ... src/share/file_reader/TFileReader.obj
 	@echo ... src/share/file_reader/TFileReader.i
 	@echo ... src/share/file_reader/TFileReader.s
+	@echo ... src/share/main.obj
+	@echo ... src/share/main.i
+	@echo ... src/share/main.s
 	@echo ... src/share/structures/Stack.obj
 	@echo ... src/share/structures/Stack.i
 	@echo ... src/share/structures/Stack.s
+	@echo ... src/share/structures/TFile.obj
+	@echo ... src/share/structures/TFile.i
+	@echo ... src/share/structures/TFile.s
 .PHONY : help
 
 

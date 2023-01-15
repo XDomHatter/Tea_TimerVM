@@ -39,26 +39,12 @@
 // the command line, the name of platform dependent files to be included.
 // Example: INCLUDE_SUFFIX_OS=_linux / INCLUDE_SUFFIX_CPU=_sparc
 //   CPU_HEADER_INLINE(macroAssembler) --> macroAssembler_sparc.inline.hpp
-//   OS_CPU_HEADER(vmStructs)          --> vmStructs_linux_sparc.hpp
+//   CPU_HEADER(macroAssembler) --> macroAssembler_sparc.hpp
 //
 // basename<cpu>.hpp / basename<cpu>.inline.hpp
 #define CPU_HEADER_H(basename)         XSTR(CPU_HEADER_STEM(basename).h)
 #define CPU_HEADER(basename)           XSTR(CPU_HEADER_STEM(basename).hpp)
-// basename<os>.hpp / basename<os>.inline.hpp
-#define OS_HEADER_H(basename)          XSTR(OS_HEADER_STEM(basename).h)
-#define OS_HEADER(basename)            XSTR(OS_HEADER_STEM(basename).hpp)
-
-//bsd:
-#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__APPLE__)
-#ifndef BSD
-#define BSD
-#endif // BSD defined in <sys/param.h>
-#define BSD_ONLY(code) code
-#define NOT_BSD(code)
-#else
-#define BSD_ONLY(code)
-#define NOT_BSD(code) code
-#endif
+#define CPU_HEADER_INLINE(basename)    XSTR(CPU_HEADER_STEM(basename).inline.hpp)
 
 //x86
 #if defined(IA32) || defined(AMD64)
