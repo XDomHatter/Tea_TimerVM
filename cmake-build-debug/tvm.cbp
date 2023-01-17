@@ -174,7 +174,10 @@
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/types/bytes.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/types/BytesUtils.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/types/BytesUtils.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/utilities/macros.hpp">

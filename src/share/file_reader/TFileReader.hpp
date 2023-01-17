@@ -8,7 +8,7 @@
 #pragma pack(1)
 
 #include <stdio.h>
-#include "types/bytes.hpp"
+#include "types/BytesUtils.hpp"
 
 #define stdFILE_skip(file, size) fgets(NULL, size, file)
 

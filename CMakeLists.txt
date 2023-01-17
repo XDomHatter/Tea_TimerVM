@@ -22,10 +22,11 @@ add_executable(tvm_1_0 main.cpp
     src/cpu/sparc/MacroAssembler_sparc.cpp src/cpu/sparc/MacroAssembler_sparc.hpp
     src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
     src/share/structures/Stack.cpp src/share/structures/Stack.hpp
-    src/share/types/bytes.hpp
+        src/share/types/BytesUtils.hpp
     src/share/file_reader/TFileReader.cpp src/share/file_reader/TFileReader.hpp
     src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
     src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
     src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
     src/share/main.cpp
-        src/share/asm/Endian.hpp src/share/types/bytes.hpp src/share/asm/Endian.cpp src/share/asm/Endian.hpp)
+        src/share/asm/Endian.hpp src/share/asm/Endian.cpp
+        src/share/types/BytesUtils.hpp src/share/types/BytesUtils.cpp)

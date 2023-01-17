@@ -5,7 +5,7 @@
 #ifndef TVM_CODEBUFFER_HPP
 #define TVM_CODEBUFFER_HPP
 
-#include "types/bytes.hpp"
+#include "types/BytesUtils.hpp"
 #include "AsmCode.hpp"
 
 class CodeBuffer {

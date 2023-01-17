@@ -4,7 +4,7 @@
 
 #include "Endian.hpp"
 
-#include "types/bytes.hpp"
+#include "types/BytesUtils.hpp"
 
 
 u2 Endian::wrap_u2(u2 obj) {

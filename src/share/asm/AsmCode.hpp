@@ -5,7 +5,7 @@
 #ifndef TVM_ASMCODE_HPP
 #define TVM_ASMCODE_HPP
 
-#include "types/bytes.hpp"
+#include "types/BytesUtils.hpp"
 #include "utilities/macros.hpp"
 
 class AsmCode {

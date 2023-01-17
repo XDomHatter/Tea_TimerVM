@@ -5,7 +5,7 @@
 #ifndef $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 #define $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 
-#include "types/bytes.hpp"
+#include "types/BytesUtils.hpp"
 
 #define LittleEndian 0
 #define BigEndian    1
