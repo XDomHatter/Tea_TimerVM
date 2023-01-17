@@ -42,13 +42,14 @@ int main(int argc, char *argv[]) {
 #include "structures/Stack.hpp"
 #include "types/bytes.hpp"
 #include "asm/Endian.hpp"
+#include "asm/Endian.hpp"
 int main(int argc, char *argv[]) {
     
     puts("developing");
     puts("test");
     u4 inp;
     scanf("%x", &inp);
-    inp = wrap_u4(inp);
+    inp = Endian::wrap_u4(inp);
     printf("%x", inp);
 
     return 0;

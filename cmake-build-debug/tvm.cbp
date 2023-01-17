@@ -153,6 +153,9 @@
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/CodeBuffer.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/Endian.cpp">
+			<Option target="tvm_1_0"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/Endian.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
