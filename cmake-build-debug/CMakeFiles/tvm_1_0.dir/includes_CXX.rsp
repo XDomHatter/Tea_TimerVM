@@ -1,1 +1,0 @@
--IC:/Users/Administrator/Desktop/tvm/src/cpu/aarch32 -IC:/Users/Administrator/Desktop/tvm/src/cpu/arm -IC:/Users/Administrator/Desktop/tvm/src/cpu/ppc -IC:/Users/Administrator/Desktop/tvm/src/cpu/s390 -IC:/Users/Administrator/Desktop/tvm/src/cpu/sparc -IC:/Users/Administrator/Desktop/tvm/src/cpu/x86 -IC:/Users/Administrator/Desktop/tvm/src/share 

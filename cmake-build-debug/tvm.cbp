@@ -153,7 +153,7 @@
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/CodeBuffer.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/EndianType.hpp">
+		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/asm/Endian.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/file_reader/TFileReader.cpp">
@@ -169,12 +169,6 @@
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/Stack.hpp">
-			<Option target="tvm_1_0"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/TFile.cpp">
-			<Option target="tvm_1_0"/>
-		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/structures/TFile.hpp">
 			<Option target="tvm_1_0"/>
 		</Unit>
 		<Unit filename="C:/Users/Administrator/Desktop/tvm/src/share/types/bytes.hpp">

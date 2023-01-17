@@ -1,8 +1,7 @@
-//
-// Created by Administrator on 2022-12-26.
-//
-#ifndef TVM_1_0_BYTES_HPP
-#define TVM_1_0_BYTES_HPP
+#pragma once
+
+#ifndef $TVM_SRC_SHARE_TYPES_BYTE_HPP
+#define $TVM_SRC_SHARE_TYPES_BYTE_HPP
 
 //	BASIC TYPES
 typedef unsigned char  u1;
@@ -14,11 +13,21 @@ typedef signed short s2;
 typedef signed int   s4;
 //u8,s8 is indefinitely
 
+typedef   u1 *     ptr;
 typedef void * address;
 
-u2 wrap_u2(u2 data) {
-    return (u2)((data << 8) + (data >> 8));
-}
+//u4 make_u4(u1 src[4]) {
+//    u4 o1,o2,o3,o4;
+//    o1 = src[0];
+//    o2 = src[1];
+//    o3 = src[2];
+//    o4 = src[3];
+//    return (
+//            (o1 << 24) +
+//            (o2 << 16) +
+//            (o3 << 8 ) +
+//            (o4      )
+//    );
+//}
 
-
-#endif //TVM_1_0_BYTES_HPP
+#endif //$TVM_SRC_SHARE_TYPES_BYTE_HPP

@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include "types/bytes.hpp"
 
+#define stdFILE_skip(file, size) fgets(NULL, size, file)
+
 class TFileReader {
 private:
     FILE        *tfile;
@@ -17,9 +19,6 @@ private:
     size_t   file_size;
     size_t current_idx;
     address  start_adr;
-    // feof doesn't work cuz there are some 0xFF in the file
-    // but dosn't means EOF(end-of-file)
-    bool           eof;
     char   endian_type;
 
 public:
