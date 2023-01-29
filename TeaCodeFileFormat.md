@@ -44,6 +44,8 @@ Field{
                     //  "Lstd_Number" means std.Number
                     // ( _ -> .  __ -> _ )
   u1 value[?]; // when "I" 4 byte
-  u1 value
+               // when "C" 2 byte
+               // when "F" 4+2=6 byte
+               // when "S", the first byte
 };
 ```
