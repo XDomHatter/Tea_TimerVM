@@ -34,7 +34,7 @@ Class{
   Method methods[method_count];
 };
 
-Field{
+Varible{
   u2 type_and_name; // string index in constant pool
                     // type is "I" means integer
                     //         "C" means character
@@ -46,6 +46,9 @@ Field{
   u1 value[?]; // when "I" 4 byte
                // when "C" 2 byte
                // when "F" 4+2=6 byte
-               // when "S", the first byte
+               // when "S", two bytes at head is size in big endian
+               //  and the utf-8 value fallows it
 };
+
+Field : Varible{};
 ```
