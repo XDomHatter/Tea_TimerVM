@@ -39,10 +39,8 @@ Class{
                   // 0b00000100 means 'user class' which is user wrote it but not precompiler
                   // 0b00001000 means 'file class' which is precompiler creates it but not user
   u2 field_count;
-  u2 field_size;
   Field fields[field_count];
   u2 methods_count;
-  u2 methods_size;  
   Method methods[method_count];
 };
 
@@ -77,6 +75,7 @@ Method{
 
   u2 result_type; // the index of class name in constant pool
                   // name format like Varible.type_and_name
+                  //  but "V" means void
                   // (tip: Tea support multi results)
 
   u1 modifier;    // 0b00000001 means public
