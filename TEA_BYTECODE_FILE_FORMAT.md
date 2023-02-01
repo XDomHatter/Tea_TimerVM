@@ -33,7 +33,11 @@ Constant{
 Class{
   u2 name; // string index in constant pool
   u2 parent; // string index in constant pool
-             // it usually is std.Object(std_Object)
+             // it usually is std.Object(std_$Object)
+  u1 modifier;    // 0b00000001 means public
+                  // 0b00000010 means private
+                  // 0b00000100 means 'user class' which is user wrote it but not precompiler
+                  // 0b00001000 means 'file class' which is precompiler creates it but not user
   u2 field_count;
   u2 field_size;
   Field fields[field_count];
@@ -52,6 +56,7 @@ Varible{
                     // and Class use "L" + class' name + ';' like:
                     //  "Lstd_Number;" means std.Number
                     // ( _ -> .  __ -> _ )
+                    //         "[" after a type means array like "I[" means int[]
                     //         "N" means after the charector is the varible's name
                     // thats like: 'Lstd_Number;Ntest_var' => std.Number testvar;
   u1 value[?]; // when "I" 4 byte
@@ -74,10 +79,10 @@ Method{
                   // name format like Varible.type_and_name
                   // (tip: Tea support multi results)
 
-  u1 modifier;    // 0b00000011 means public
-                  // 0b00001100 means private
-                  // 0b00110000 means protect
-                  // 0b11000000 means static
+  u1 modifier;    // 0b00000001 means public
+                  // 0b00000010 means private
+                  // 0b00000100 means protect
+                  // 0b00001000 means static
   u2 lv_count;    // local vars' number
   Varible vars[lv_count]; // local varibles
   u2 op_size;     // size of the operator instructions 
