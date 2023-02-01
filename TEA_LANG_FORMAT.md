@@ -91,15 +91,15 @@ after precompile: 't.to'
 __import__("lib_name1.tl");
 __import__("lib_name2.tl");
 
-class $T_Globle{
+class $T{
   class OneClass{
-    var field
-    int f1
+    var field;
+    int f1;
     def _init();
     def method();
     def method(a, b);
   }
-  class TwoClass extends $T_Globle::OneClass{}
+  class TwoClass extends $T::OneClass{}
 
   // Globle varibles
   var varible;
@@ -121,7 +121,7 @@ class $T_Globle{
   def some_func( a = 100 );
 }
 
-def $T_Globle::$main(argc, argv){
+def $T::$main(argc, argv){
   this.varible = "HI"; 
   this.varible = 12334567; 
   this.v4 = 4234567890;
@@ -155,20 +155,20 @@ def $T_Globle::$main(argc, argv){
   while(this.v1 == 123456){}
   while(true){}
 }
-def $T_Globle::func_with_any_result_type(){
+def $T::func_with_any_result_type(){
   do_sth();
 }
-def $T_Globle::func_return_int( a, b:int ) -> int {
+def $T::func_return_int( a, b:int ) -> int {
   return 1234;
 }
-def some_func( a = 100 ){}
-def $T_Globle::OneClass::_init(){
+def $T::some_func( a = 100 ){}
+def $T::OneClass::_init(){
   this.field = 0x1234;
 }
-def method(){
+def $T::method(){
   this.f1 = 100
 }
-def $T_Globle::OneClass::method(a, b){
+def $T::OneClass::method(a, b){
   do_sth()
 }
 ```
