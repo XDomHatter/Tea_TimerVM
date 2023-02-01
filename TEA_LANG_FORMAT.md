@@ -172,3 +172,7 @@ def $T::OneClass::method(a, b){
   do_sth()
 }
 ```
+
+tip: if there's a class which name is as same as file name
+      than precompiler will let it be the Globle class and
+      other function/class is disabled(show compiler errow)
