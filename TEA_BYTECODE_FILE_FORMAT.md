@@ -69,14 +69,9 @@ Field : Varible{}; //same structure
 
 Method{
   u2 name;        // offset of method's name utf-8 in constant pool
-                  // params_type + method's name
+                  // result_type + params_type + method's name
                   // the params_type's format like Varible's type_and_name
-                  // like: 'ILstd_String;CNmethod' => 'method(int, std.String, char)'
-
-  u2 result_type; // the index of class name in constant pool
-                  // name format like Varible.type_and_name
-                  //  but "V" means void
-                  // (tip: Tea support multi results)
+                  // like: 'VILstd_String;CNmethod' => 'void method(int, std.String, char)'
 
   u1 modifier;    // 0b00000001 means public
                   // 0b00000010 means private
