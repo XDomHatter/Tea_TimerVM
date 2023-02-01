@@ -32,6 +32,8 @@ Constant{
 
 Class{
   u2 name; // string index in constant pool
+  u2 parent; // string index in constant pool
+             // it usually is std.Object(std_Object)
   u2 field_count;
   u2 field_size;
   Field fields[field_count];
