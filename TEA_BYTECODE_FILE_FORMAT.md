@@ -60,7 +60,7 @@ Varible{
   u1 value[?]; // when "I" 4 byte
                // when "D" 8 byte
                // when "C" 2 byte
-               // when "F" 4+2=6 byte
+               // when "F" 4+4=8 byte
                // when "S", two bytes at head is size in big endian
                //  and the utf-8 value fallows it
 };
