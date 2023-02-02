@@ -1,3 +1,3 @@
 #Tea_TimerVM
 
-A new language like Java without any more code!
+A new language like Java but without any more code!
