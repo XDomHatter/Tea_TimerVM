@@ -13,10 +13,10 @@
 #define LITTLE_ENDIAN
 #endif
 
-
+#define FAST_FUNC(func_name) func_name##__FAST
 
 //to change a token to string
-#define STR(x) #x
+#define STR(x)  #x
 #define XSTR(x) STR(x)
 
 // include from openjdk:
