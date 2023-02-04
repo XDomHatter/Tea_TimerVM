@@ -29,4 +29,5 @@ add_executable(tvm_1_0 main.cpp
     src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
     src/share/main.cpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
-        src/share/types/BytesUtils.hpp src/share/types/BytesUtils.cpp)
+        src/share/types/BytesUtils.hpp src/share/types/BytesUtils.cpp
+        src/share/types/TFloat.hpp src/share/types/TFloat.cpp)
