@@ -4,14 +4,15 @@
 #define $TVM_SRC_SHARE_TYPES_BYTE_HPP
 
 //	BASIC TYPES
-typedef unsigned char  u1;
-typedef unsigned short u2;
-typedef unsigned int   u4;
+typedef unsigned char      u1;
+typedef unsigned short     u2;
+typedef unsigned int       u4;
+typedef unsigned long long u8;
 
-typedef signed char  s1;
-typedef signed short s2;
-typedef signed int   s4;
-//u8,s8 is indefinitely
+typedef signed char      s1;
+typedef signed short     s2;
+typedef signed int       s4;
+typedef signed long long s8;
 
 typedef   u1 *     ptr;
 typedef void * address;
