@@ -33,7 +33,7 @@ TFileReader::TFileReader(const char *filename, size_t buff_size = 16384) {
 
     this->start_adr = malloc(buff_size);
     if(this->file_size >= this->buff_size)
-        fgets((char *)this->start_adr, buff_size, this->tfile);
+        fgets((char *)this->start_adr, buff_size      , this->tfile);
     else //file doesn't has enough bytes(buff_size) to read
         fgets((char *)this->start_adr, this->file_size, this->tfile);
 }
