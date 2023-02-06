@@ -1,28 +1,12 @@
-
-
-//#define RSGHOST_DEBUG
 //#define wrap_u2_DEBUG
 //#define wrap_u4_DEBUG
-#define make_u4_DEBUG
-
-#ifdef RSGHOST_DEBUG
-#include <iostream>
-#include "src/share/types/tstring.hpp"
-
-int main(){
-    using namespace std;
-    String::String a = String::utils::getEmpty();
-    String::utils a_util;
-    a_util._import(&a);
-    a_util.getLength();
-    a_util.edit("");
-
-}
-#endif
+//#define make_u4_DEBUG
+//#define make_u2_DEBUG
+#define TFloat_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
-#include "types/bytes.hpp"
+#include "asm/BytesUtils.hpp"
 #include "asm/Endian.hpp"
 int main(int argc, char *argv[]) {
     
@@ -57,7 +41,7 @@ int main(int argc, char *argv[]) {
 #ifdef make_u4_DEBUG
 #include "stdio.h"
 #include "structures/Stack.hpp"
-#include "types/BytesUtils.hpp"
+#include "asm/BytesUtils.hpp"
 #include "asm/Endian.hpp"
 #include <iostream>
 int main(int argc, char *argv[]) {
@@ -72,5 +56,30 @@ int main(int argc, char *argv[]) {
     printf("%x", res);
     if(res == 0x12345678) puts("yes");
     return 0;
+}
+#endif
+
+#ifdef make_u2_DEBUG
+#include "stdio.h"
+#include "structures/Stack.hpp"
+int main(int argc, char *argv[]) {
+    u1 src[2] = {};
+    for(int i = 0; i<2; i++){
+        scanf("%x", &src[i]);
+    }
+    u2 res = ByteUtils::make_u2(src);
+    printf("%x", res);
+    return 0;
+}
+#endif
+
+#ifdef TFloat_DEBUG
+#include "stdio.h"
+#include "oop/TFloat.hpp"
+int main(int argc, char *argv[]) {
+    u8 u = 0x0000000110000000;
+    TFloat f(ELITTlE_ENDIAN);
+    f.set(u);
+    printf("%f", f.get_cvalue());
 }
 #endif
