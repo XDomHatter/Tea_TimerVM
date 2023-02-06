@@ -5,6 +5,8 @@
 #ifndef TVM_1_0_MACROS_HPP
 #define TVM_1_0_MACROS_HPP
 
+#include <stdlib.h>
+#include <stdio.h>
 
 #define DEBUG
 #ifdef DEBUG
@@ -67,5 +69,15 @@
 
 #define CPU_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_CPU)
 #define OS_HEADER_STEM(basename) PASTE_TOKENS(basename, INCLUDE_SUFFIX_OS)
+
+#ifdef DEBUG
+#define _DEBUG_(code) code
+#else
+#define _DEBUG_(code)
+#endif
+
+#define ERR( text )   \
+    puts(XSTR(text)); \
+    exit(1);          \
 
 #endif //TVM_1_0_MACROS_HPP
