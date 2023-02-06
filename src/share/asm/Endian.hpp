@@ -5,10 +5,16 @@
 #ifndef $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 #define $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 
-#include "types/BytesUtils.hpp"
+#include "asm/BytesUtils.hpp"
 
-#define LittleEndian 0
-#define BigEndian    1
+typedef enum {
+    EBIG_ENDIAN,
+    ELITTlE_ENDIAN
+} EENDIAN;
+
+#define EENDIAN_CODE( endian, BIG, LIT) \
+    if(endian == EBIG_ENDIAN) {BIG}     \
+    else {LIT}
 
 class Endian {
 public:
