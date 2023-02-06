@@ -5,7 +5,7 @@
 #ifndef TVM_1_0_STACK_H
 #define TVM_1_0_STACK_H
 
-#include "types/BytesUtils.hpp" //for u1,u2,u4
+#include "asm/BytesUtils.hpp" //for u1,u2,u4
 
 class Stack_u4 {
 private:
@@ -18,6 +18,7 @@ public:
     bool full         ;
     Stack_u4 (int max_stack_size);
     u4 push  (u4 data)           ;
+    u4 push2 ();
     u4 pop   (void   )           ;
     ~Stack_u4(       )           ;
 };
