@@ -4,9 +4,6 @@
 
 #include "Endian.hpp"
 
-#include "types/BytesUtils.hpp"
-
-
 u2 Endian::wrap_u2(u2 obj) {
     u2 o1, o2;
     //obj = 1001 0011 1110 0111
