@@ -17,9 +17,12 @@ typedef signed long long s8;
 typedef   u1 *     ptr;
 typedef void * address;
 
+
+
 class ByteUtils{
 public:
     static u4 make_u4(u1 src[4]);
+    static u2 make_u2(u1 src[2]);
 };
 
 

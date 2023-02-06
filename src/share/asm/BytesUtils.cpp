@@ -1,7 +1,7 @@
 //
 // Created by Administrator on 2023-01-17.
 //
-#include "BytesUtils.hpp"
+#include "asm/BytesUtils.hpp"
 //#include <stdio.h>
 
 u4 ByteUtils::make_u4(u1 src[4]) {
@@ -21,4 +21,13 @@ u4 ByteUtils::make_u4(u1 src[4]) {
             (o3 << 8 ) + // 0x00000056 << 8  = 0x00005600
             (o4      )   //                    0x00000078
     );
+}
+
+u2 ByteUtils::make_u2(u1 src[2]) {
+    
+    return (u2)(
+            (((u2)src[0]) << 8) +
+            ((u2)src[1])
+            );
+    
 }
