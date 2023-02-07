@@ -21,10 +21,12 @@ typedef void * address;
 
 class ByteUtils{
 public:
-    static u4 make_u4(u1 src[4]);
     static u2 make_u2(u1 src[2]);
+    static u4 make_u4(u1 src[4]);
+    static u8 make_u8(u1 src[8]);
     static u2 wrap_u2(u2 obj);
     static u4 wrap_u4(u4 obj);
+    static u8 wrap_u8(u8 obj);
 };
 
 
