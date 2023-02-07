@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define DEBUG
 #ifdef DEBUG
 #define INCLUDE_SUFFIX_CPU _x86
 #define INCLUDE_SUFFIX_OS  _win
