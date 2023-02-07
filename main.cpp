@@ -1,3 +1,5 @@
+#define DEBUG
+
 //#define wrap_u2_DEBUG
 //#define wrap_u4_DEBUG
 //#define make_u4_DEBUG
@@ -77,9 +79,10 @@ int main(int argc, char *argv[]) {
 #include "stdio.h"
 #include "oop/TFloat.hpp"
 int main(int argc, char *argv[]) {
-    u8 u = 0x0000000110000000;
+    double d = 12.34;
     TFloat f(ELITTlE_ENDIAN);
-    f.set(u);
+    f.set(d);
     printf("%f", f.get_cvalue());
+
 }
 #endif
