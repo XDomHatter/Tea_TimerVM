@@ -23,6 +23,8 @@ class ByteUtils{
 public:
     static u4 make_u4(u1 src[4]);
     static u2 make_u2(u1 src[2]);
+    static u2 wrap_u2(u2 obj);
+    static u4 wrap_u4(u4 obj);
 };
 
 

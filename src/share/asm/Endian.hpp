@@ -16,11 +16,7 @@ typedef enum {
     if(endian == EBIG_ENDIAN) {BIG}     \
     else {LIT}
 
-class Endian {
-public:
-    static u2 wrap_u2(u2 obj);
-    static u4 wrap_u4(u4 obj);
-};
+
 
 
 #endif //$TVM_SRC_SHARE_ASM_ENDIAN_HPP
