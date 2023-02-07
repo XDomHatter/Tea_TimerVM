@@ -23,7 +23,7 @@ add_executable(tvm_1_0 main.cpp
     src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
     src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/asm/BytesUtils.hpp
-    src/share/file_reader/TFileReader.cpp src/share/file_reader/TFileReader.hpp
+        src/share/teafile/TFileReader.cpp src/share/teafile/TFileReader.hpp
     src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
     src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
     src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
@@ -31,4 +31,4 @@ add_executable(tvm_1_0 main.cpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
         src/share/oop/TFloat.hpp src/share/oop/TFloat.cpp
-        src/share/oop/TObjcet.cpp src/share/oop/TObjcet.hpp)
+        )

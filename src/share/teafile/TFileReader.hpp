@@ -8,7 +8,8 @@
 #pragma pack(1)
 
 #include <stdio.h>
-#include "types/BytesUtils.hpp"
+#include "asm/BytesUtils.hpp"
+#include "asm/Endian.hpp"
 
 #define stdFILE_skip(file, size) fgets(NULL, size, file)
 
@@ -19,7 +20,7 @@ private:
     size_t   file_size;
     size_t current_idx;
     address  start_adr;
-    char   endian_type;
+
 
 public:
     TFileReader(const char *fname, size_t buff_size);
