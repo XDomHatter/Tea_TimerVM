@@ -24,3 +24,7 @@ macros when you compile to define:
             BIT_32
         64bit:
             BIT_64
+
+
+!remember!
+    delete DEBUG macro in main.cpp
