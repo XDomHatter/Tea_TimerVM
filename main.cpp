@@ -4,25 +4,25 @@
 //#define wrap_u4_DEBUG
 //#define make_u4_DEBUG
 //#define make_u2_DEBUG
-#define TFloat_DEBUG
+//#define TFloat_DEBUG
+//#define make_u8_DEBUG
+#define wrap_u8_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
 #include "asm/BytesUtils.hpp"
-#include "asm/Endian.hpp"
 int main(int argc, char *argv[]) {
     
     puts("developing");
     puts("test");
     u2 inp;
     scanf("%x", &inp);
-    inp = wrap_u2(inp);
-    printf("%x", inp);
+    inp = ByteUtils::wrap_u2(inp);
+    printf("%#x", inp);
 
     return 0;
 }
 #endif
-
 #ifdef wrap_u4_DEBUG
 #include "stdio.h"
 #include "structures/Stack.hpp"
@@ -33,13 +33,12 @@ int main(int argc, char *argv[]) {
     puts("test");
     u4 inp;
     scanf("%x", &inp);
-    inp = Endian::wrap_u4(inp);
+    inp = ByteUtils::wrap_u4(inp);
     printf("%x", inp);
 
     return 0;
 }
 #endif
-
 #ifdef make_u4_DEBUG
 #include "stdio.h"
 #include "structures/Stack.hpp"
@@ -60,7 +59,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 #endif
-
 #ifdef make_u2_DEBUG
 #include "stdio.h"
 #include "structures/Stack.hpp"
@@ -74,7 +72,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 #endif
-
 #ifdef TFloat_DEBUG
 #include "stdio.h"
 #include "oop/TFloat.hpp"
@@ -84,5 +81,36 @@ int main(int argc, char *argv[]) {
     f.set(d);
     printf("%f", f.get_cvalue());
 
+}
+#endif
+#ifdef make_u8_DEBUG
+#include "stdio.h"
+#include "structures/Stack.hpp"
+int main(int argc, char *argv[]) {
+
+    puts("developing");
+    puts("test");
+    u1 src[8] = {};
+    for(int i = 0; i<8; i++){
+        scanf("%x", &src[i]);
+    }
+    u8 res = ByteUtils::make_u8(src);
+    printf("%x%x", (res>>32),res); //%x cannot format byte which width >= u4
+
+    return 0;
+}
+#endif
+#ifdef wrap_u8_DEBUG
+#include "stdio.h"
+#include "structures/Stack.hpp"
+int main(int argc, char *argv[]) {
+
+    puts("developing");
+    puts("test");
+    u8 inp = 0x1234567890ABCDEF;
+    inp = ByteUtils::wrap_u8(inp);
+    printf("%x%x", (inp>>32),inp); //%x cannot format byte which width >= u4
+
+    return 0;
 }
 #endif
