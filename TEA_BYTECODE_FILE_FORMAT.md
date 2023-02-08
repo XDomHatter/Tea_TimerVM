@@ -24,10 +24,11 @@ Constant{
    * 00000011 = number, store big number which big than Integer
    * 00001100 = float number, like 12.341592612342862....
    * 00110000 = utf-8, store UTF-8 string
-   * 11000000 = ?
+   * 11000000 = merge utf-8, there's size / 2 indexes of constant to store into 'value' cuz index is u2
+                  vm will merge constants in order
    */
   u2 size;
-  u1 constant[size];
+  u1 value[size];
 };
 
 Class{
