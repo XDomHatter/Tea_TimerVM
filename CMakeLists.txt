@@ -31,4 +31,4 @@ add_executable(tvm_1_0 main.cpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
         src/share/oop/TFloat.hpp src/share/oop/TFloat.cpp
-        )
+        src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp)
