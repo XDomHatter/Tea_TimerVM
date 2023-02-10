@@ -6,7 +6,8 @@
 //#define make_u2_DEBUG
 //#define TFloat_DEBUG
 //#define make_u8_DEBUG
-#define wrap_u8_DEBUG
+//#define wrap_u8_DEBUG
+#define ENDIAN_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
@@ -112,5 +113,15 @@ int main(int argc, char *argv[]) {
     printf("%x%x", (inp>>32),inp); //%x cannot format byte which width >= u4
 
     return 0;
+}
+#endif
+#ifdef ENDIAN_DEBUG
+#include <stdio.h>
+#include "asm/Endian.hpp"
+int main(){
+    u2 test_data = 0x1234;
+    u1 * test_ptr = (u1*)&test_data;
+    EENDIAN endian = ((*(test_ptr) == 0x12) ? EBIG_ENDIAN : ELITTlE_ENDIAN);
+    puts(((endian == EBIG_ENDIAN) ? "BIG" : "LITTLE"));
 }
 #endif
