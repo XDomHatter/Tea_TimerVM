@@ -4,9 +4,6 @@ An intact Tea byte code file looks like this:
 ```c++
 TeaCodeFile{
     u4 magic_num;  // AE 58 44 48
-    u2 endian_num; // ' 12 34 ' written in file in big endian.
-                 // when host is little indian it's read to ' 34 12 '
-                 // it lets vm to decide endian in program
     u1 file_inf;   // 0b00000001 means FAST_METHOD mode that vm doesn't check result type
                  // 0b00000010 means NO_RES_TYPE mode that Method.result_type doesn't exists
                  // 0b00000100 means JIT_ON      mode
