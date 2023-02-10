@@ -27,8 +27,10 @@ add_executable(tvm_1_0 main.cpp
     src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
     src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
     src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
-    src/share/main.cpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
         src/share/oop/TFloat.hpp src/share/oop/TFloat.cpp
-        src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp)
+        src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
+        src/share/run/TimerVM.cpp src/share/run/TimerVM.hpp
+        src/share/run/Bootstrap.cpp src/share/run/Bootstrap.hpp
+        src/share/utilities/file_macros.hpp)
