@@ -5,9 +5,9 @@
 #ifndef $TVM_SRC_SHARE_TYPES_TFLOAT_HPP
 #define $TVM_SRC_SHARE_TYPES_TFLOAT_HPP
 
-#include "asm/BytesUtils.hpp"
-#include "utilities/macros.hpp"
-#include "asm/Endian.hpp"
+#include <asm/BytesUtils.hpp>
+#include <utilities/macros.hpp>
+#include <asm/Endian.hpp>
 #include <math.h>
 
 class TFloat {

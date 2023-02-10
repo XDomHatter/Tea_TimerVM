@@ -5,7 +5,7 @@
 #ifndef $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 #define $TVM_SRC_SHARE_ASM_ENDIAN_HPP
 
-#include "asm/BytesUtils.hpp"
+#include <asm/BytesUtils.hpp>
 
 typedef enum {
     EBIG_ENDIAN,

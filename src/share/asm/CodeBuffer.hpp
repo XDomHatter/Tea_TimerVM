@@ -5,8 +5,8 @@
 #ifndef TVM_CODEBUFFER_HPP
 #define TVM_CODEBUFFER_HPP
 
-#include "BytesUtils.hpp"
-#include "AsmCode.hpp"
+#include <asm/BytesUtils.hpp>
+#include <asm/AsmCode.hpp>
 
 class CodeBuffer {
 private:
