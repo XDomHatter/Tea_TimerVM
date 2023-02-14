@@ -23,7 +23,6 @@ add_executable(tvm_1_0 main.cpp
     src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
     src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/asm/BytesUtils.hpp
-        src/share/teafile/TFileReader.cpp src/share/teafile/TFileReader.hpp
     src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
     src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
     src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
