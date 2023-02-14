@@ -1,10 +1,8 @@
-### method
-it's similar with `Function` but oversupply a `modifire`
-its structure in byte code
+### Function
+its structure in byte code:
 ```c++
-Method{
+Function{
   u2 name;
-  u1 modifier;
   u2 lv_count;
   Varible vars[lv_count];
   u2 op_size;
@@ -13,8 +11,6 @@ Method{
 ```
 ##### name
 it is an index in constant pool of a `METHOD_FUNCTION_CONSTANT`
-##### modifier
-the same as `Field`'s `modifier`
 ##### lv_count
 local vars' number
 ##### vars
@@ -23,7 +19,3 @@ local varibles in the method
 size of the operator instructions, NOT COUNT BUT SIZE
 ##### op
 operand codes
-
-| opcode | symbol |
-| :----: | ------ |
-| 0x00   | nop    |

@@ -13,24 +13,24 @@
      u1 value[size];
  };
  ```
- + when it is 1, the `CONSTANT_STRUCT` is `METHOD_CONSTANT`
++ when it is 1, the `CONSTANT_STRUCT` is `METHOD_CONSTANT`
  ```c++
- METHOD_CONSTANT{
+ METHOD_FUNCTION_CONSTANT{
      u2 result_type_index;
      u2 name_index;
      u2 param_type_index;
  };
  ```
- the three fields are all index of constant in constant_pool
+ the three fields are all UTF-8 index of constant in constant_pool
  
- + when it is 2, the `CONSTANT_STRUCT` is `CLASS_CONSTANT`
++ when it is 2, the `CONSTANT_STRUCT` is `CLASS_CONSTANT`
  ```c++
  CLASS_CONSTANT{
      u2 name_idx;
  };
  ```
  `name_idx` is an index of UTF8_CONSTANT for class name
- + when it is 3, the `CONSTANT_STRUCT` is `MERGE_UTF8_CONSTANT`
++ when it is 3, the `CONSTANT_STRUCT` is `MERGE_UTF8_CONSTANT`
  ```c++
  MERGE_UTF8_CONSTANT{
      u2 member_count;
@@ -38,7 +38,7 @@
  };
  ```
  this constant type is for merge two or more utf-8 constant
- + when it is 4, the `CONSTANT_STRUCT` is `TYPE_AND_NAME_CONSTANT`
++ when it is 4, the `CONSTANT_STRUCT` is `TYPE_AND_NAME_CONSTANT`
  ```c++
  TYPE_AND_NAME_CONSTANT{
      u2 name;
