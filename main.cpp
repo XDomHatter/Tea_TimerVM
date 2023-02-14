@@ -7,7 +7,10 @@
 //#define TFloat_DEBUG
 //#define make_u8_DEBUG
 //#define wrap_u8_DEBUG
-#define ENDIAN_DEBUG
+//#define ENDIAN_DEBUG
+//#define TFR_readU2_DEBUG
+//#define TFR_readU4_DEBUG
+#define TFR_readU8_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
@@ -117,11 +120,52 @@ int main(int argc, char *argv[]) {
 #endif
 #ifdef ENDIAN_DEBUG
 #include <stdio.h>
-#include "asm/Endian.hpp"
+#include <asm/Endian.hpp>
 int main(){
     u2 test_data = 0x1234;
     u1 * test_ptr = (u1*)&test_data;
     EENDIAN endian = ((*(test_ptr) == 0x12) ? EBIG_ENDIAN : ELITTlE_ENDIAN);
     puts(((endian == EBIG_ENDIAN) ? "BIG" : "LITTLE"));
+}
+#endif
+#ifdef TFR_readU2_DEBUG
+#include <codefile/TeaFileReader.hpp>
+
+int main(){
+    FILE * file = fopen("test.tc", "r+");
+    TeaFileReader tfr(file, ELITTlE_ENDIAN);
+    u2 u = tfr.readU2();
+    switch (u) {
+        case 0x1234:
+            puts("0x1234");
+        case 0x3412:
+            puts("0x3412");
+    };
+    if(u == 0x1234) puts("yes");
+    return 0;
+}
+#endif
+#ifdef TFR_readU4_DEBUG
+#include <codefile/TeaFileReader.hpp>
+
+int main(){
+    FILE * file = fopen("test.tc", "r+");
+    TeaFileReader tfr(file, ELITTlE_ENDIAN);
+    u4 u = tfr.readU4();
+    printf("%x",u);
+    if(u == 0x12345678) puts("yes");
+    return 0;
+}
+#endif
+#ifdef TFR_readU8_DEBUG
+#include <codefile/TeaFileReader.hpp>
+
+int main(){
+    FILE * file = fopen("test.tc", "r+");
+    TeaFileReader tfr(file, ELITTlE_ENDIAN);
+    u8 u = tfr.readU8();
+    printf("%x%x",u>>32,u&0x00000000FFFFFFFF);
+    if(u == 0x1234567889901112) puts("yes");
+    return 0;
 }
 #endif
