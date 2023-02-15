@@ -32,4 +32,5 @@ add_executable(tvm_1_0 main.cpp
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/run/TimerVM.cpp src/share/run/TimerVM.hpp
         src/share/run/Bootstrap.cpp src/share/run/Bootstrap.hpp
-        src/share/utilities/file_macros.hpp)
+        src/share/utilities/file_macros.hpp
+        src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp)
