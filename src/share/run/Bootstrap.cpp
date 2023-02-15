@@ -25,3 +25,6 @@ u1 Bootstrap::check_magic_num() {
     u4 MAGIC = this->reader->readU4();
     return (MAGIC == 0xAE584448);
 }
+Bootstrap::~Bootstrap() {
+    delete this->reader;
+}

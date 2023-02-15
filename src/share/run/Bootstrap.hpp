@@ -18,6 +18,7 @@ private:
     TeaFileReader * reader;
 public:
     Bootstrap(char * filename);
+    ~Bootstrap(); // to free a pointer field
     u1       check_magic_num();
 };
 
