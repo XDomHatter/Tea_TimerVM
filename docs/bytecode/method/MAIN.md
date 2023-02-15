@@ -22,8 +22,4 @@ local varibles in the method
 ##### op_size
 size of the operator instructions, NOT COUNT BUT SIZE
 ##### op
-operand codes
-
-| opcode | symbol |
-| :----: | ------ |
-| 0x00   | nop    |
+[operand codes](../opcode/MAIN.md)

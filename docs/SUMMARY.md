@@ -10,4 +10,4 @@
             - [function](bytecode/function/MAIN.md)
             - [class](bytecode/class/MAIN.md)
             - [method](bytecode/method/MAIN.md)
-            
+            - [opcodes](bytecode/opcode/MAIN.md)
