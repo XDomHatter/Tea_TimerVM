@@ -79,4 +79,6 @@
     puts(XSTR(text)); \
     exit(1);          \
 
+#define QUIT( code ) exit((code));
+
 #endif //TVM_1_0_MACROS_HPP
