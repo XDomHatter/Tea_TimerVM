@@ -5,14 +5,20 @@
 #ifndef $TVM_SRC_SHARE_RUN_BOOTSTRAP_HPP
 #define $TVM_SRC_SHARE_RUN_BOOTSTRAP_HPP
 
-#include <stdio.h>
+#include <utilities/file_macros.hpp>
+#include <asm/BytesUtils.hpp>
+#include <asm/Endian.hpp>
+#include <codefile/TeaFileReader.hpp>
 
 // Bootstrap is for load and check code file
 class Bootstrap {
 private:
-    FILE * code_file;
+    FILE *       code_file;
+    EENDIAN         endian;
+    TeaFileReader * reader;
 public:
     Bootstrap(char * filename);
+    u1       check_magic_num();
 };
 
 
