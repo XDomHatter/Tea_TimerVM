@@ -7,5 +7,7 @@
     - [byte code file]()
         - [byte code format](bytecode/BYTECODE_FORMAT.md)
             - [constant](bytecode/constant/MAIN.md)
+            - [function](bytecode/function/MAIN.md)
             - [class](bytecode/class/MAIN.md)
             - [method](bytecode/method/MAIN.md)
+            
