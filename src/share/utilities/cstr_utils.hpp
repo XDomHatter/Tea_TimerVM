@@ -5,4 +5,9 @@
 #ifndef $TVM_SRC_SHARE_UTILITIES_CSTR_UTILS_HPP
 #define $TVM_SRC_SHARE_UTILITIES_CSTR_UTILS_HPP
 
+#include <string.h>
+
+#define cstr_EQUAL(str1, str2) \
+    strcmp(str1, str2);
+
 #endif //$TVM_SRC_SHARE_UTILITIES_CSTR_UTILS_HPP
