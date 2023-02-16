@@ -10,7 +10,8 @@
 //#define ENDIAN_DEBUG
 //#define TFR_readU2_DEBUG
 //#define TFR_readU4_DEBUG
-#define TFR_readU8_DEBUG
+//#define TFR_readU8_DEBUG
+#define CSTR_EQUAL_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
@@ -167,5 +168,16 @@ int main(){
     printf("%x%x",u>>32,u&0x00000000FFFFFFFF);
     if(u == 0x1234567889901112) puts("yes");
     return 0;
+}
+#endif
+#ifdef CSTR_EQUAL_DEBUG
+#include <stdio.h>
+#include <utilities/cstr_utils.hpp>
+int main(){
+    if (cstr_EQUAL((const char *)"114514", (const char *)"114514")) {
+        puts("1");
+    } else {
+        puts("0");
+    }
 }
 #endif
