@@ -1,4 +1,4 @@
 | opcode | symbol |
 | :----: | ------ |
-| 0x00   | nop    |
+| 0x00   | [nop](./nop-0x00.md)    |
 | 0x01   | iadd   |
