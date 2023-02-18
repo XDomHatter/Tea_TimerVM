@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 //#define wrap_u2_DEBUG
 //#define wrap_u4_DEBUG
@@ -13,6 +13,8 @@
 //#define TFR_readU8_DEBUG
 //#define CSTR_EQUAL_DEBUG
 #define TIO_DEBUG
+
+#ifdef DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
@@ -189,5 +191,14 @@ int main(){
     TIO::input(buff);
     TIO::output(buff);
     return 0;
+}
+#endif
+
+#endif
+#ifndef DEBUG
+#include <run/TimerVM.hpp>
+
+int main(int argc, char * argv[]){
+    TimerVM vm(argc, argv);
 }
 #endif
