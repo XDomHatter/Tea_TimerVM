@@ -5,7 +5,7 @@
 #ifndef $TVM_SRC_SHARE_UTILITIES_TIO_HPP
 #define $TVM_SRC_SHARE_UTILITIES_TIO_HPP
 
-
+// only support english
 class TIO {
 public:
     static void output(char * str); // read a line from stdin
