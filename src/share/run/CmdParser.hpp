@@ -6,7 +6,7 @@
 #define $TVM_SRC_SHARE_RUN_CMDPARSER_HPP
 
 enum CMD_TYPE{
-    HELPMSG, UNKNOWN
+    CMDT_HELPMSG, CMDT_UNKNOWN, CMDT_VERSION
 };
 
 class CMDParser {
@@ -18,7 +18,7 @@ public:
 
     static enum CMD_TYPE cast_cmd_type(char * arg);
     static bool               is_a_cmd(char * arg);
-
+    static void             print_help(          );
 };
 
 
