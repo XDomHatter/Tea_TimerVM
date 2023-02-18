@@ -35,4 +35,5 @@ add_executable(tvm_1_0 main.cpp
         src/share/utilities/file_macros.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
-        src/share/utilities/cstr_utils.hpp)
+        src/share/utilities/cstr_utils.hpp
+        src/share/utilities/Tio.cpp src/share/utilities/Tio.hpp)
