@@ -7,7 +7,9 @@
 
 
 class TIO {
-
+public:
+    static void output(char * str); // read a line from stdin
+    static void input(void * buf);  // print a line(without new line) to stdout
 };
 
 
