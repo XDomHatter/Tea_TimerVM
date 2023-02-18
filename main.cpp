@@ -11,7 +11,8 @@
 //#define TFR_readU2_DEBUG
 //#define TFR_readU4_DEBUG
 //#define TFR_readU8_DEBUG
-#define CSTR_EQUAL_DEBUG
+//#define CSTR_EQUAL_DEBUG
+#define TIO_DEBUG
 
 #ifdef wrap_u2_DEBUG
 #include "stdio.h"
@@ -179,5 +180,14 @@ int main(){
     } else {
         puts("0");
     }
+}
+#endif
+#ifdef TIO_DEBUG
+#include <utilities/Tio.hpp>
+int main(){
+    char buff[100];
+    TIO::input(buff);
+    TIO::output(buff);
+    return 0;
 }
 #endif
