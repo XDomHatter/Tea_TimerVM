@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 void TIO::input(char *buf) {
+    buf = {0};
     gets((char *)buf);
 }
 void TIO::output(char *str) {
