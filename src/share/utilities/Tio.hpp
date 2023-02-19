@@ -8,8 +8,8 @@
 // only support english
 class TIO {
 public:
-    static void output(char * str); // read a line from stdin
-    static void input(void * buf);  // print a line(without new line) to stdout
+    static void output(char * str); // print a line(without new line) to stdout
+    static void input(void * buf);  // read a line from stdin
     static void error(char * str);
 };
 
