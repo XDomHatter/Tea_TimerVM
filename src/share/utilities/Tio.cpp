@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void TIO::input(void *buf) {
+void TIO::input(char *buf) {
     gets((char *)buf);
 }
 void TIO::output(char *str) {
