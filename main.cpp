@@ -200,5 +200,6 @@ int main(){
 
 int main(int argc, char * argv[]){
     TimerVM vm(argc, argv);
+    return 0;
 }
 #endif
