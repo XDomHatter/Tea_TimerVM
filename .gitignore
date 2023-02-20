@@ -30,3 +30,4 @@ _deps
 cmake-build-debug/
 cmake-build-release/
 .idea/
+docs/_book/
