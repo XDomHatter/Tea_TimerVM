@@ -17,3 +17,7 @@ void TIO::error(char *str) {
     output(str);
     exit(1);
 }
+
+void TIO::print_version() {
+    output("Tea_TimerVM v1.0.0 release");
+}
