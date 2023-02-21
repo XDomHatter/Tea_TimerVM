@@ -3,7 +3,7 @@
 |bytecode | asm symbol |
 | ------  | ---------- |
 | 0x01    |	iadd       |
-it's an operator as a placeholder.
+it's an operator to realize add operation in user code
 
 ### compiler performance
 
