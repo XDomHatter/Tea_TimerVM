@@ -11,4 +11,4 @@ compiler should realize `+` to iadd
 
 ### vm performance
 
-add two number in the stack and push the result into stack
+add two integer in the stack and push the result into stack
