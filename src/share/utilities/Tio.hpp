@@ -6,7 +6,7 @@
 #define $TVM_SRC_SHARE_UTILITIES_TIO_HPP
 
 // only support english
-class TIO {
+class TConsole {
 public:
     static void output(char * str); // print a line(without new line) to stdout
     static void input(char * buf);  // read a line from stdin
