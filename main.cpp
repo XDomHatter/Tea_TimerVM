@@ -188,8 +188,8 @@ int main(){
 #include <utilities/Tio.hpp>
 int main(){
     char buff[100];
-    TIO::input(buff);
-    TIO::output(buff);
+    TConsole::input(buff);
+    TConsole::output(buff);
     return 0;
 }
 #endif
