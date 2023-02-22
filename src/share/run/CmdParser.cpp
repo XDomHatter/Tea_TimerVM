@@ -60,7 +60,7 @@ void CMDParser::parse_cmd(int argc, char * argv[]) {
 }
 /// print help message
 void CMDParser::print_help() {
-    TIO::output("help message");
+    TConsole::output("help message");
 }
 /// do the match operation of single_arg
 /// @param single_arg the param to parse
@@ -75,12 +75,12 @@ void CMDParser::do_cmd(char * single_arg) {
                 this->recompile = true;
                 break;
             case CMDT_UNKNOWN:
-                TIO::output("unkown command: ");
-                TIO::output(single_arg);
+                TConsole::output("unkown command: ");
+                TConsole::output(single_arg);
                 exit(1);
                 break;
             case CMDT_VERSION:
-                TIO::print_version();
+                TConsole::print_version();
                 exit(0);
                 break;
         }
@@ -88,8 +88,8 @@ void CMDParser::do_cmd(char * single_arg) {
         // try to find the file
         FILE * file = fopen(single_arg, "r+");
         if( file == NULL ) { // file doesn't exists
-            TIO::output("cannot find file:");
-            TIO::output(single_arg);
+            TConsole::output("cannot find file:");
+            TConsole::output(single_arg);
             exit(0);
         }
         // file is correct, go on
