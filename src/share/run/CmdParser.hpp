@@ -6,8 +6,10 @@
 #define $TVM_SRC_SHARE_RUN_CMDPARSER_HPP
 
 enum CMD_TYPE{
-    CMDT_HELPMSG, CMDT_UNKNOWN, CMDT_VERSION,
-    CMDT_RECOMPILE
+    CMDT_HELPMSG, // print help message
+    CMDT_VERSION, // print version message
+    CMDT_RECOMPILE, // recompile but not run
+    CMDT_UNKNOWN, // unknown command
 };
 
 class CMDParser {
