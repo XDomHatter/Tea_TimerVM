@@ -13,7 +13,7 @@ include_directories(src/share)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(tvm_1_0 main.cpp
+add_executable(tea main.cpp
     src/share/utilities/macros.hpp
     src/cpu/aarch32/MacroAssembler_aarch32.cpp src/cpu/aarch32/MacroAssembler_aarch32.hpp
     src/cpu/arm/MacroAssembler_arm.cpp src/cpu/arm/MacroAssembler_arm.hpp
@@ -36,4 +36,6 @@ add_executable(tvm_1_0 main.cpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
         src/share/utilities/cstr_utils.hpp
-        src/share/utilities/Tio.cpp src/share/utilities/Tio.hpp)
+        src/share/utilities/Tio.cpp src/share/utilities/Tio.hpp
+        src/share/structures/Utf8.cpp src/share/structures/Utf8.hpp
+        src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp)
