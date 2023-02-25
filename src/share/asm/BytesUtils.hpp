@@ -14,8 +14,7 @@ typedef signed short     s2;
 typedef signed int       s4;
 typedef signed long long s8;
 
-typedef   u1 *     ptr;
-typedef void * address;
+
 
 
 
