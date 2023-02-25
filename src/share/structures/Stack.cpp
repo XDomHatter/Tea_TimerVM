@@ -3,10 +3,10 @@
 //
 
 #include "Stack.hpp"
-#include "malloc.h"
+#include <asm/Memory.hpp>
 
 Stack_u4::Stack_u4(int max_stack_size) {
-    this->start_address = (u4 *) malloc(
+    this->start_address = (u4 *) alloc_mem(
             ((size_t) max_stack_size) * 4
     );
     this->current = this->start_address;
@@ -14,7 +14,7 @@ Stack_u4::Stack_u4(int max_stack_size) {
     this->current_size = 0;
 }
 Stack_u4::~Stack_u4() {
-    free(this->start_address);
+    free_mem(this->start_address);
 }
 u4 Stack_u4::push(u4 data) {
     *(this->current) = data;
