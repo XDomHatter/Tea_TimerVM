@@ -14,5 +14,8 @@ typedef void * address;
 address alloc_mem(int size){
     return malloc(size);
 }
+void    free_mem(address mem){
+    free(mem);
+}
 
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP
