@@ -7,7 +7,7 @@ Method{
   u1 modifier;
   u2 lv_count;
   Varible vars[lv_count];
-  u2 op_size;
+  u4 op_size;
   u1 op[op_size];
 }
 ```
