@@ -11,11 +11,9 @@
 typedef   u1 *     ptr;
 typedef void * address;
 
-address alloc_mem(int size){
-    return malloc(size);
-}
-void    free_mem(address mem){
-    free(mem);
-}
-
+class Memory {
+public:
+    static address alloc_mem(int size);
+    static void free_mem(address mem);
+};
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP
