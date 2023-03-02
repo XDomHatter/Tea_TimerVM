@@ -8,7 +8,7 @@
 // only support english
 class TConsole {
 public:
-    static void output(char * str); // print a line(without new line) to stdout
+    static void output(char * str); // print a string(without new line) to stdout
     static void input(char * buf);  // read a line from stdin
     static void error(char * str);
     static void print_version();
