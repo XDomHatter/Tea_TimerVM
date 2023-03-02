@@ -40,4 +40,5 @@ add_executable(tea main.cpp
         src/share/structures/Utf8.cpp src/share/structures/Utf8.hpp
         src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp
         src/share/structures/BitMap.cpp src/share/structures/BitMap.hpp
-        src/share/asm/Memory.hpp)
+        src/share/asm/Memory.hpp src/share/utilities/cint_utils.hpp
+        src/share/asm/Memory.cpp src/share/utilities/cint_utils.cpp)
