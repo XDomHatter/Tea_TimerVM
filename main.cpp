@@ -198,14 +198,7 @@ int main(){
 #endif
 
 #endif
-#ifndef DEBUG
-#include <run/TimerVM.hpp>
 
-int main(int argc, char * argv[]){
-    TimerVM vm(argc, argv);
-    return 0;
-}
-#endif
 #ifdef CMDParser_DEBUG
 #include <run/TimerVM.hpp>
 
@@ -222,5 +215,26 @@ int main(int argc, char * argv[]){
 int main(){
     int n; std::cin >> n;
     std::cout << cint2cstr(n);
+}
+#endif
+#ifdef BITMAP_DEBUG
+
+#include <structures/BitMap.hpp>
+
+int main(){
+    BitMap map(10);
+    map.get(11);
+}
+#endif
+
+
+
+
+#ifndef DEBUG
+#include <run/TimerVM.hpp>
+
+int main(int argc, char * argv[]){
+    TimerVM vm(argc, argv);
+    return 0;
 }
 #endif
