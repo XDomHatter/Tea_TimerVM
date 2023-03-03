@@ -13,7 +13,8 @@ typedef void * address;
 
 class Memory {
 public:
-    static address alloc_mem(int size);
+    static ptr alloc_mem(int size);
+    static ptr realloc_mem(ptr pointer, int size);
     static void free_mem(address mem);
 };
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP

@@ -4,10 +4,14 @@
 
 #include "Memory.hpp"
 
-address Memory::alloc_mem(int size) {
+ptr Memory::alloc_mem(int size) {
     return malloc(size);
 }
-
+ptr Memory::realloc_mem(ptr pointer, int size) {
+    return (ptr)realloc(pointer, size);
+}
 void Memory::free_mem(address mem) {
     free(mem);
 }
+
+
