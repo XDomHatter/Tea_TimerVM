@@ -1,4 +1,4 @@
-//#define DEBUG
+#define DEBUG
 
 //#define wrap_u2_DEBUG
 //#define wrap_u4_DEBUG
@@ -12,7 +12,10 @@
 //#define TFR_readU4_DEBUG
 //#define TFR_readU8_DEBUG
 //#define CSTR_EQUAL_DEBUG
-#define TIO_DEBUG
+//#define TIO_DEBUG
+//#define CMDParser_DEBUG
+//#define CINT2CSTR_DEBUG
+#define BITMAP_DEBUG
 
 #ifdef DEBUG
 
@@ -201,5 +204,23 @@ int main(){
 int main(int argc, char * argv[]){
     TimerVM vm(argc, argv);
     return 0;
+}
+#endif
+#ifdef CMDParser_DEBUG
+#include <run/TimerVM.hpp>
+
+int main(int argc, char * argv[]){
+    CMDParser parser(argc, argv);
+    printf(parser.lib_paths[0]);
+    return 0;
+}
+#endif
+#ifdef CINT2CSTR_DEBUG
+#include <utilities/cint_utils.hpp>
+#include <iostream>
+
+int main(){
+    int n; std::cin >> n;
+    std::cout << cint2cstr(n);
 }
 #endif
