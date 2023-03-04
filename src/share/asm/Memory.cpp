@@ -5,7 +5,7 @@
 #include "Memory.hpp"
 
 ptr Memory::alloc_mem(int size) {
-    return malloc(size);
+    return (ptr)malloc(size);
 }
 ptr Memory::realloc_mem(ptr pointer, int size) {
     return (ptr)realloc(pointer, size);
