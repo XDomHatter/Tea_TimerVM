@@ -8,11 +8,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifdef DEBUG
-#define INCLUDE_SUFFIX_CPU _x86
-#define INCLUDE_SUFFIX_OS  _win
-#define LITTLE_ENDIAN
-#endif
 
 #define FAST_FUNC(func_name) func_name##__FAST
 
@@ -46,6 +41,9 @@
 #define CPU_HEADER_H(basename)         XSTR(CPU_HEADER_STEM(basename).h)
 #define CPU_HEADER(basename)           XSTR(CPU_HEADER_STEM(basename).hpp)
 #define CPU_HEADER_INLINE(basename)    XSTR(CPU_HEADER_STEM(basename).inline.hpp)
+#define OS_HEADER_H(basename)         XSTR(OS_HEADER_STEM(basename).h)
+#define OS_HEADER(basename)           XSTR(OS_HEADER_STEM(basename).hpp)
+#define OS_HEADER_INLINE(basename)    XSTR(OS_HEADER_STEM(basename).inline.hpp)
 
 //x86
 #if defined(IA32) || defined(AMD64)

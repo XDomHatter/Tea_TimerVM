@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(tvm)
+project(tea)
 
 #cpu headers
 include_directories(src/cpu/aarch32)
@@ -8,24 +8,44 @@ include_directories(src/cpu/ppc    )
 include_directories(src/cpu/s390   )
 include_directories(src/cpu/sparc  )
 include_directories(src/cpu/x86    )
+#os headers
+include_directories(src/os/windows)
+include_directories(src/os/linux)
 
 include_directories(src/share)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(tea main.cpp
-    src/share/utilities/macros.hpp
-    src/cpu/aarch32/MacroAssembler_aarch32.cpp src/cpu/aarch32/MacroAssembler_aarch32.hpp
-    src/cpu/arm/MacroAssembler_arm.cpp src/cpu/arm/MacroAssembler_arm.hpp
-    src/cpu/ppc/MacroAssembler_ppc.cpp src/cpu/ppc/MacroAssembler_ppc.hpp
-    src/cpu/s390/MacroAssembler_s390.cpp src/cpu/s390/MacroAssembler_s390.hpp
-    src/cpu/sparc/MacroAssembler_sparc.cpp src/cpu/sparc/MacroAssembler_sparc.hpp
-    src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
-    src/share/structures/Stack.cpp src/share/structures/Stack.hpp
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    message(STATUS "Configuring on/for Linux")
+    add_definitions(-DINCLUDE_SUFFIX_OS=_linux)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    message(STATUS "Configuring on/for macOS")
+    add_definitions(-DINCLUDE_SUFFIX_OS=_mac)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    message(STATUS "Configuring on/for Windows")
+    add_definitions(-DINCLUDE_SUFFIX_OS=_win)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
+    message(STATUS "Configuring on/for IBM AIX")
+    add_definitions(-DINCLUDE_SUFFIX_OS=_aix)
+else()
+    message(STATUS "UNKNOWN OS")
+endif()
+
+add_executable(tea
+        main.cpp
+        src/share/utilities/macros.hpp
+        src/cpu/aarch32/MacroAssembler_aarch32.cpp src/cpu/aarch32/MacroAssembler_aarch32.hpp
+        src/cpu/arm/MacroAssembler_arm.cpp src/cpu/arm/MacroAssembler_arm.hpp
+        src/cpu/ppc/MacroAssembler_ppc.cpp src/cpu/ppc/MacroAssembler_ppc.hpp
+        src/cpu/s390/MacroAssembler_s390.cpp src/cpu/s390/MacroAssembler_s390.hpp
+        src/cpu/sparc/MacroAssembler_sparc.cpp src/cpu/sparc/MacroAssembler_sparc.hpp
+        src/cpu/x86/MacroAssembler_x86.cpp src/cpu/x86/MacroAssembler_x86.hpp
+        src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/asm/BytesUtils.hpp
-    src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
-    src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
-    src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
+        src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
+        src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
+        src/cpu/x86/AsmCode_x86.cpp src/cpu/x86/AsmCode_x86.hpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
         src/share/oop/TFloat.hpp src/share/oop/TFloat.cpp
@@ -42,3 +62,4 @@ add_executable(tea main.cpp
         src/share/structures/BitMap.cpp src/share/structures/BitMap.hpp
         src/share/asm/Memory.hpp src/share/utilities/cint_utils.hpp
         src/share/asm/Memory.cpp src/share/utilities/cint_utils.cpp)
+
