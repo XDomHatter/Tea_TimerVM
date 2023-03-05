@@ -16,7 +16,8 @@
 //#define CMDParser_DEBUG
 //#define CINT2CSTR_DEBUG
 //#define BITMAP_DEBUG
-#define CMAKE_DEBUG
+//#define CMAKE_DEBUG
+#define STRLEN_DEBUG
 
 #ifdef DEBUG
 
@@ -235,6 +236,18 @@ int main(){
 
 #include <MacroAssembler_x86.hpp>
 int main(){}
+#endif
+
+#ifdef STRLEN_DEBUG
+
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char a[] = "1234567";
+    printf("%d", strlen(a));
+    return 0;
+}
 #endif
 
 
