@@ -15,7 +15,8 @@
 //#define TIO_DEBUG
 //#define CMDParser_DEBUG
 //#define CINT2CSTR_DEBUG
-#define BITMAP_DEBUG
+//#define BITMAP_DEBUG
+#define CMAKE_DEBUG
 
 #ifdef DEBUG
 
@@ -219,15 +220,22 @@ int main(){
 #endif
 #ifdef BITMAP_DEBUG
 
+#include <utilities/Tio.hpp>
 #include <structures/BitMap.hpp>
+#include <utilities/cint_utils.hpp>
 
 int main(){
-    BitMap map(10);
-    map.get(11);
+    BitMap map(12);
+    map.set(11, 1);
+    char res = map.get(11);
+    TConsole::output(cint2cstr(res));
 }
 #endif
+#ifdef CMAKE_DEBUG
 
-
+#include <MacroAssembler_x86.hpp>
+int main(){}
+#endif
 
 
 #ifndef DEBUG
