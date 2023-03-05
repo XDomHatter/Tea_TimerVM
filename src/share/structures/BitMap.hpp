@@ -23,6 +23,10 @@ public:
     /// @param s size of bit to allocate again
     void extend(int s);
 
+    /// get the count of BYTES(NOT BITS)
+    /// @return count of BYTES(NOT BITS)
+    int getsize();
+
     /// set size of map for 's' as size
     /// @param s target size
     void setsize(int s);

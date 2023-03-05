@@ -123,6 +123,10 @@ void BitMap::extend(int s) {
     return;
 }
 
+int  BitMap::getsize() {
+    return this->real_size;
+}
+
 void BitMap::setsize(int s) {
     int old_size = this->real_size;
     int new_more_size = 0;
