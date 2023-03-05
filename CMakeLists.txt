@@ -8,9 +8,6 @@ include_directories(src/cpu/ppc    )
 include_directories(src/cpu/s390   )
 include_directories(src/cpu/sparc  )
 include_directories(src/cpu/x86    )
-#os headers
-include_directories(src/os/windows)
-include_directories(src/os/linux)
 
 include_directories(src/share)
 
@@ -31,17 +28,23 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     message(STATUS "Configuring on/for Linux")
     add_definitions(-DINCLUDE_SUFFIX_OS=_linux)
+    include_directories(src/os/linux)
+
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     message(STATUS "Configuring on/for macOS")
     add_definitions(-DINCLUDE_SUFFIX_OS=_mac)
     include_directories(src/os/macos)
+
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     message(STATUS "Configuring on/for Windows")
     add_definitions(-DINCLUDE_SUFFIX_OS=_win)
+    include_directories(src/os/windows)
+
 elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
     message(STATUS "Configuring on/for IBM AIX")
     add_definitions(-DINCLUDE_SUFFIX_OS=_aix)
     include_directories(src/os/aix)
+
 else()
     message(STATUS "UNKNOWN OS")
 endif()
