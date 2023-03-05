@@ -8,13 +8,14 @@
 #include <asm/BytesUtils.hpp>
 #include <stdlib.h>
 
-typedef   u1 *     ptr;
+typedef   u1 *     pointer;
 typedef void * address;
 
 class Memory {
 public:
-    static ptr alloc_mem(int size);
-    static ptr realloc_mem(ptr pointer, int size);
+    static pointer alloc_mem(int size);
+    static pointer realloc_mem(pointer ptr, int size);
     static void free_mem(address mem);
+    static void set_mem(pointer ptr, u1 value, int size);
 };
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP
