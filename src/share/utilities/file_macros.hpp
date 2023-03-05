@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-#define FILE_SKIP( size, file ) fgets(NULL, size, file);
+#define FILE_SKIP(size, file) fgets(NULL, size, file);
 
 
 #endif //$TVM_SRC_SHARE_UTILITIES_FILE_MACROS_HPP

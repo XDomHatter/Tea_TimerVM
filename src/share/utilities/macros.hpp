@@ -73,10 +73,10 @@
 #define _DEBUG_(code)
 #endif
 
-#define ERR( text )   \
+#define ERR(text)   \
     puts(XSTR(text)); \
     exit(1);          \
 
-#define QUIT( code ) exit((code));
+#define QUIT(code) exit((code));
 
 #endif //TVM_1_0_MACROS_HPP
