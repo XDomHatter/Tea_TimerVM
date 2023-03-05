@@ -10,8 +10,8 @@
 class BitMap {
 private:
     u1 * bits;
-    int size;      // the length of bit that the param of initializer
-    int real_size; // the allocated really size of byte
+    int size;      // the length of bit that the param of initializer(for user)
+    int real_size; // the allocated really size of byte(in memory)
 public:
     /// init map by length
     /// @param length         size of map (count of bit but not byte)
