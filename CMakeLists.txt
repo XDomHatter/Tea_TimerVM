@@ -17,37 +17,39 @@ set(CMAKE_CXX_STANDARD 14)
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     add_definitions(-DBITARCH=BA64)
     add_definitions(-DBITARCH64)
-    message(STATUS "Target is 64 bits")
+    message("Target is 64 bits")
 else()
     add_definitions(-DBITARCH=BA32)
     add_definitions(-DBITARCH32)
-    message(STATUS "Target is 32 bits")
+    message("Target is 32 bits")
 endif()
 
 # decide os
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    message(STATUS "Configuring on/for Linux")
+    message("Configuring on/for Linux")
     add_definitions(-DINCLUDE_SUFFIX_OS=_linux)
     include_directories(src/os/linux)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-    message(STATUS "Configuring on/for macOS")
+    message("Configuring on/for MacOS")
     add_definitions(-DINCLUDE_SUFFIX_OS=_mac)
     include_directories(src/os/macos)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-    message(STATUS "Configuring on/for Windows")
+    message("Configuring on/for Windows")
     add_definitions(-DINCLUDE_SUFFIX_OS=_win)
     include_directories(src/os/windows)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
-    message(STATUS "Configuring on/for IBM AIX")
+    message("Configuring on/for IBM AIX")
     add_definitions(-DINCLUDE_SUFFIX_OS=_aix)
     include_directories(src/os/aix)
 
 else()
-    message(STATUS "UNKNOWN OS")
+    message(ERROR "UNKNOWN OS")
 endif()
+
+message("\n")
 
 add_executable(tea
         main.cpp
@@ -71,5 +73,6 @@ add_executable(tea
         src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp
         src/share/structures/BitMap.cpp src/share/structures/BitMap.hpp
         src/share/asm/Memory.hpp src/share/utilities/cint_utils.hpp
-        src/share/asm/Memory.cpp src/share/utilities/cint_utils.cpp)
+        src/share/asm/Memory.cpp src/share/utilities/cint_utils.cpp
+)
 
