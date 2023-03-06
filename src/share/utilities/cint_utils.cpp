@@ -7,7 +7,7 @@
 
 char *cint2cstr(int num) {
     const int MAX_SIZE = 12; // Including sign and null terminator
-    char str[MAX_SIZE];
+    static char str[MAX_SIZE] = {0};
     int i = 0, j;
     bool isNegative = false;
     if (num < 0) {
@@ -27,5 +27,6 @@ char *cint2cstr(int num) {
         str[i - j - 1] ^= str[j];
         str[j] ^= str[i - j - 1];
     }
+
     return str;
 }
