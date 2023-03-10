@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 project(tea)
 
-#cpu headers
+# save asm file
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
+
+# cpu headers
 include_directories(src/cpu/aarch32)
 include_directories(src/cpu/arm    )
 include_directories(src/cpu/ppc    )
