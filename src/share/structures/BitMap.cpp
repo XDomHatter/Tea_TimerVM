@@ -46,41 +46,27 @@ void BitMap::set(int idx, bool true_or_false) {
     area = (this->bits + (idx / 8));
 
     if (true_or_false) { // true => 1
-        if ((*area) >> (8 - ((idx + 1) % 8)) & 0x01) {
-            // idx + 1 = 19
-            // 19 % 8  = 3
-            // 8  - 3  = 5
-            // 01x01011 >> 5 = 0000001x
-            // 0000001x & 00000001 ( 0x01 ) = x
-
-            // the expression is true, x don't need to set
+        if (((*area) >> (idx % 8)) & 1) {
+            // idx % 8 = 2
+            // 00000101 >> 2 = 00000001, 00000001 & 00000001(0x01) = 0x01
+            // The expression is true, no need to modify
             return;
         } else {
-            // x is 0
-            *(area) += (0x01 << (8 - ((idx + 1) % 8)));
+            // Bit x is 0, need to modify
+            *(area) += (1 << (idx % 8));
             // idx + 1 = 19
             // 19 % 8  = 3
             // 8  - 3  = 5
-            // 00000001(0x01) << 5 = 00100000
+            // 00000001(1) << 5 = 00100000
             // 01001011 + 00100000 = 01101011  it's been set
             return;
         }
     } else {
-        if ((*area) >> (8 - ((idx + 1) % 8)) & 0x01) {
-            // idx + 1 = 19
-            // 19 % 8  = 3
-            // 8  - 3  = 5
-            // 01x01011 >> 5 = 0000001x
-            // 0000001x & 00000001 ( 0x01 ) = x
+        if ((*area) >> (idx % 8) & 0x01) {
+            // idx % 8 = 2
+            // 00000001(1) << 2 = 00000100
 
-            // expression is true, so x is 1
-
-            // idx + 1 = 19
-            // 19  % 8  = 3
-            // 8   - 3  = 5
-            // 00000001(0x01) << 5 = 00100000
-            // 00111010 - 00100000 = 00011010  it's been set
-            *(area) -= (0x01 << (8 - ((idx + 1) % 8)));
+            *(area) -= (1 << (idx % 8));
             return;
         } else {
             // x is 0
@@ -109,12 +95,12 @@ char BitMap::get(int idx) {
     // bits + 2 = 0x00A2    =>  01101011
     area = *(this->bits + (idx / 8));
 
-    return (area >> (8 - ((idx + 1) % 8)) & 0x01);
+    return (area >> (idx % 8) & 1);
     // idx + 1 = 19
     // 19 % 8  = 3
     // 8  - 3  = 5
     // 01x01011 >> 5 = 0000001x
-    // 0000001x & 00000001(0x01) = x
+    // 0000001x & 00000001(1) = x
 }
 
 void BitMap::extend(int s) {
