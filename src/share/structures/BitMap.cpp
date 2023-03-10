@@ -44,43 +44,38 @@ void BitMap::set(int idx, bool true_or_false) {
     // idx / 8 = 2
     // bits + 2 = 0x00A2    =>  01x01011
     area = (this->bits + (idx / 8));
+    // idx % 8 = 2
+    // 7 - 2   = 5
+    int bit_to_move = (7 - (idx % 8));
+    // 01x01011 >> 5 = 0000001x
+    u1 bit = (*area) >> bit_to_move;
 
     if (true_or_false) { // true => 1
-        if ((*area) >> (8 - ((idx + 1) % 8)) & 0x01) {
-            // idx + 1 = 19
-            // 19 % 8  = 3
-            // 8  - 3  = 5
-            // 01x01011 >> 5 = 0000001x
-            // 0000001x & 00000001 ( 0x01 ) = x
-
-            // the expression is true, x don't need to set
+        if (bit & 1) {
+            // byte is already 1, no need to set
             return;
         } else {
-            // x is 0
-            *(area) += (0x01 << (8 - ((idx + 1) % 8)));
-            // idx + 1 = 19
-            // 19 % 8  = 3
-            // 8  - 3  = 5
-            // 00000001(0x01) << 5 = 00100000
-            // 01001011 + 00100000 = 01101011  it's been set
+            // Bit x is 0, need to change
+            *(area) |= (1 << bit_to_move);
+            // 00000001(1) << 5 = 00100000
+            //   01x01011
+            // | 00100000
+            // -----------
+            //   01101011
+            // it's been set
             return;
         }
     } else {
-        if ((*area) >> (8 - ((idx + 1) % 8)) & 0x01) {
-            // idx + 1 = 19
-            // 19 % 8  = 3
-            // 8  - 3  = 5
-            // 01x01011 >> 5 = 0000001x
-            // 0000001x & 00000001 ( 0x01 ) = x
+        if (bit & 1) {
+            // 00000001(1) << 5 = 00100000
+            // ~00100000 = 11011111
+            //   01x01011
+            // & 11011111
+            // -----------
+            //   01011011
+            // it's been set
 
-            // expression is true, so x is 1
-
-            // idx + 1 = 19
-            // 19  % 8  = 3
-            // 8   - 3  = 5
-            // 00000001(0x01) << 5 = 00100000
-            // 00111010 - 00100000 = 00011010  it's been set
-            *(area) -= (0x01 << (8 - ((idx + 1) % 8)));
+            *(area) &= ~(1 << bit_to_move);
             return;
         } else {
             // x is 0
@@ -108,13 +103,12 @@ char BitMap::get(int idx) {
     // idx / 8 = 2
     // bits + 2 = 0x00A2    =>  01101011
     area = *(this->bits + (idx / 8));
+    // idx % 8 = 2
+    // 7 - 2   = 5
+    int bit_to_move = (7 - (idx % 8));
 
-    return (area >> (8 - ((idx + 1) % 8)) & 0x01);
-    // idx + 1 = 19
-    // 19 % 8  = 3
-    // 8  - 3  = 5
-    // 01x01011 >> 5 = 0000001x
-    // 0000001x & 00000001(0x01) = x
+
+    return ((area >> bit_to_move) & 1);
 }
 
 void BitMap::extend(int s) {
