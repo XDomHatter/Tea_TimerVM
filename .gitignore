@@ -32,3 +32,6 @@ cmake-build-release/
 .idea/
 docs/_book/
 bin/
+
+#vscode
+.vscode
