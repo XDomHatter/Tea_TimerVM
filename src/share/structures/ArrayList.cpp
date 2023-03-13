@@ -3,9 +3,10 @@
 //
 
 #include "ArrayList.hpp"
-#include <stdlib.h>
-#include <string.h>
 #include <asm/Memory.hpp>
+#include <utilities/cstr_utils.hpp>
+#include <utilities/Tio.hpp>
+#include <utilities/cint_utils.hpp>
 
 ArrayList_str::ArrayList_str() {
     this->list = (char **) Memory::alloc_mem((sizeof(char *)) * 16);
@@ -31,9 +32,12 @@ ArrayList_str::~ArrayList_str() {
 
 char *ArrayList_str::get(int index) {
     if (index >= this->length) {
+        TConsole::error("ArrayList_str::get(int)", "index out of range",
+                        CSTRUtil::cat("index:", cint2cstr(index)));
         return NULL;
     }
     if (this->if_inited->get(index) == 0) {
+        TConsole::error("ArrayList_str::get(int): string hasn't inited");
         return NULL;
     }
     return this->list[index];
@@ -72,5 +76,5 @@ void ArrayList_str::set(int index, char *value) {
     }
 
     // this.list[index] = value;
-    strcpy(this->list[index], value);
+    CSTRUtil::copy(this->list[index], value);
 }
