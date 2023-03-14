@@ -10,9 +10,9 @@
 class ArrayList_str {
 private:
     char **list;
-    int length;
     BitMap *if_inited;
 public:
+    int length;
     ArrayList_str();
     ArrayList_str(int length);
     ~ArrayList_str();
