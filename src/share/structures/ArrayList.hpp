@@ -27,6 +27,10 @@ public:
     /// @param value Value to set
     void set(int index, char *value);
 
+    /// decide if the value corresponding to index is inited
+    /// @param index index
+    /// @return if it is inited
+    bool has_inited(int index);
 };
 
 
