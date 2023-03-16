@@ -8,15 +8,26 @@
 // only support english
 class TConsole {
 public:
-    static void output(const char *str); // print a string(without new line) to stdout
-    static void input(char *buf);  // read a line from stdin
+    /// print str in stdout
+    /// @param str c string for output
+    static void output(char *str);
+    /// print str in stdout, but it can receive more params.
+    /// !NOTICE! make the last param be NULL so the method will end, or it will go wrong.
+    /// @param n strings count
+    /// @param str c string for output
+    static void output_m(char *str, ...);
+    /// read a line from stdin
+    /// @param buf buffer to store c string
+    static void input(char *buf);
+    /// print an error message and quit
+    /// @param str error message
     static void error(char *str);
 
     /// print a error message and quit
     /// @param func the function where the error appear
     /// @param msg error message
     /// @param paramerr the error that the param created
-    static void error(const char *func, char *msg, char *paramerr);
+    static void error(char *func, char *msg, char *paramerr);
 
     static void print_version();
 };
