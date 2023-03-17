@@ -62,25 +62,28 @@ message("\n")
 add_executable(tea
         main.cpp
 
+        # utilities
         src/share/utilities/macros.hpp
         src/share/utilities/file_macros.hpp
         src/share/utilities/cstr_utils.hpp src/share/utilities/cstr_utils.cpp
         src/share/utilities/Tio.cpp src/share/utilities/Tio.hpp
         src/share/utilities/cint_utils.hpp src/share/utilities/cint_utils.cpp
 
+        # asm
         src/share/asm/Memory.hpp src/share/asm/Memory.cpp
-        src/share/asm/CodeBuffer.cpp src/share/asm/CodeBuffer.hpp
-        src/share/asm/AsmCode.cpp src/share/asm/AsmCode.hpp
         src/share/asm/Endian.hpp src/share/asm/Endian.cpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
 
+        # codefile
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
 
+        # run
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
         src/share/run/TimerVM.cpp src/share/run/TimerVM.hpp
         src/share/run/Bootstrap.cpp src/share/run/Bootstrap.hpp
 
+        # structures
         src/share/structures/TFloat.hpp src/share/structures/TFloat.cpp
         src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/structures/Utf8.cpp src/share/structures/Utf8.hpp
