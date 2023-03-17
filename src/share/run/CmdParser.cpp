@@ -3,7 +3,6 @@
 //
 
 #include "CmdParser.hpp"
-#include <utilities/file_macros.hpp>
 #include <utilities/cstr_utils.hpp>
 #include <utilities/Tio.hpp>
 #include <utilities/macros.hpp>
@@ -96,17 +95,6 @@ void CMDParser::do_cmd(int *i) {
                 break;
         }
     } else {
-        // try to find the file
-        FILE * file = fopen(single_arg, "r+");
-        if( file == NULL ) { // file doesn't exists
-            TConsole::output("cannot find file:");
-            TConsole::output(single_arg);
-            fclose(file);
-            exit(1);
-        }
-        fclose(file);
-        // file is correct, go on
-
         this->main_codefile->set(this->codefile_count, single_arg);
         this->codefile_count ++;
     }
