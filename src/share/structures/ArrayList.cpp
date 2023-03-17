@@ -54,7 +54,8 @@ void ArrayList_str::set(int index, char *value) {
         needed_size += ((index == needed_size) ? 8 : 0);
 
         int old_length = this->length;
-        this->list = (char **) Memory::realloc_mem((pointer) this->list, needed_size * sizeof(char *));
+        this->list = (char **) Memory::realloc_mem((pointer) this->list,
+                needed_size * sizeof(char *));
         this->length = needed_size;
 
         /* extend bitmap */
@@ -78,4 +79,47 @@ void ArrayList_str::set(int index, char *value) {
 
 bool ArrayList_str::has_inited(int index) {
     return this->if_inited->get(index);
+}
+
+
+template<class T> ArrayList<T>::ArrayList() {
+    this->length = 16;
+    this->values  = Memory::alloc_mem(sizeof(T) * 16);
+}
+
+template<class T> ArrayList<T>::ArrayList(int length) {
+    this->length = 16;
+    this->values  = Memory::alloc_mem(sizeof(T) * length);
+}
+
+template<class T> ArrayList<T>::~ArrayList() {
+    Memory::free_mem(this->values);
+}
+
+template<class T> T ArrayList<T>::get(int index) {
+    if (index >= this->length) {
+        return NULL;
+    }
+    return this->values[index];
+}
+
+template<class T> void ArrayList<T>::set(int index, T value) {
+    if (index > this->length) { // array need extend
+        /* extend list of values*/
+        // usually we use this method to set value not only once
+        // so, for usability and also for machine can read that quickly,
+        // we do byte alignment:
+        // e.g. index = 13
+        // index % 4  = 3
+        // index + index % 4 = 13 + 3 = 16
+        int needed_size = index + (index % 4);
+        // add 8 byte if needed_size doesn't change( index is a multiples of 4 )
+        needed_size += ((index == needed_size) ? 8 : 0);
+        this->values = (T *) Memory::realloc_mem((pointer) this->values,
+                needed_size * sizeof(T));
+        this->length = needed_size;
+    }
+    // copy value
+//    this->values[index] = value;
+    memcpy(this->values[index], value, sizeof(T));
 }

@@ -33,5 +33,25 @@ public:
     bool has_inited(int index);
 };
 
+template<class T>
+class ArrayList{
+private:
+    int length;
+    T * values;
+public:
+    ArrayList();
+    ArrayList(int length);
+    ~ArrayList();
+
+    /// get the value corresponding to the index
+    /// @param index Index of value
+    /// @return Str of index
+    T get(int index);
+
+    /// set the value corresponding to the index
+    /// @param index Index of value
+    /// @param value Value to set
+    void set(int index, T value);
+};
 
 #endif //$TVM_SRC_SHARE_STRUCTURES_ARRAYLIST_HPP
