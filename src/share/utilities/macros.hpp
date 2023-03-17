@@ -2,8 +2,8 @@
 // Created by Administrator on 2022-12-25.
 //
 
-#ifndef TVM_1_0_MACROS_HPP
-#define TVM_1_0_MACROS_HPP
+#ifndef MACROS
+#define MACROS
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -79,4 +79,4 @@
 
 #define QUIT(code) exit((code));
 
-#endif //TVM_1_0_MACROS_HPP
+#endif //MACROS

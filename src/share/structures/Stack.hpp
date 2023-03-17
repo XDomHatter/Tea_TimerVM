@@ -2,8 +2,8 @@
 // Created by Administrator on 2022-12-26.
 //
 
-#ifndef TVM_1_0_STACK_H
-#define TVM_1_0_STACK_H
+#ifndef $TVM_SRC_SHARE_STRUCTURES_STACK_HPP
+#define $TVM_SRC_SHARE_STRUCTURES_STACK_HPP
 
 #include <asm/BytesUtils.hpp> //for u1,u2,u4
 
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif //TVM_1_0_STACK_H
+#endif //$TVM_SRC_SHARE_STRUCTURES_STACK_HPP
