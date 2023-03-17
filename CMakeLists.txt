@@ -87,5 +87,5 @@ add_executable(tea
         src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp
         src/share/structures/BitMap.cpp src/share/structures/BitMap.hpp
 
-        test/ArrayListTest.cpp)
+        )
 
