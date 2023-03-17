@@ -5,8 +5,6 @@
 #include "ArrayList.hpp"
 #include <asm/Memory.hpp>
 #include <utilities/cstr_utils.hpp>
-#include <utilities/Tio.hpp>
-#include <utilities/cint_utils.hpp>
 
 ArrayList_str::ArrayList_str() {
     this->list = (char **) Memory::alloc_mem((sizeof(char *)) * 16);
