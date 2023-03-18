@@ -77,11 +77,13 @@ add_executable(tea
         # codefile
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
+        src/share/codefile/ParserSet.cpp src/share/codefile/ParserSet.hpp
 
         # run
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
         src/share/run/TimerVM.cpp src/share/run/TimerVM.hpp
         src/share/run/Bootstrap.cpp src/share/run/Bootstrap.hpp
+        src/share/run/STATUS.hpp
 
         # structures
         src/share/structures/TFloat.hpp src/share/structures/TFloat.cpp
