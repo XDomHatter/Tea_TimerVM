@@ -5,19 +5,49 @@ project(tea)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 
-# cpu headers
-include_directories(src/cpu/aarch32)
-include_directories(src/cpu/arm    )
-include_directories(src/cpu/ppc    )
-include_directories(src/cpu/s390   )
-include_directories(src/cpu/sparc  )
-include_directories(src/cpu/x86    )
-
 include_directories(src/share)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# decide cpu bit arch
+
+# detect cpu
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
+    # x86 or amd64 architecture
+    message("TEA: on x86 arch CPU")
+    include_directories(src/cpu/x86)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm)|(ARM)|(armv7)|(ARMv7)")
+    # ARM architecture
+    message("TEA: on arm arch CPU")
+    include_directories(src/cpu/arm)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(aarch64)|(AARCH64)")
+    # AArch64 architecture
+    message("TEA: on aarch64 arch CPU")
+    include_directories(src/cpu/aarch64)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(ppc64le)|(PPC64LE)")
+    # PowerPC 64 Little Endian (ppc64le) architecture
+    message("TEA: on ppc64le arch CPU")
+    include_directories(src/cpu/ppc)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(ppc64)|(PPC64)")
+    # PowerPC 64 (ppc64) architecture
+    message("TEA: on ppc64 arch CPU")
+    include_directories(src/cpu/ppc)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(ppc)|(PPC)")
+    # PowerPC (ppc) architecture
+    message("TEA: on ppc arch CPU")
+    include_directories(src/cpu/ppc)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(s390x)|(S390X)")
+    # IBM System z (s390x) architecture
+    message("TEA: on s390 arch CPU")
+    include_directories(src/cpu/s390)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "(sparc)|(SPARC)")
+    # SPARC (sparc) architecture
+    message("TEA: on sparc arch CPU")
+    include_directories(src/cpu/sparc)
+else()
+    message(FATAL_ERROR "UNKNOWN CPU")
+endif()
+
+# detect cpu bit arch
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     add_definitions(-DBITARCH=BA64)
     add_definitions(-DBITARCH64)
@@ -28,28 +58,24 @@ else()
     message("TEA: Target is 32 bits")
 endif()
 
-# decide os
+# detect os
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     message("TEA: Configuring on/for Linux")
-    add_definitions(-DINCLUDE_SUFFIX_OS=_linux)
     add_definitions(-DLINUX)
     include_directories(src/os/linux)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     message("TEA: Configuring on/for MacOS")
-    add_definitions(-DINCLUDE_SUFFIX_OS=_mac)
     add_definitions(-DMACOS)
     include_directories(src/os/macos)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     message("TEA: Configuring on/for Windows")
-    add_definitions(-DINCLUDE_SUFFIX_OS=_win)
     add_definitions(-DWINDOWS)
     include_directories(src/os/windows)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
     message("TEA: Configuring on/for IBM AIX")
-    add_definitions(-DINCLUDE_SUFFIX_OS=_aix)
     add_definitions(-DAIX)
     include_directories(src/os/aix)
 
