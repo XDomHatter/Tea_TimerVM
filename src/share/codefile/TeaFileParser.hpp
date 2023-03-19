@@ -10,8 +10,12 @@
 class TeaFileParser {
 private:
     TeaFileReader * reader;
+    bool checked_TCF;
+    bool is_TCF;
 public:
     TeaFileParser(TeaFileReader * tfr);
+
+    bool check_magic();
 };
 
 
