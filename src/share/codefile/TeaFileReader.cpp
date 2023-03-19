@@ -8,6 +8,9 @@ TeaFileReader::TeaFileReader(FILE *fileobj, EENDIAN eendian) {
     this->file   = fileobj;
     this->endian = eendian;
 }
+TeaFileReader::~TeaFileReader() {
+    fclose(this->file);
+}
 u1 TeaFileReader::readU1() {
     return fgetc(this->file);
 }
@@ -26,7 +29,8 @@ u4 TeaFileReader::readU4() {
     target[2] = fgetc(this->file);
     target[3] = fgetc(this->file);
     return ((this->endian == ELITTlE_ENDIAN) ? ByteUtils::wrap_u4(*((u4 *)target)) // little endian
-                                             :                    *((u4 *)target));// big endian
+                                             :                    *((u4 *)target)  // big endian
+    );
 }
 u8 TeaFileReader::readU8() {
     u1 target[8] = {0};

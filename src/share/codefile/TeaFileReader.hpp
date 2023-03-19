@@ -15,6 +15,7 @@ private:
     EENDIAN endian;
 public:
     TeaFileReader(FILE * fileobj, EENDIAN eendian);
+    ~TeaFileReader();
     u1 readU1();
     u2 readU2();
     u4 readU4();
