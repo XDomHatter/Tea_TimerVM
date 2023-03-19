@@ -9,8 +9,12 @@
 #include <utilities/macros.hpp> // for QUIT()
 
 void TConsole::input(char *buf) {
-    buf = {0};
-    gets((char *) buf);
+    char c = 0;
+    int  i = 0;
+    while((c = getc(stdin)) != '\n'){
+        buf[i] = c;
+        i++;
+    }
 }
 
 void TConsole::output(char *str) {
