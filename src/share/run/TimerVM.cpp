@@ -19,7 +19,7 @@ TimerVM::TimerVM(int argc, char * argv[]) {
         _u._2 = 0xCAFE;
         if(_u._1 == 0xCA) this->endian = EBIG_ENDIAN;
         else if(_u._1 == 0xFE) this->endian = ELITTlE_ENDIAN;
-        else TConsole::error("Unknown endian");
+        else TConsole::error("Unknown endian(maybe someone change the memory)");
     }
     // parse arguments
     CMDParser * cmdParser = new CMDParser(argc, argv);
@@ -31,7 +31,7 @@ TimerVM::TimerVM(int argc, char * argv[]) {
     // open files
     this->codefiles_count = cmdParser->codefile_count;
     this->pset = new ParserSet();
-
+    // package files
     ArrayList_str * _list = cmdParser->main_codefile;
     int length = _list->length;
     TeaFileParser * itParser;
