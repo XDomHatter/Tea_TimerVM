@@ -5,17 +5,25 @@
 #ifndef $TVM_SRC_SHARE_RUN_TIMERVM_HPP
 #define $TVM_SRC_SHARE_RUN_TIMERVM_HPP
 
+#include <codefile/ParserSet.hpp>
 #include <run/Bootstrap.hpp>
-#include <codefile/TeaFileReader.hpp>
-#include <codefile/TeaFileParser.hpp>
 #include <run/CmdParser.hpp>
+#include <run/STATUS.hpp>
 
 class TimerVM {
 private:
-    CMDParser * parser;
+    EENDIAN endian;
+
+    int codefiles_count;
+    ArrayList_str * libpaths;
+
+    ParserSet * pset; // File parsers ( can use this to visit all parsers and readers
+
+    VMStatus status;
+    bool recompile;
 public:
 
-    TimerVM(int argc, char * argv[]);
+    TimerVM(int argc, char *argv[]);
 };
 
 
