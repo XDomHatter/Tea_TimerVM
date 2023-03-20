@@ -9,13 +9,23 @@
 
 class TeaFileParser {
 private:
+
     TeaFileReader * reader;
+    u4 file_size;
     bool checked_TCF;
     bool is_TCF;
+    struct{
+        bool FAST_METHOD;
+        bool NO_RES_TYPE;
+        bool JIT_ON;
+        bool AOT_ON;
+    } inf;
 public:
     TeaFileParser(TeaFileReader * tfr);
+    ~TeaFileParser();
 
     bool check_magic();
+    void read_inf();
 };
 
 
