@@ -9,7 +9,7 @@
 #include <utilities/macros.hpp>
 
 TimerVM::TimerVM(int argc, char * argv[]) {
-    this->status = INIT;
+    this->status = VMINIT;
     // decide endian
     {
         union {
