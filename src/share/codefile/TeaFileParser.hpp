@@ -9,7 +9,7 @@
 #include <run/STATUS.hpp>
 
 class TeaFileParser {
-private:
+public:
     TeaFileReader * reader;
     ReaderStatus    status;
     u4 file_size;
@@ -20,7 +20,7 @@ private:
         bool JIT_ON;
         bool AOT_ON;
     } inf;
-public:
+
     TeaFileParser(TeaFileReader * tfr);
     ~TeaFileParser();
 
