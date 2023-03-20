@@ -6,13 +6,13 @@
 #define $TVM_SRC_SHARE_CODEFILE_TEAFILEPARSER_HPP
 
 #include <codefile/TeaFileReader.hpp>
+#include <run/STATUS.hpp>
 
 class TeaFileParser {
 private:
-
     TeaFileReader * reader;
+    ReaderStatus    status;
     u4 file_size;
-    bool checked_TCF;
     bool is_TCF;
     struct{
         bool FAST_METHOD;

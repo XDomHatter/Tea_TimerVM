@@ -15,11 +15,11 @@ typedef enum {
 } VMStatus;
 
 typedef enum {
-    RINIT   = 0x00,
-    RMAGIC = 0x01, // reader has already checked the magic num
-    RINF   = 0x02, //                                information in the codefile
-    RCP    = 0x03, //                                information about constants
-    RGF    = 0x04, //                                global functions
+    RSINIT   = 0x00,
+    RSMAGIC = 0x01, // reader has already checked the magic num
+    RSINF   = 0x02, //                                information in the codefile
+    RSCP    = 0x03, //                                information about constants
+    RSGF    = 0x04, //                                global functions
 } ReaderStatus;
 
 #endif //$TEA_SRC_SHARE_RUN_STATUS_HPP
