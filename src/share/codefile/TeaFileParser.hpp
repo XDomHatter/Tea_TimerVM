@@ -6,7 +6,7 @@
 #define $TVM_SRC_SHARE_CODEFILE_TEAFILEPARSER_HPP
 
 #include <codefile/TeaFileReader.hpp>
-#include <run/STATUS.hpp>
+#include <utilities/STATUS.hpp>
 
 class TeaFileParser {
 public:
@@ -24,8 +24,16 @@ public:
     TeaFileParser(TeaFileReader * tfr);
     ~TeaFileParser();
 
+    /// check the file's magic
+    /// @return the magic is 0xAE584448
     bool check_magic();
+    /// read information of codefile
     void read_inf();
+    /// read constant-about information
+    void read_cp();
+    /// read a constant from file
+    /// @return bytes of constant(REMEMBER TO FREE IT!)
+    u1 * read_constant();
 };
 
 

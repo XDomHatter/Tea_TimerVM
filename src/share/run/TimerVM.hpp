@@ -8,7 +8,7 @@
 #include <codefile/ParserSet.hpp>
 #include <run/Bootstrap.hpp>
 #include <run/CmdParser.hpp>
-#include <run/STATUS.hpp>
+#include <utilities/STATUS.hpp>
 
 class TimerVM {
 private:
