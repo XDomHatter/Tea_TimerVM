@@ -26,6 +26,22 @@ public:
     static u2 wrap_u2(u2 obj);
     static u4 wrap_u4(u4 obj);
     static u8 wrap_u8(u8 obj);
+    /// get the u1 of the index in src
+    /// @param src source bytes array
+    /// @param idx index
+    inline static u1 u1_of(u1 * src, int idx);
+    /// get the u2 of the index in src
+    /// @param src source bytes array
+    /// @param idx index
+    inline static u2 u2_of(u1 * src, int idx);
+    /// get the u4 of the index in src
+    /// @param src source bytes array
+    /// @param idx index
+    inline static u4 u4_of(u1 * src, int idx);
+    /// get the u8 of the index in src
+    /// @param src source bytes array
+    /// @param idx index
+    inline static u8 u8_of(u1 * src, int idx);
 };
 
 

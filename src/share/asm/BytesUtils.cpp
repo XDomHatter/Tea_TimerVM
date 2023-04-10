@@ -28,8 +28,6 @@ u4 ByteUtils::make_u4(u1 src[4]) {
             (o4      )   //                    0x00000078
     );
 }
-
-// typedef
 u8 ByteUtils::make_u8(u1 src[8]) {
     // e.g. src = { 0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78, 0x89 }
     return (
@@ -95,4 +93,20 @@ u8 ByteUtils::wrap_u8(u8 obj) {
             ((obj & 0x000000000000FF00) << 40) + // o7 << ( 5*8 ) = 00000000 11111110 00000000 00000000 00000000 00000000 00000000 00000000
             ((obj & 0x00000000000000FF) << 56)   // o8 << ( 7*8 ) = 11111111 00000000 00000000 00000000 00000000 00000000 00000000 00000000
     );                                           // result        = 11111111 11111110 11111100 11111000 11110000 11100000 11000000 10000000
+}
+
+u1 ByteUtils::u1_of(u1 *src, int idx) {
+    return *(src+idx);
+}
+u2 ByteUtils::u2_of(u1 *src, int idx) {
+    u2 * u2arr = (u2 *) src;
+    return *(u2arr+idx);
+}
+u4 ByteUtils::u4_of(u1 *src, int idx) {
+    u4 * u4arr = (u4 *) src;
+    return *(u4arr+idx);
+}
+u8 ByteUtils::u8_of(u1 *src, int idx) {
+    u8 * u8arr = (u8 *) src;
+    return *(u8arr+idx);
 }
