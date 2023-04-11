@@ -11,16 +11,7 @@
 TimerVM::TimerVM(int argc, char * argv[]) {
     this->status = VMINIT;
     // decide endian
-    {
-        union {
-            u2 _2;
-            u1 _1;
-        } _u;
-        _u._2 = 0xCAFE;
-        if(_u._1 == 0xCA) this->endian = EBIG_ENDIAN;
-        else if(_u._1 == 0xFE) this->endian = ELITTlE_ENDIAN;
-        else TConsole::error("Unknown endian(maybe someone change the memory)");
-    }
+    DETECT_ENDIAN( this->endian );
     // parse arguments
     CMDParser * cmdParser = new CMDParser(argc, argv);
 
@@ -36,10 +27,10 @@ TimerVM::TimerVM(int argc, char * argv[]) {
     int length = _list->length;
     TeaFileParser * itParser;
     FILE          * itFile;
-    for(int i = 0; i < length; i++){
+    for(int i = 0; i < length; i++) {
         if(_list->has_inited(i)) {
             itFile = fopen(_list->get(i), "rb");
-            if(itFile == NULL){
+            if(itFile == NULL) {
                 // file doesn't exists
                 TConsole::output_m("fatal error: file \'", _list->get(i), "\' doesn't exists",
                     NULL);
