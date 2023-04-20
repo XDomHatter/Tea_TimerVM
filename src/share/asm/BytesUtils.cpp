@@ -98,15 +98,36 @@ u8 ByteUtils::wrap_u8(u8 obj) {
 u1 ByteUtils::u1_of(u1 *src, int idx) {
     return *(src+idx);
 }
-u2 ByteUtils::u2_of(u1 *src, int idx) {
-    u2 * u2arr = (u2 *) src;
-    return *(u2arr+idx);
+u2 ByteUtils::u2_of(u1 *src, int idx, EENDIAN e) {
+    return cast_u2(src+idx, e);
 }
-u4 ByteUtils::u4_of(u1 *src, int idx) {
-    u4 * u4arr = (u4 *) src;
-    return *(u4arr+idx);
+u4 ByteUtils::u4_of(u1 *src, int idx, EENDIAN e) {
+    return cast_u4(src+idx, e);
 }
-u8 ByteUtils::u8_of(u1 *src, int idx) {
+u8 ByteUtils::u8_of(u1 *src, int idx, EENDIAN e) {
     u8 * u8arr = (u8 *) src;
     return *(u8arr+idx);
+}
+
+u2 ByteUtils::cast_u2(u1 *arr, EENDIAN e) {
+    EENDIAN_CODE(e,{
+        return ByteUtils::wrap_u2(*((u2 *)arr));
+    }, {
+        return *((u2 *)arr);
+    });
+}
+u4 ByteUtils::cast_u4(u1 *arr, EENDIAN e) {
+    EENDIAN_CODE(e,{
+        return ByteUtils::wrap_u2(*((u4 *)arr));
+    }, {
+        return *((u4 *)arr);
+    });
+}
+u8 ByteUtils::cast_u8(u1 *arr, EENDIAN e) {
+    EENDIAN_CODE(e, {
+        return ByteUtils::wrap_u2(*((u8 *)arr));
+    }, {
+        return *((u8 *)arr);
+    });
+
 }
