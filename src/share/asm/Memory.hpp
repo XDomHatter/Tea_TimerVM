@@ -17,6 +17,7 @@ public:
     static pointer realloc_mem(pointer ptr, size_t size);
     static void free_mem(address mem);
     static void set_mem(pointer ptr, u1 value, size_t size);
+    /// move source -> dest
     static void copy(pointer source, pointer dest, size_t size);
 };
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP
