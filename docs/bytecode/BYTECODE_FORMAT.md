@@ -10,16 +10,13 @@
                     // 0b00001000 means AOT_ON      mode
                        
      u4 file_size;  // the code file's size ( in big endian )
-     u2 constant_count; // constant's number in constant pool
+     u2 constant_count; // count of constants in constant pool
      u2 cp_size;        // constant pool's size
      Constant cp[constant_count];
-     u2 var_count;
-     Varible globle_vars[var_count];
+     u2 var_count;  // global args
      u2 func_count;
      Function funcs[func_count];
      u2 class_count;    // class in the code file's number
      Class classes[class_count];
  };
  ```
- 
- 
