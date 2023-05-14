@@ -12,14 +12,19 @@
 class TeaFileReader {
 private:
     FILE * file;
-    EENDIAN endian;
+
 public:
+    EENDIAN endian;
     TeaFileReader(FILE * fileobj, EENDIAN eendian);
     ~TeaFileReader();
     u1 readU1();
     u2 readU2();
     u4 readU4();
     u8 readU8();
+    /// read n bytes from file(REMEMBER TO FREE IT!!!!)
+    /// @param n count of bytes
+    /// @return bytes
+    u1 * readUn(int n);
 };
 
 
