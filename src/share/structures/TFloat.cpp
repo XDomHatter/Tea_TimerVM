@@ -6,20 +6,20 @@
 
 TFloat::TFloat(EENDIAN _endian) {
     this->endian = _endian;
-    _DEBUG_({
+
         this->byte_value = 0;
         this->c_value = 0;
         this->fract = 0;
         this->integer = 0;
         this->_u_fract = 0;
         this->_u_integer = 0;
-    });
+
 }
 double TFloat::get_cvalue() {
     this->c_value = (double)this->integer + this->fract;
     return this->c_value;
 }
-double TFloat::get_cvalue__FAST() {
+double FAST_FUNC(TFloat::get_cvalue)() {
     return (double)((double)this->integer + ((double)this->fract));
 }
 void TFloat::set(u8 byte) {
@@ -30,8 +30,8 @@ void TFloat::set(u8 byte) {
 //        this->integer =                                          this->_u_integer;
 //        this->fract   = (double )(this->_u_fract)                  * 0.0000000001;
 //    }, { // must to wrap cuz _u_xx is in big endian
-//        this->integer =                         Endian::wrap_u4(this->_u_integer);
-//        this->fract   = (double )(Endian::wrap_u4(this->_u_fract)) * 0.0000000001;
+//        this->integer =                         Endian::flip_u4(this->_u_integer);
+//        this->fract   = (double )(Endian::flip_u4(this->_u_fract)) * 0.0000000001;
 //    });
 // i dont know why but seems it doesnt need to wrap :(
     this->integer = this->_u_integer;
