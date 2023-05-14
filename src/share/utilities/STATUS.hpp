@@ -15,11 +15,16 @@ typedef enum {
 } VMStatus;
 
 typedef enum {
-    RSINIT   = 0x00,
+    RSINIT  = 0x00,
     RSMAGIC = 0x01, // reader has already checked the magic num
     RSINF   = 0x02, //                                information in the codefile
     RSCP    = 0x03, //                                information about constants
     RSGF    = 0x04, //                                global functions
 } ReaderStatus;
+
+typedef enum {
+    CTSNEW    = 0x01,
+    CTSINITED = 0x02
+} ConstantStatus;
 
 #endif //$TEA_SRC_SHARE_RUN_STATUS_HPP
