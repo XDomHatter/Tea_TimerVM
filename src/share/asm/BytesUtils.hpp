@@ -26,9 +26,9 @@ public:
     static u4 make_u4(u1 src[4]);
     static u8 make_u8(u1 src[8]);
 
-    static u2 wrap_u2(u2 obj);
-    static u4 wrap_u4(u4 obj);
-    static u8 wrap_u8(u8 obj);
+    static u2 flip_u2(u2 obj);
+    static u4 flip_u4(u4 obj);
+    static u8 flip_u8(u8 obj);
 
     /// get the u1 of the index in src
     /// @param src source bytes array
