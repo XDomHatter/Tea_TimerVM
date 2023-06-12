@@ -111,23 +111,23 @@ u8 ByteUtils::u8_of(u1 *src, int idx, EENDIAN e) {
 
 u2 ByteUtils::cast_u2(u1 *arr, EENDIAN e) {
     EENDIAN_CODE(e,{
-        return ByteUtils::flip_u2(*((u2 *) arr));
-    }, {
         return *((u2 *)arr);
-    });
+    }, {
+        return ByteUtils::flip_u2(*((u2 *) arr));
+    } );
 }
 u4 ByteUtils::cast_u4(u1 *arr, EENDIAN e) {
     EENDIAN_CODE(e,{
-        return ByteUtils::flip_u2(*((u4 *) arr));
-    }, {
         return *((u4 *)arr);
+    }, {
+        return ByteUtils::flip_u2(*((u4 *) arr));
     });
 }
 u8 ByteUtils::cast_u8(u1 *arr, EENDIAN e) {
-    EENDIAN_CODE(e, {
-        return ByteUtils::flip_u2(*((u8 *) arr));
-    }, {
+    EENDIAN_CODE(e,{
         return *((u8 *)arr);
+    }, {
+        return ByteUtils::flip_u2(*((u8 *) arr));
     });
 
 }
