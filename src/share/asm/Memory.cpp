@@ -18,6 +18,8 @@ void Memory::set_mem(pointer ptr, u1 value, size_t size) {
     memset(ptr, value, size);
 }
 void Memory::copy(pointer source, pointer dest, size_t size) {
-    memcpy(dest, source, size);
+    for(int i = 0; i < size; i++) {
+        dest[i] = source[i];
+    }
 }
 
