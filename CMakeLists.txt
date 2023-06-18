@@ -1,13 +1,21 @@
 cmake_minimum_required(VERSION 3.16)
 project(tea)
 
+set(CMAKE_CXX_STANDARD 14)
+
 # save asm file
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 
 include_directories(src/share)
+include_directories(src/os)
 
-set(CMAKE_CXX_STANDARD 14)
+# detect endian
+if (CMAKE_ENDIAN_SELECTED)
+    message("TEA: System is big endian")
+else()
+    message("TEA: System is little endian")
+endif()
 
 
 # detect cpu
@@ -97,19 +105,20 @@ add_executable(tea
 
         # asm
         src/share/asm/Memory.hpp src/share/asm/Memory.cpp
-        src/share/asm/Endian.hpp src/share/asm/Endian.cpp
+        src/share/asm/Endian.hpp
         src/share/asm/BytesUtils.hpp src/share/asm/BytesUtils.cpp
+        src/share/asm/ByteStream.cpp src/share/asm/ByteStream.hpp
 
         # codefile
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
         src/share/codefile/ParserSet.cpp src/share/codefile/ParserSet.hpp
+        src/share/codefile/CodeFileObj.hpp
 
         # run
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
         src/share/run/TimerVM.cpp src/share/run/TimerVM.hpp
-        src/share/run/Bootstrap.cpp src/share/run/Bootstrap.hpp
-        src/share/run/STATUS.hpp
+        src/share/utilities/STATUS.hpp
 
         # structures
         src/share/structures/TFloat.hpp src/share/structures/TFloat.cpp
@@ -118,5 +127,10 @@ add_executable(tea
         src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp
         src/share/structures/BitMap.cpp src/share/structures/BitMap.hpp
 
+        # oop
+        src/share/oop/Constant.cpp src/share/oop/Constant.hpp
+        src/share/oop/ConstantPool.cpp src/share/oop/ConstantPool.hpp
+
+        # runtime
         )
 
