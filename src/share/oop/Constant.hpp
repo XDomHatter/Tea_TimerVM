@@ -11,6 +11,7 @@
 #include <codefile/TeaFileReader.hpp>
 #include <utilities/STATUS.hpp>
 #include <utilities/macros.hpp>
+#include <type_traits>
 
 // 00000001(1) means complete equal
 #define CTES_EQl 1
@@ -108,4 +109,34 @@ public:
     TYPE_AND_NAME_Constant(u2 type_idx, u2 name_idx, EDPARAM);
 };
 
+
+
+template<class T>
+bool Constant::check_type(Constant *c) {
+    if(!std::is_base_of<Constant, T>::value) {
+        // isn't a constant class
+        return false;
+    }
+
+    if (std::is_same<typename std::decay<T>::type, UTF8_Constant>           ::value) {
+        // utf-8 constant or merge-utf8 constant
+        return c->type == CT_UTF8_CONSTANT || c->type == CT_MERGE_UTF8_CONSTANT;
+    }
+    else if(std::is_same<typename std::decay<T>::type, METHOD_FUNCTION_Constant>::value) {
+        // method_function constant
+        return c->type == CT_METHOD_FUNCTION_CONSTANT;
+    }
+    else if(std::is_same<typename std::decay<T>::type, MERGE_UTF8_Constant>     ::value) {
+        // merge utf8 constant
+        return c->type == CT_MERGE_UTF8_CONSTANT;
+    }
+    else if(std::is_same<typename std::decay<T>::type, TYPE_AND_NAME_Constant>  ::value) {
+        // type and name constant
+        return c->type == CT_TYPE_AND_NAME_CONSTANT;
+    }
+    else {
+        // unknown constant class
+        return false;
+    }
+}
 #endif //$TEA_SRC_SHARE_CODEFILE_CONSTANT_HPP

@@ -91,33 +91,6 @@ int Constant::size_in_cp(Constant * c) {
     }
     return struct_size + 1; // cuz of the tag takes 1 byte
 }
-template<class T> bool Constant::check_type(Constant *c) {
-    if(!std::is_base_of<Constant, T>::value) {
-        // isn't a constant class
-        return false;
-    }
-
-    if (std::is_same<typename std::decay<T>::type, UTF8_Constant>           ::value) {
-        // utf-8 constant or merge-utf8 constant
-        return c->type == CT_UTF8_CONSTANT || c->type == CT_MERGE_UTF8_CONSTANT;
-    }
-    else if(std::is_same<typename std::decay<T>::type, METHOD_FUNCTION_Constant>::value) {
-        // method_function constant
-        return c->type == CT_METHOD_FUNCTION_CONSTANT;
-    }
-    else if(std::is_same<typename std::decay<T>::type, MERGE_UTF8_Constant>     ::value) {
-        // merge utf8 constant
-        return c->type == CT_MERGE_UTF8_CONSTANT;
-    }
-    else if(std::is_same<typename std::decay<T>::type, TYPE_AND_NAME_Constant>  ::value) {
-        // type and name constant
-        return c->type == CT_TYPE_AND_NAME_CONSTANT;
-    }
-    else {
-        // unknown constant class
-        return false;
-    }
-}
 
 
 //////////////////////////////////////
