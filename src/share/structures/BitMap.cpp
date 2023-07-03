@@ -26,7 +26,7 @@ BitMap::~BitMap() {
 
 void BitMap::set(int idx, bool true_or_false) {
     if (idx >= size) {
-        TConsole::error("BitMap::set(int)", "index out of range", "idx");
+//      index out of range
         return;
     }
     // no error:
@@ -87,7 +87,8 @@ void BitMap::set(int idx, bool true_or_false) {
 
 char BitMap::get(int idx) {
     if (idx >= this->size) {
-        TConsole::error("BitMap::get(int)", "index out of range", "idx");
+//        index out of range
+        return -1;
     }
 
     u1 area; // specific area of object bit

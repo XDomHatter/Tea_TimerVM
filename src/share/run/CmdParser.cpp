@@ -83,7 +83,10 @@ void CMDParser::do_cmd(int *i) {
                 break;
             case CMDT_LIBPATH:
                 // user call like: -lp "C:\\xxx\\"
-                if (i == NULL) TConsole::error("error: Not enough args");
+                if (i == NULL) {
+                    // not enough args
+
+                }
                 (*i)++; // next arg ( after -lp )
                 this->lib_paths->set(this->libpath_count, argv[*i]);
                 this->libpath_count++;

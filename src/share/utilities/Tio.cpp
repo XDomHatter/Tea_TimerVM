@@ -18,7 +18,7 @@ void TConsole::input(char *buf) {
 }
 
 void TConsole::output(char *str) {
-    if(str == NULL) error("TConsole::output(const char *): str is MULL");
+    if(str == NULL) return;
     char * ptr = str;
     while(*ptr != '\0') {
         putchar(*ptr);

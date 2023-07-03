@@ -7,6 +7,7 @@
 #include <asm/Memory.hpp>
 #include <utilities/Tio.hpp>
 #include <type_traits>
+#include <exception>
 
 ConstantPool::ConstantPool(u2 size, u2 count) {
     this->size      = size;
@@ -35,7 +36,8 @@ void ConstantPool::init_constant() {
                 break;
             }
             case CT_CLASS_CONSTANT: {
-                TConsole::error("tvm.UnSupportedConstantError: CLASS_Constant is disabled");
+                // disabled constant
+
                 break;
             }
             case CT_MERGE_UTF8_CONSTANT: {
