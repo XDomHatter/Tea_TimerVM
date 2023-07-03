@@ -4,9 +4,9 @@
 
 #include "TimerVM.hpp"
 #include <asm/Memory.hpp>
-#include <asm/BytesUtils.hpp>
 #include <utilities/Tio.hpp>
 #include <utilities/macros.hpp>
+#include <oop/ConstantPool.hpp>
 
 TimerVM::TimerVM(int argc, char * argv[]) {
     this->status = VMINIT;
@@ -21,15 +21,16 @@ TimerVM::TimerVM(int argc, char * argv[]) {
 
     // open files
     this->codefiles_count = cmdParser->codefile_count;
-    this->pset = new ParserSet();
     // package files
+    this->code_files = new std::vector<CodeFileObj *>();
     ArrayList_str * _list = cmdParser->main_codefile;
-    int length = _list->length;
+    int length = cmdParser->codefile_count;
     TeaFileParser * itParser;
     FILE          * itFile;
+    CodeFileObj   * itCFO;
     for(int i = 0; i < length; i++) {
         if(_list->has_inited(i)) {
-            itFile = fopen(_list->get(i), "rb");
+            itFile = fopen(_list->get(i), "rb+");
             if(itFile == NULL) {
                 // file doesn't exists
                 TConsole::output_m("fatal error: file \'", _list->get(i), "\' doesn't exists",
@@ -38,7 +39,8 @@ TimerVM::TimerVM(int argc, char * argv[]) {
             }
             // file exists, create Parser object
             itParser = new TeaFileParser(
-                    new TeaFileReader(itFile, this->endian)
+                    new TeaFileReader(itFile, this->endian),
+                    this->endian
             );
             // check file
             if(!itParser->check_magic()) {
@@ -46,9 +48,27 @@ TimerVM::TimerVM(int argc, char * argv[]) {
                 TConsole::output_m("fatal error: file \'", _list->get(i), "\' isn't a codefile!",
                                    NULL);
             }
-            pset->add(itParser);
+
+            itCFO = new CodeFileObj();
+            itCFO->parser = itParser;
+            this->code_files->push_back(itCFO);
         }
         else continue;
     }
     delete cmdParser;
+
+    itCFO = nullptr;
+    for(int i = 0; i < length; i++) {
+        itCFO = this->code_files->at(i);
+
+        itCFO->parser->read_inf();
+
+        // read package
+        /// @todo code for reading included packages
+        itCFO->parser->reader->nextU2_fast();
+        // read constant pool
+        itCFO->cp = itCFO->parser->read_cp();
+
+    }
+
 }

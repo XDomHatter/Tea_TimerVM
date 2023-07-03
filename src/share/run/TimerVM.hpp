@@ -5,10 +5,10 @@
 #ifndef $TVM_SRC_SHARE_RUN_TIMERVM_HPP
 #define $TVM_SRC_SHARE_RUN_TIMERVM_HPP
 
-#include <codefile/ParserSet.hpp>
-#include <run/Bootstrap.hpp>
 #include <run/CmdParser.hpp>
 #include <utilities/STATUS.hpp>
+#include <codefile/CodeFileObj.hpp>
+#include <vector>
 
 class TimerVM {
 private:
@@ -17,12 +17,12 @@ private:
     int codefiles_count;
     ArrayList_str * libpaths;
 
-    ParserSet * pset; // File parsers ( can use this to visit all parsers and readers
+    std::vector<CodeFileObj *> *code_files;
 
     VMStatus status;
     bool recompile;
-public:
 
+public:
     TimerVM(int argc, char *argv[]);
 };
 
