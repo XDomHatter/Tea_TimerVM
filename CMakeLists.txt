@@ -112,7 +112,6 @@ add_executable(tea
         # codefile
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
-        src/share/codefile/ParserSet.cpp src/share/codefile/ParserSet.hpp
         src/share/codefile/CodeFileObj.hpp
 
         # run
