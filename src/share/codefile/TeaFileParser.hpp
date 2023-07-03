@@ -7,6 +7,8 @@
 
 #include <codefile/TeaFileReader.hpp>
 #include <utilities/STATUS.hpp>
+#include <utilities/macros.hpp>
+#include <oop/ConstantPool.hpp>
 
 class TeaFileParser {
 public:
@@ -14,26 +16,37 @@ public:
     ReaderStatus    status;
     u4 file_size;
     bool is_TCF;
-    struct{
-        bool FAST_METHOD;
-        bool NO_RES_TYPE;
-        bool JIT_ON;
-        bool AOT_ON;
-    } inf;
+//  u1 file_inf;       // 0b00000001 means FAST_METHOD mode that vm doesn't check result type
+                       // 0b00000010 means NO_RES_TYPE mode that Method.result_type doesn't exists
+                       // 0b00000100 means JIT_ON      mode
+                       // 0b00001000 means AOT_ON      mode
+    u1 inf;
+    EENDIAN e;
 
-    TeaFileParser(TeaFileReader * tfr);
+    TeaFileParser(TeaFileReader * tfr, EDPARAM);
     ~TeaFileParser();
 
     /// check the file's magic
     /// @return the magic is 0xAE584448
     bool check_magic();
     /// read information of codefile
+    /// @read file size and inf
     void read_inf();
     /// read constant-about information
-    void read_cp();
-    /// read a constant from file
-    /// @return bytes of constant(REMEMBER TO FREE IT!)
-    u1 * read_constant();
+    ConstantPool *read_cp() const;
+
+    inline bool FAST_METHOD_MODE() const {
+        return inf & 1;
+    }
+    inline bool NO_RES_TYPE_MODE() const {
+        return inf & 2;
+    }
+    inline bool JIT_ON() const {
+        return inf & 4;
+    }
+    inline bool AOT_ON() const {
+        return inf & 8;
+    }
 };
 
 
