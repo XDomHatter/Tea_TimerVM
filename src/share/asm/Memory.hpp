@@ -19,10 +19,6 @@ public:
     inline static T* alloc_mem(int count) {
         return (T*) alloc_mem(sizeof(T) * count);
     }
-    /// use like: Memory__alloc_mem_by_type(2, u2),
-    /// It is same as Memory::alloc_mem(sizeof(u2) * 2)
-    #define Memory__alloc_mem_by_type(count, type)   \
-        Memory::alloc_mem(sizeof(type) * count)
     static pointer realloc_mem(pointer ptr, size_t size);
     static void free_mem(address mem);
     static void set_mem(pointer ptr, u1 value, size_t size);
