@@ -64,7 +64,7 @@ Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
             break;
         default:
             // unknown type tag
-            TConsole::error("Unknown constant type");
+            return NULL;
     }
     return res;
 }
