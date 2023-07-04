@@ -8,7 +8,7 @@
 #include <utilities/macros.hpp>
 #include <oop/ConstantPool.hpp>
 
-TimerVM::TimerVM(int argc, char * argv[]) {
+CMDParser *TimerVM::parse_cmd(int argc, char * argv[]) {
     this->status = VMINIT;
     // decide endian
     DETECT_ENDIAN( this->endian );
@@ -19,7 +19,11 @@ TimerVM::TimerVM(int argc, char * argv[]) {
     this->libpaths  = cmdParser->lib_paths;
     this->recompile = cmdParser->recompile;
 
-    // open files
+
+
+}
+
+void TimerVM::open_files(CMDParser *cmdParser) {
     this->codefiles_count = cmdParser->codefile_count;
     // package files
     this->code_files = new std::vector<CodeFileObj *>();
@@ -34,7 +38,7 @@ TimerVM::TimerVM(int argc, char * argv[]) {
             if(itFile == NULL) {
                 // file doesn't exists
                 TConsole::output_m("fatal error: file \'", _list->get(i), "\' doesn't exists",
-                    NULL);
+                                   NULL);
                 QUIT(1);
             }
             // file exists, create Parser object
@@ -47,6 +51,7 @@ TimerVM::TimerVM(int argc, char * argv[]) {
                 // it is not a tea codefile
                 TConsole::output_m("fatal error: file \'", _list->get(i), "\' isn't a codefile!",
                                    NULL);
+                QUIT(1);
             }
 
             itCFO = new CodeFileObj();
@@ -55,9 +60,11 @@ TimerVM::TimerVM(int argc, char * argv[]) {
         }
         else continue;
     }
-    delete cmdParser;
+}
 
-    itCFO = nullptr;
+void TimerVM::parse_files(CMDParser *cmdParser) {
+    CodeFileObj *itCFO = nullptr;
+    int length  = cmdParser->codefile_count;
     for(int i = 0; i < length; i++) {
         itCFO = this->code_files->at(i);
 
@@ -70,5 +77,4 @@ TimerVM::TimerVM(int argc, char * argv[]) {
         itCFO->cp = itCFO->parser->read_cp();
 
     }
-
 }

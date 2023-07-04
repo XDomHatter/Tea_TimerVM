@@ -23,7 +23,9 @@ private:
     bool recompile;
 
 public:
-    TimerVM(int argc, char *argv[]);
+    CMDParser *parse_cmd(int argc, char *argv[]);
+    void open_files (CMDParser *cmdParser);
+    void parse_files(CMDParser *cmdParser);
 };
 
 
