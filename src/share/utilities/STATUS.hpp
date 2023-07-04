@@ -23,6 +23,7 @@ typedef enum {
 } ReaderStatus;
 
 typedef enum {
+    CTSFAILED = 0x00,
     CTSNEW    = 0x01,
     CTSINITED = 0x02
 } ConstantStatus;
