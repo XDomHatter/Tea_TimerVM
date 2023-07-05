@@ -26,6 +26,9 @@ public:
     CMDParser *parse_cmd(int argc, char *argv[]);
     void open_files (CMDParser *cmdParser);
     void parse_files(CMDParser *cmdParser);
+    inline CodeFileObj *get_code_file(int index) const {
+        return code_files->at(index);
+    }
 };
 
 
