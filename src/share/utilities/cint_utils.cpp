@@ -7,7 +7,7 @@
 
 char *cint2cstr(int num) {
     const int MAX_SIZE = 12; // Including sign and null terminator
-    static char str[MAX_SIZE] = {0};
+    char str[MAX_SIZE] = {0};
     int i = 0, j;
     bool isNegative = false;
     if (num < 0) {
