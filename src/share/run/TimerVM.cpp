@@ -19,8 +19,7 @@ CMDParser *TimerVM::parse_cmd(int argc, char * argv[]) {
     this->libpaths  = cmdParser->lib_paths;
     this->recompile = cmdParser->recompile;
 
-
-
+    return cmdParser;
 }
 
 void TimerVM::open_files(CMDParser *cmdParser) {
