@@ -10,26 +10,23 @@ char *CSTRUtil::copy(char *dst, char *src) {
     return dst;
 }
 
-char *CSTRUtil::cat(char **s1, char *s2) {
-    if(s2 == NULL) {
-        return *s1;
-    }
-    if(*s1 == NULL) {
-        *s1 = (char *) Memory::alloc_mem(len(s2));
-        copy(*s1, s2);
-        return *s1;
-    }
+char *CSTRUtil::cat(char *s1, char *s2) {
+    char *res = NULL;
 
-
-    int len1 = len(*s1),
-        len2 = len(s2);
-    char *res = (char *) Memory::alloc_mem(len1 + len2 + 1); // +1 cuz '\0'
-    Memory::copy((pointer) *s1, (pointer) res           , len1);
-    Memory::copy((pointer) s2, (pointer) (res+len1), len2);
-    res[len1 + len2] = '\0';
-    Memory::free_mem(*s1);
-    *s1 = res;
-    return *s1;
+    if(s2 == NULL || *s2 == '\0')
+        copy(res, s1);
+    else if(s1 == NULL) {
+        res = (char *) Memory::alloc_mem(len(s2));
+        copy(res, s2);
+    } else {
+        int len_1 = len(s1),
+            len_2 = len(s2);
+        res = (char *) Memory::alloc_mem(len_1 + len_2 + 1); // +1 cuz '\0'
+        Memory::copy((pointer) s1, (pointer) res, len_1);
+        Memory::copy((pointer) s2, (pointer) (res + len_1), len_2);
+        res[len_1 + len_2] = '\0';
+    }
+    return res;
 }
 
 int CSTRUtil::len(char *str) {

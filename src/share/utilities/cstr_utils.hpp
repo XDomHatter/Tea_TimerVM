@@ -19,11 +19,11 @@ public:
     /// @return addr of dst
     static char * copy(char * dst, char * src);
 
-    /// s1 += s2;
+    /// return s1 + s2; DOESN'T change s1!
     /// @param s1 address of first str
     /// @param s2 the string to cat after s1
-    /// @return addr of s1, the str after catted
-    static char * cat(char **s1, char *s2);
+    /// @return new string, the str after catted
+    static char * cat(char *s1, char *s2);
 
     /// get count of bytes (not utf-8 characters) without '\0'
     static int len(char * str);
