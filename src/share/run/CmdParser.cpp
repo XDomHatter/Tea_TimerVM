@@ -10,8 +10,8 @@
 CMDParser::CMDParser(int argc, char **argv) {
     // init
     this->recompile = false;
-    this->main_codefile = new ArrayList_str;
-    this->lib_paths = new ArrayList_str;
+    this->main_codefile = new std::vector<char *>();
+    this->lib_paths = new std::vector<char *>();
     this->libpath_count = 0;
     this->codefile_count = 0;
     this->argv = argv;
@@ -85,10 +85,10 @@ void CMDParser::do_cmd(int *i) {
                 // user call like: -lp "C:\\xxx\\"
                 if (i == NULL) {
                     // not enough args
-
+                    TConsole::error("Unenough args.");
                 }
                 (*i)++; // next arg ( after -lp )
-                this->lib_paths->set(this->libpath_count, argv[*i]);
+                this->lib_paths->push_back(argv[*i]);
                 this->libpath_count++;
                 break;
             case CMDT_UNKNOWN:
@@ -98,7 +98,7 @@ void CMDParser::do_cmd(int *i) {
                 break;
         }
     } else {
-        this->main_codefile->set(this->codefile_count, single_arg);
+        this->main_codefile->push_back(single_arg);
         this->codefile_count ++;
     }
 }

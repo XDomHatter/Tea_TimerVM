@@ -5,7 +5,7 @@
 #ifndef $TVM_SRC_SHARE_RUN_CMDPARSER_HPP
 #define $TVM_SRC_SHARE_RUN_CMDPARSER_HPP
 
-#include <structures/ArrayList.hpp>
+#include <vector>
 
 enum CMD_TYPE {
     CMDT_HELPMSG, // print help message
@@ -18,9 +18,9 @@ enum CMD_TYPE {
 class CMDParser {
 public:
     int codefile_count;
-    ArrayList_str * main_codefile;
+    std::vector<char *> *main_codefile;
     int libpath_count;
-    ArrayList_str * lib_paths;
+    std::vector<char *> *lib_paths;
 
     char **argv;
     bool recompile;
