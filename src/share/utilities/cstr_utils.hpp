@@ -23,7 +23,8 @@ public:
     /// @param s1 address of first str
     /// @param s2 the string to cat after s1
     /// @return new string, the str after catted
-    static char * cat(char *s1, char *s2);
+    static char *cat(char *s1, char *s2);
+    static char *cat(char *s1, ...);
 
     /// get count of bytes (not utf-8 characters) without '\0'
     static int len(char * str);
