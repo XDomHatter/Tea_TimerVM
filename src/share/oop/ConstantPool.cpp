@@ -26,11 +26,17 @@ void ConstantPool::init_constant() {
     bool flag = false; // if the constant inited failed
     int failed_init_count = 0; // count of constants which init failed
 
+    // NETHOD_FUNCTION_Constant, MERGE_UTF8_Constant and TYPE_AND_NAME_Constant needs to be init again.
+    // They refer other constants. And the referred constants may not be read. And also,
+    //  when the referred constant is MERGE_UTF8_Constant, it maybe haven't inited.
+    // A simple example, C0(TYPE_AND_NAME_Constant) refers C1(MERGE_UTF8_Constant),
+    // initializing it will failed. So we should verify if there's a failed initializing and init again.
+
     // verify if index is able to get
     auto verify = [this](int i,u2 idx) -> bool {
         if(idx <  i) return true; // constant are inited
         // if constants is merge-utf8-constant, is hasn't been inited
-        Constant * verify_c = this->get_constant_fast<Constant>(idx);
+        var * verify_c = this->get_constant_fast<Constant>(idx);
         if(verify_c->type == CT_MERGE_UTF8_CONSTANT) {
             if(verify_c->status == CTSINITED)
                 return true;
@@ -56,7 +62,7 @@ void ConstantPool::init_constant() {
             if (temp_c->status == CTSINITED) continue; // constant has been inited.
             switch (temp_c->type) {
                 case CT_METHOD_FUNCTION_CONSTANT: {
-                    METHOD_FUNCTION_Constant *mf_c = (METHOD_FUNCTION_Constant *) temp_c;
+                    var *mf_c = (METHOD_FUNCTION_Constant *) temp_c;
                     // UTF8_Constant inits itself when create it,
                     // don't need to verify if the constant is inited.
                     // AND don't need to delete.
@@ -77,8 +83,8 @@ void ConstantPool::init_constant() {
 //                    break;
 //                }
                 case CT_MERGE_UTF8_CONSTANT: {
-                    MERGE_UTF8_Constant *mu_c = (MERGE_UTF8_Constant *) temp_c;
-                    U8String *r = new U8String();
+                    var *mu_c = (MERGE_UTF8_Constant *) temp_c;
+                    var *r = new U8String();
                     int soc = 0;
                     UTF8_Constant *temp;
                     for (int j = 0; j < mu_c->members_count; j++) {
@@ -100,7 +106,7 @@ void ConstantPool::init_constant() {
                     break;
                 }
                 case CT_TYPE_AND_NAME_CONSTANT: {
-                    TYPE_AND_NAME_Constant *tan_c = (TYPE_AND_NAME_Constant *) temp_c;
+                    var *tan_c = (TYPE_AND_NAME_Constant *) temp_c;
                     if (verify(i, tan_c->name_idx) && verify(i, tan_c->type_idx)) {
                         tan_c->name_utf8 = get_constant_fast<UTF8_Constant>(tan_c->name_idx);
                         tan_c->type_utf8 = get_constant_fast<UTF8_Constant>(tan_c->type_idx);
