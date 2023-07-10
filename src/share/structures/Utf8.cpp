@@ -4,7 +4,6 @@
 #include "Utf8.hpp"
 #include <asm/Memory.hpp>
 #include <utilities/cstr_utils.hpp>
-#include <utilities/Tio.hpp>
 
 
 ///////////////////////////
@@ -168,7 +167,9 @@ U8String *U8String::join(U8String *str) {
     this->length += str->length;
     this->_so_chars += (str->_so_chars - 1); // -1 cuz _so_chars contains the '\0'
 
-    CSTRUtil::cat(&this->_chars, str->_chars);
+    char *new_chars = CSTRUtil::cat(this->_chars, str->_chars);
+    Memory::free_mem(this->_chars);
+    this->_chars = new_chars;
 
     return this;
 }
