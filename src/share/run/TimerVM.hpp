@@ -15,7 +15,7 @@ private:
     EENDIAN endian;
 
     int codefiles_count;
-    ArrayList_str * libpaths;
+    std::vector<char *> *libpaths;
 
     std::vector<CodeFileObj *> *code_files;
 
