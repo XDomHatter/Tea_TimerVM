@@ -4,6 +4,7 @@
 
 #include "cstr_utils.hpp"
 #include <asm/Memory.hpp>
+#include <utilities/Tio.hpp>
 
 char *CSTRUtil::copy(char *dst, char *src) {
     strcpy(dst, src);
@@ -43,7 +44,7 @@ char *CSTRUtil::cat(char *s1, ...) {
         int length_of_t = len(t);
         if(length_of_t >= res_last_size) {
             int res_new_size = (res_totl_size + length_of_t + 10);
-            Memory::realloc_mem_keep_data((pointer *) &res, res_new_size, res_totl_size);
+            Memory::realloc_mem_keep_data((pointer *) &res, res_totl_size, res_new_size);
             res_totl_size = res_new_size;
         }
         Memory::copy((pointer) t, (pointer) (res + cur), length_of_t);
