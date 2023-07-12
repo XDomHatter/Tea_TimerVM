@@ -20,6 +20,7 @@ public:
         return (T*) alloc_mem(sizeof(T) * count);
     }
     static pointer realloc_mem(pointer ptr, size_t size);
+    static pointer realloc_mem_keep_data(pointer *ptr, size_t size_of_old_ptr, size_t new_size);
     static void free_mem(address mem);
     static void set_mem(pointer ptr, u1 value, size_t size);
     /// move source -> dest
