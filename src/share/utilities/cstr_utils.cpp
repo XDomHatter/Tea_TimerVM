@@ -4,7 +4,6 @@
 
 #include "cstr_utils.hpp"
 #include <asm/Memory.hpp>
-#include <utilities/Tio.hpp>
 
 char *CSTRUtil::copy(char *dst, char *src) {
     strcpy(dst, src);
@@ -67,5 +66,28 @@ int CSTRUtil::len(char *str) {
         c = *(str+i);
     }
     return res;
+}
+
+bool CSTRUtil::unsafe_end_with(char *src, char *obj, int len_of_src, int len_of_obj) {
+    if(len_of_obj > len_of_src) {
+        return false;
+    }
+    if(len_of_src == len_of_obj) {
+        return cstr_EQUAL(src, obj);
+    }
+    if(len_of_src <= 0 || len_of_obj <= 0) {
+        return false;
+    }
+    int idx_of_src = len_of_src - 1;
+    int idx_of_obj = len_of_obj - 1;
+    // e.g.
+    // src = [ 's' 't' 'r' 'i' 'n' 'g' '\0' ] idx_of_src = 5
+    // obj =             [ 'i' 'n' 'g' '\0' ] idx_of_obj = 2
+    while(idx_of_obj >= 0) {
+        if(src[idx_of_src--] != obj[idx_of_obj--]) {
+            return false;
+        }
+    }
+    return true;
 }
 
