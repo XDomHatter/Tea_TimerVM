@@ -168,7 +168,9 @@ U8String *U8String::join(U8String *str) {
     this->_so_chars += (str->_so_chars - 1); // -1 cuz _so_chars contains the '\0'
 
     char *new_chars = CSTRUtil::cat(this->_chars, str->_chars);
-    Memory::free_mem(this->_chars);
+    if(_chars != NULL) {
+        Memory::free_mem(_chars);
+    }
     this->_chars = new_chars;
 
     return this;
