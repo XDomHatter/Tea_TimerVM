@@ -128,6 +128,8 @@ void ConstantPool::set_constant(u2 index, Constant *constant) {
     this->constants[index - 1] = constant;
 }
 template<class T> T * ConstantPool::get_constant(u2 index) {
+    if((index - 1) < 0) return NULL;
+    if(index > this->count) return NULL;
     Constant *res = get_constant_fast<T>(index);
     if(!Constant::check_type<T>(res)){
         return NULL;

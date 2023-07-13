@@ -27,7 +27,6 @@ public:
     /// Get a constant in cp without checking type
     template<class T>
     inline T * get_constant_fast(u2 index) const {
-        if((index - 1) < 0) return NULL;
         return (T *) this->constants[index - 1]; // -1 cuz the index of constant starts from 1
     }
 };
