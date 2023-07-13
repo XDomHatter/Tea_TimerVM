@@ -6,6 +6,7 @@
 #define $TVM_SRC_SHARE_CODEFILE_TEAFILEREADER_HPP
 
 #include <utilities/file_macros.hpp>
+#include <utilities/Tio.hpp>
 #include <asm/BytesUtils.hpp>
 #include <asm/ByteStream.hpp>
 #include <asm/Endian.hpp>
@@ -28,18 +29,16 @@ public:
     }
 
     inline bool guarantee_more(int n) const {
-        return (this->cur + n) <= fsize;
+        if((this->cur + n) > this->fsize) {
+            TConsole::error("Doesn't have enough bytes to read!");
+        }
     }
 
     inline u1 nextU1() override {
         guarantee_more(1);
         return nextU1_fast();
     }
-    inline u1 nextU1_fast() override {
-        u1 resp = 0;
-        fread(&resp, sizeof(__int8), 1, this->file);
-        return resp;
-    }
+    u1 nextU1_fast() override;
 
     inline u2 nextU2() override{
         guarantee_more(2);
