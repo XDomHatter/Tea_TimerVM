@@ -128,7 +128,7 @@ void ConstantPool::set_constant(u2 index, Constant *constant) {
     this->constants[index - 1] = constant;
 }
 template<class T> T * ConstantPool::get_constant(u2 index) {
-    Constant *res = this->constants[index - 1];
+    Constant *res = get_constant_fast<T>(index);
     if(!Constant::check_type<T>(res)){
         return NULL;
     };
