@@ -69,22 +69,22 @@ endif()
 # detect os
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     message("TEA: Configuring on/for Linux")
-    add_definitions(-DLINUX)
+    add_definitions(-DOS_LINUX)
     include_directories(src/os/linux)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     message("TEA: Configuring on/for MacOS")
-    add_definitions(-DMACOS)
+    add_definitions(-DOS_MACOS)
     include_directories(src/os/macos)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     message("TEA: Configuring on/for Windows")
-    add_definitions(-DWINDOWS)
+    add_definitions(-DOS_WINDOWS)
     include_directories(src/os/windows)
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
     message("TEA: Configuring on/for IBM AIX")
-    add_definitions(-DAIX)
+    add_definitions(-DOS_AIX)
     include_directories(src/os/aix)
 
 else()
@@ -112,7 +112,8 @@ add_executable(tea
         # codefile
         src/share/codefile/TeaFileReader.cpp src/share/codefile/TeaFileReader.hpp
         src/share/codefile/TeaFileParser.cpp src/share/codefile/TeaFileParser.hpp
-        src/share/codefile/CodeFileObj.hpp
+        src/share/codefile/CodeFileObj.hpp src/share/codefile/CodeFileObj.cpp
+        src/share/codefile/CodeFileUtils.cpp src/share/codefile/CodeFileUtils.hpp
 
         # run
         src/share/run/CmdParser.cpp src/share/run/CmdParser.hpp
