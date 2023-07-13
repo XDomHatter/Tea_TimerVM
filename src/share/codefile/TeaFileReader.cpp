@@ -21,7 +21,7 @@ TeaFileReader::~TeaFileReader() {
 u1 TeaFileReader::nextU1_fast() {
     this->cur += 1;
     u1 resp = 0;
-    fread(&resp, sizeof(__int8), 1, this->file);
+    fread(&resp, 1, 1, this->file);
     return resp;
 }
 u2 TeaFileReader::nextU2_fast() {
