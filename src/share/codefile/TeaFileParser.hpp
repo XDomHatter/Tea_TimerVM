@@ -9,6 +9,7 @@
 #include <utilities/STATUS.hpp>
 #include <utilities/macros.hpp>
 #include <oop/ConstantPool.hpp>
+#include <list>
 
 class TeaFileParser {
 public:
@@ -23,7 +24,7 @@ public:
     u1 inf;
     EENDIAN e;
 
-    TeaFileParser(TeaFileReader * tfr, EDPARAM);
+    explicit TeaFileParser(TeaFileReader * tfr);
     ~TeaFileParser();
 
     /// check the file's magic
@@ -34,6 +35,9 @@ public:
     void read_inf();
     /// read constant-about information
     ConstantPool *read_cp() const;
+    char ** read_pk_names(int count, ConstantPool *cp) const;
+
+    
 
     inline bool FAST_METHOD_MODE() const {
         return inf & 1;
