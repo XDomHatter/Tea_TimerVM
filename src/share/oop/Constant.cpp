@@ -29,17 +29,22 @@ Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
                     ByteUtils::u2_of(value, 0, e),
                     ByteUtils::u2_of(value, 2, e),
                     ByteUtils::u2_of(value, 4, e),
+                    ByteUtils::u2_of(value, 6, e),
                     e
             );
             break;
         case CT_CLASS_CONSTANT:
-            res = NULL; // CLASS_Constant is disabled
+            res = new CLASS_Constant(
+                ByteUtils::u2_of(value, 0, e),
+                ByteUtils::u2_of(value, 2, e),
+                e
+            );
             break;
         case CT_MERGE_UTF8_CONSTANT: {
-            u2 ccount       = ByteUtils::u2_of(value, 0, e);
-            u2 *member_idxs = (u2 *) Memory::alloc_mem(ccount * 2);
+            u2  utf8_count  = ByteUtils::u2_of(value, 0, e);
+            u2 *member_idxs = (u2 *) Memory::alloc_mem(utf8_count * 2);
 
-            for (int i = 0; i < ccount; i++) {
+            for (int i = 0; i < utf8_count; i++) {
                 member_idxs[i] = ByteUtils::u2_of(value, i*2 + 2, e);
                 // i*2 cuz every index takes 2 bytes, but the step size is 1
                 // it runs like:
@@ -48,7 +53,7 @@ Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
                 // i = 2, i*2 + 2 = 6
                 // ...
             }
-            res = new MERGE_UTF8_Constant(ccount, member_idxs, e);
+            res = new MERGE_UTF8_Constant(utf8_count, member_idxs, e);
 
             Memory::free_mem(member_idxs);
             // free array cuz it has been copied(not directly use) in constructor
@@ -75,7 +80,7 @@ int Constant::size_in_cp(Constant * c) {
             struct_size = ((UTF8_Constant *)c)->size + 2;
             break;
         case CT_METHOD_FUNCTION_CONSTANT:
-            struct_size = 6;
+            struct_size = 8;
             break;
         case CT_CLASS_CONSTANT:
             struct_size = 0; // CLASS_Constant is disabled
@@ -126,10 +131,11 @@ bool UTF8_Constant::equal(const UTF8_Constant& obj) const{
 //////// METHOD_FUNCTION_Constant ///////
 /////////////////////////////////////////
 METHOD_FUNCTION_Constant::METHOD_FUNCTION_Constant(
-            u2 result_index, u2 name_index, u2 param_types_index, EDPARAM
+            u2 package_index, u2 result_index, u2 name_index, u2 param_types_index, EDPARAM
         ) : Constant(e){
     this->type   = CT_METHOD_FUNCTION_CONSTANT;
-
+    
+    this->pkg_idx  = package_index;
     this->rslt_idx = result_index;
     this->name_idx = name_index;
     this->prmt_idx = param_types_index;
@@ -167,6 +173,15 @@ u1 METHOD_FUNCTION_Constant::equal(METHOD_FUNCTION_Constant obj) const{
         }
     }
     return CTES_NoE;
+}
+
+/////////////////////////////////////////
+////////// CLASS_Constant ///////////////
+/////////////////////////////////////////
+CLASS_Constant::CLASS_Constant(u2 pakg_idx, u2 name_idx, EDPARAM) : Constant(e) {
+    this->pkg_idx = pkg_idx;
+    this->name_idx = name_idx;
+    this->name_cst = NULL;
 }
 
 

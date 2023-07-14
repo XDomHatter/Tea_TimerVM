@@ -6,7 +6,6 @@
 #include "ConstantPool.hpp"
 #include <asm/Memory.hpp>
 #include <utilities/Tio.hpp>
-#include <type_traits>
 #include <exception>
 
 ConstantPool::ConstantPool(u2 size, u2 count) {
@@ -26,17 +25,17 @@ void ConstantPool::init_constant() {
     bool flag = false; // if the constant inited failed
     int failed_init_count = 0; // count of constants which init failed
 
-    // NETHOD_FUNCTION_Constant, MERGE_UTF8_Constant and TYPE_AND_NAME_Constant needs to be init again.
+    // NETHOD_FUNCTION_Constant, CLASS_Constant, MERGE_UTF8_Constant and TYPE_AND_NAME_Constant needs to be init again.
     // They refer other constants. And the referred constants may not be read. And also,
-    //  when the referred constant is MERGE_UTF8_Constant, it maybe haven't inited.
+    //  when the referred constant is MERGE_UTF8_Constant, it maybe hasn't inited.
     // A simple example, C0(TYPE_AND_NAME_Constant) refers C1(MERGE_UTF8_Constant),
-    // initializing it will failed. So we should verify if there's a failed initializing and init again.
+    // initializing it will be failed. So we should verify if there's a failed initializing and init again.
 
     // verify if index is able to get
     auto verify = [this](int i,u2 idx) -> bool {
         if(idx <  i) return true; // constant are inited
         // if constants is merge-utf8-constant, is hasn't been inited
-        var * verify_c = this->get_constant_fast<Constant>(idx);
+        var * verify_c = this->get_constant<Constant>(idx);
         if(verify_c->type == CT_MERGE_UTF8_CONSTANT) {
             if(verify_c->status == CTSINITED)
                 return true;
@@ -78,10 +77,17 @@ void ConstantPool::init_constant() {
                     }
                     break;
                 }
-//                case CT_CLASS_CONSTANT: {
-//                    // disabled constant
-//                    break;
-//                }
+                case CT_CLASS_CONSTANT: {
+                    var cl_c = (CLASS_Constant *)temp_c;
+                    if(verify(i, cl_c->name_idx)) {
+                        cl_c->name_cst = get_constant_fast<UTF8_Constant>(
+                            cl_c->name_idx
+                        );
+                    } else {
+                        flag = true;
+                    }
+                    break;
+                }
                 case CT_MERGE_UTF8_CONSTANT: {
                     var *mu_c = (MERGE_UTF8_Constant *) temp_c;
                     var *r = new U8String();
@@ -116,9 +122,7 @@ void ConstantPool::init_constant() {
                     }
                     break;
                 }
-                default:
-
-                    break;
+                default:break;
             }
             update_status(temp_c); // update env
         }

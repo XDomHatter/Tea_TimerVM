@@ -71,6 +71,7 @@ public:
 
 class METHOD_FUNCTION_Constant : public Constant{
 public:
+    u2 pkg_idx;
     u2 rslt_idx;
     UTF8_Constant * result_type;
     u2 name_idx;
@@ -79,13 +80,23 @@ public:
     UTF8_Constant * param_types;
 
     /// init the constant
-    METHOD_FUNCTION_Constant(u2 result_index, u2 name_index, u2 param_types_index, EDPARAM);
+    METHOD_FUNCTION_Constant(u2 package_index, u2 result_index, u2 name_index, u2 param_types_index, EDPARAM);
     ~METHOD_FUNCTION_Constant();
 
     /// detect if this object is equal to param
     /// @param obj object to detect
     /// @return CTES_EQl/CTES_NaE/CTES_NPE/CTES_NoE
     u1 equal(METHOD_FUNCTION_Constant obj) const;
+};
+
+class CLASS_Constant : public Constant {
+public:
+    u2 pkg_idx;
+    u2 name_idx;
+    UTF8_Constant *name_cst;
+    
+    /// init the constant
+    CLASS_Constant(u2 pakg_idx, u2 name_idx, EDPARAM);
 };
 
 class MERGE_UTF8_Constant : public UTF8_Constant {
@@ -117,8 +128,9 @@ bool Constant::check_type(Constant *c) {
         // isn't a constant class
         return false;
     }
-
-    if (std::is_same<typename std::decay<T>::type, UTF8_Constant>           ::value) {
+    if(std::is_same<typename std::decay<T>::type, Constant>::value) {
+        return true;
+    } else if(std::is_same<typename std::decay<T>::type, UTF8_Constant>         ::value) {
         // utf-8 constant or merge-utf8 constant
         return c->type == CT_UTF8_CONSTANT || c->type == CT_MERGE_UTF8_CONSTANT;
     }
