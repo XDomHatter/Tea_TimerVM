@@ -4,9 +4,22 @@
 
 #include "TeaFileReader.hpp"
 #include <asm/Memory.hpp>
+#include <sys/stat.h>
 
 TeaFileReader::TeaFileReader(FILE *fileobj) {
     this->file = fileobj;
+    /* get file size*/ {
+        int fd = -1;
+        WINDOWS_ONLY(fd = _fileno(fileobj));
+        NOT_WINDOWS(fd = fileno(fileobj));
+        if (fd != -1) {
+            struct stat fileStat;
+            if (fstat(fd, &fileStat) == 0) {
+                this->fsize = fileStat.st_size;
+            }
+        }
+        
+    }
     this->cur   = 0;
 }
 TeaFileReader::~TeaFileReader() {

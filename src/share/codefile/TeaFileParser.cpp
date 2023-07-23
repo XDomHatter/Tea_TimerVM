@@ -7,6 +7,7 @@
 
 TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->reader = tfr;
+    tfr->guarantee_more(4 + 1 + 4); // magic + inf + size
     this->is_TCF = false;
     this->status = RSINIT;
     this->file_size = tfr->get_file_size();
@@ -30,6 +31,10 @@ void TeaFileParser::read_inf() {
     this->inf = this->reader->nextU1_fast();
 
     this->file_size       = this->reader->nextU4_fast();
+    if(file_size < reader->get_file_size()) {
+        // file is smaller than after compiling.
+        TConsole::error("File isn't intact!\n");
+    }
     this->reader->set_size(this->file_size);
 
     this->status          = RSINF;
