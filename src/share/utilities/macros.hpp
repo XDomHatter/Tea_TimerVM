@@ -28,6 +28,4 @@
 
 #define QUIT(code) exit((code));
 
-#define EDPARAM EENDIAN e
-
 #endif //MACROS

@@ -10,8 +10,6 @@
 
 CMDParser *TimerVM::parse_cmd(int argc, char * argv[]) {
     this->status = VMINIT;
-    // decide endian
-    DETECT_ENDIAN( this->endian );
     // parse arguments
     var cmdParser = new CMDParser(argc, argv);
 
@@ -40,7 +38,7 @@ void TimerVM::open_files(CMDParser *cmdParser) {
         }
         // file exists, create Parser object
         itParser = new TeaFileParser(
-                new TeaFileReader(itFile, this->endian)
+                new TeaFileReader(itFile)
         );
 
         itCFO = new CodeFileObj();
@@ -64,6 +62,6 @@ void TimerVM::parse_files(CMDParser *cmdParser) {
         // read constant pool
         itCFO->read_cp();
         // read packages map
-        itCFO->read_pk(libpaths, endian);
+        itCFO->read_pk(libpaths);
     }
 }

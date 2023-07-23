@@ -65,7 +65,7 @@ public:
         this->set_status(STATUS_READEDCP);
     }
     /// read packages
-    void read_pk(std::vector<char *> *lib_paths, EDPARAM);
+    void read_pk(std::vector<char *> *lib_paths);
 
     inline CodeFileObj *get_pkg(int index) const {
         return this->packages->at(index);

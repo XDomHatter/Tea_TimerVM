@@ -12,7 +12,6 @@
 
 class TimerVM {
 private:
-    EENDIAN endian;
 
     int codefiles_count;
     std::vector<char *> *libpaths;

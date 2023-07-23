@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 project(tea)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -11,10 +11,14 @@ include_directories(src/share)
 include_directories(src/os)
 
 # detect endian
-if (CMAKE_ENDIAN_SELECTED)
+if (CMAKE_CXX_BYTE_ORDER STREQUAL "BIG_ENDIAN")
+    add_definitions(-DED_BIGENDIAN)
     message("TEA: System is big endian")
-else()
+elseif (CMAKE_CXX_BYTE_ORDER STREQUAL "LITTLE_ENDIAN")
+    add_definitions(-DED_LITENDIAN)
     message("TEA: System is little endian")
+else ()
+    message(FATAL_ERROR "Unknown endian")
 endif()
 
 
@@ -121,7 +125,6 @@ add_executable(tea
         src/share/utilities/STATUS.hpp
 
         # structures
-        src/share/structures/TFloat.hpp src/share/structures/TFloat.cpp
         src/share/structures/Stack.cpp src/share/structures/Stack.hpp
         src/share/structures/Utf8.cpp src/share/structures/Utf8.hpp
         src/share/structures/ArrayList.cpp src/share/structures/ArrayList.hpp

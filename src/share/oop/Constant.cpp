@@ -11,41 +11,39 @@
 //////////////////////////////////////
 ///////////// Constant ///////////////
 //////////////////////////////////////
-Constant::Constant(EENDIAN e) : e(e) {
-
+Constant::Constant() {
     this->status = CTSNEW;
 }
-Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
+Constant *Constant::convert_constant(u1 *bytes) {
     Constant * res;
     u1 tag = ByteUtils::u1_of(bytes, 0); // the first byte is type tag
     u1 *value = bytes + 1; // bytes after tag0
     switch (tag) {
         case CT_UTF8_CONSTANT:
-            res = new UTF8_Constant(ByteUtils::u2_of(value, 0, e),
-                    value + 2, e);
+            res = new UTF8_Constant(
+                ByteUtils::u2_of(value, 0),
+                    value + 2);
             break;
         case CT_METHOD_FUNCTION_CONSTANT:
             res = new METHOD_FUNCTION_Constant(
-                    ByteUtils::u2_of(value, 0, e),
-                    ByteUtils::u2_of(value, 2, e),
-                    ByteUtils::u2_of(value, 4, e),
-                    ByteUtils::u2_of(value, 6, e),
-                    e
+                ByteUtils::u2_of(value, 0),
+                    ByteUtils::u2_of(value, 2),
+                    ByteUtils::u2_of(value, 4),
+                    ByteUtils::u2_of(value, 6)
             );
             break;
         case CT_CLASS_CONSTANT:
             res = new CLASS_Constant(
-                ByteUtils::u2_of(value, 0, e),
-                ByteUtils::u2_of(value, 2, e),
-                e
+                ByteUtils::u2_of(value, 0),
+                ByteUtils::u2_of(value, 2)
             );
             break;
         case CT_MERGE_UTF8_CONSTANT: {
-            u2  utf8_count  = ByteUtils::u2_of(value, 0, e);
+            u2  utf8_count  = ByteUtils::u2_of(value, 0);
             u2 *member_idxs = (u2 *) Memory::alloc_mem(utf8_count * 2);
 
             for (int i = 0; i < utf8_count; i++) {
-                member_idxs[i] = ByteUtils::u2_of(value, i*2 + 2, e);
+                member_idxs[i] = ByteUtils::u2_of(value, i * 2 + 2);
                 // i*2 cuz every index takes 2 bytes, but the step size is 1
                 // it runs like:
                 // i = 0, i*2 + 2 = 2
@@ -53,7 +51,7 @@ Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
                 // i = 2, i*2 + 2 = 6
                 // ...
             }
-            res = new MERGE_UTF8_Constant(utf8_count, member_idxs, e);
+            res = new MERGE_UTF8_Constant(utf8_count, member_idxs);
 
             Memory::free_mem(member_idxs);
             // free array cuz it has been copied(not directly use) in constructor
@@ -62,9 +60,8 @@ Constant *Constant::convert_constant(u1 *bytes, EDPARAM) {
         }
         case CT_TYPE_AND_NAME_CONSTANT:
             res = new TYPE_AND_NAME_Constant(
-                    ByteUtils::u2_of(value, 0, e),
-                    ByteUtils::u2_of(value, 2, e),
-                    e
+                ByteUtils::u2_of(value, 0),
+                    ByteUtils::u2_of(value, 2)
             );
             break;
         default:
@@ -101,12 +98,12 @@ int Constant::size_in_cp(Constant * c) {
 //////////////////////////////////////
 /////////// UTF8_Constant ////////////
 //////////////////////////////////////
-UTF8_Constant::UTF8_Constant(EDPARAM) : Constant(e) {
+UTF8_Constant::UTF8_Constant() : Constant() {
     this->type = CT_UTF8_CONSTANT;
     this->size = 0;
     this->val = new U8String();
 }
-UTF8_Constant::UTF8_Constant(u2 size, u1 *value, EDPARAM) : Constant(e) {
+UTF8_Constant::UTF8_Constant(u2 size, u1 *value) : Constant() {
     this->type = CT_UTF8_CONSTANT;
     this->size = size;
     this->val = new U8String((char *)value, size);
@@ -131,8 +128,8 @@ bool UTF8_Constant::equal(const UTF8_Constant& obj) const{
 //////// METHOD_FUNCTION_Constant ///////
 /////////////////////////////////////////
 METHOD_FUNCTION_Constant::METHOD_FUNCTION_Constant(
-            u2 package_index, u2 result_index, u2 name_index, u2 param_types_index, EDPARAM
-        ) : Constant(e){
+            u2 package_index, u2 result_index, u2 name_index, u2 param_types_index
+        ) : Constant(){
     this->type   = CT_METHOD_FUNCTION_CONSTANT;
     
     this->pkg_idx  = package_index;
@@ -178,7 +175,7 @@ u1 METHOD_FUNCTION_Constant::equal(METHOD_FUNCTION_Constant obj) const{
 /////////////////////////////////////////
 ////////// CLASS_Constant ///////////////
 /////////////////////////////////////////
-CLASS_Constant::CLASS_Constant(u2 pakg_idx, u2 name_idx, EDPARAM) : Constant(e) {
+CLASS_Constant::CLASS_Constant(u2 pakg_idx, u2 name_idx) : Constant() {
     this->pkg_idx = pkg_idx;
     this->name_idx = name_idx;
     this->name_cst = NULL;
@@ -189,8 +186,8 @@ CLASS_Constant::CLASS_Constant(u2 pakg_idx, u2 name_idx, EDPARAM) : Constant(e) 
 /////// MERGE_UTF8_Constant /////////////
 /////////////////////////////////////////
 MERGE_UTF8_Constant::MERGE_UTF8_Constant(
-            u2 members_count, u2 *members_idxs, EDPARAM
-        ) : UTF8_Constant(e){
+            u2 members_count, u2 *members_idxs
+        ) : UTF8_Constant(){
     this->type          = CT_MERGE_UTF8_CONSTANT;
     this->members_count = members_count;
     this->members_idxs  = (u2 *) Memory::alloc_mem(members_count * 2);
@@ -212,8 +209,8 @@ MERGE_UTF8_Constant::~MERGE_UTF8_Constant() {
 /////// TYPE_AND_NAME_Constant //////////
 /////////////////////////////////////////
 TYPE_AND_NAME_Constant::TYPE_AND_NAME_Constant(
-            u2 type_idx, u2 name_idx, EENDIAN e
-        ) : Constant(e){
+            u2 type_idx, u2 name_idx
+        ) : Constant(){
     this->type     = CT_TYPE_AND_NAME_CONSTANT;
     this->type_idx = type_idx;
     this->name_idx = name_idx;

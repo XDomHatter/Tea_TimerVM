@@ -5,8 +5,7 @@
 
 #include "ByteStream.hpp"
 
-ByteStream::ByteStream(u1 *bytes, int size, EDPARAM) {
-    this->e = e;
+ByteStream::ByteStream(u1 *bytes, int size) {
     this->head = Memory::alloc_mem(size);
     Memory::copy(bytes, (pointer) this->head, size);
     this->current = head;

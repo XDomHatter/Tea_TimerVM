@@ -20,9 +20,12 @@ private:
     u4 cur;
 
 public:
-    EENDIAN endian;
-    TeaFileReader(FILE *fileobj, EENDIAN eendian);
+    TeaFileReader(FILE *fileobj);
     ~TeaFileReader();
+    
+    inline void set_size(int size) {
+        this->fsize = size;
+    }
 
     inline u4 get_file_size() const {
         return this->fsize;

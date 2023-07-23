@@ -33,23 +33,23 @@ public:
     /// get the u1 of the index in src
     /// @param src source bytes array
     /// @param idx index
-    static u1 u1_of(u1 * src, int idx           );
+    static u1 u1_of(u1 * src, int idx);
     /// get the u2 of the index in src(IT HAS WRAPPED)
     /// @param src source bytes array
     /// @param idx index
-    static u2 u2_of(u1 * src, int idx, EENDIAN e);
+    static u2 u2_of(u1 *src, int idx);
     /// get the u4 of the index in src(IT HAS WRAPPED)
     /// @param src source bytes array
     /// @param idx index
-    static u4 u4_of(u1 * src, int idx, EENDIAN e);
+    static u4 u4_of(u1 * src, int idx);
     /// get the u8 of the index in src(IT HAS WRAPPED)
     /// @param src source bytes array
     /// @param idx index
-    static u8 u8_of(u1 * src, int idx, EENDIAN e);
+    static u8 u8_of(u1 * src, int idx);
 
-    static u2 cast_u2(u1 * arr, EENDIAN e);
-    static u4 cast_u4(u1 * arr, EENDIAN e);
-    static u8 cast_u8(u1 * arr, EENDIAN e);
+    static u2 cast_u2(u1 * arr);
+    static u4 cast_u4(u1 * arr);
+    static u8 cast_u8(u1 * arr);
 };
 
 

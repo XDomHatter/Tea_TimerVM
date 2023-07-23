@@ -11,8 +11,6 @@
 
 /// nextU2 4 8 do the flip operation if the endian is little
 class IByteStream {
-protected:
-    EDPARAM;
 public:
     /// return next u1 in stream
     virtual u1 nextU1() = 0;
@@ -47,7 +45,7 @@ public:
     /// @param bytes target bytes
     /// @param size  size of bytes
     /// @TIP The array only do copy, free it self!
-    ByteStream(u1 *bytes, int size, EDPARAM);
+    ByteStream(u1 *bytes, int size);
 
     inline bool guarantee_more(int n) {
         return (current+n) < end;
@@ -61,7 +59,7 @@ public:
     u2 nextU2() override;
     inline u2 nextU2_fast() override {
         u2 res = *((u2 *)current);
-        EENDIAN_CODE(e, {}, {
+        EENDIAN_CODE({}, {
             res = ByteUtils::flip_u2(res);
         });
         current += 2;
@@ -71,7 +69,7 @@ public:
     u4 nextU4() override;
     inline u4 nextU4_fast() override {
         u4 res = *((u4 *)current);
-        EENDIAN_CODE(e, {}, {
+        EENDIAN_CODE({}, {
             res = ByteUtils::flip_u4(res);
         });
         current += 4;
@@ -81,7 +79,7 @@ public:
     u8 nextU8() override;
     inline u8 nextU8_fast() override {
         u8 res = *((u8 *)current);
-        EENDIAN_CODE(e, {}, {
+        EENDIAN_CODE({}, {
             res = ByteUtils::flip_u8(res);
         });
         current += 8;

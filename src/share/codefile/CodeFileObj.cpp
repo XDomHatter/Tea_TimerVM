@@ -6,7 +6,7 @@
 #include "CodeFileObj.hpp"
 #include <codefile/CodeFileUtils.hpp>
 
-void CodeFileObj::read_pk(std::vector<char *> *lib_paths, EDPARAM) {
+void CodeFileObj::read_pk(std::vector<char *> *lib_paths) {
     int count = parser->reader->nextU2_fast();
     var l = parser->read_pk_names(count, this->cp);
     if (l == NULL) return;
@@ -20,13 +20,13 @@ void CodeFileObj::read_pk(std::vector<char *> *lib_paths, EDPARAM) {
 
         if(f == NULL) TConsole::error(CSTRUtil::cat("cannot find file: ", i));
         itCFO->parser = new TeaFileParser(
-                new TeaFileReader(f, e)
+                new TeaFileReader(f)
         );
 
         itCFO->check_mg();
         itCFO->read_inf();
         itCFO->read_cp();
-        itCFO->read_pk(lib_paths, e);
+        itCFO->read_pk(lib_paths);
         r->push_back(itCFO);
     }
     this->packages = r;

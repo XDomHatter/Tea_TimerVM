@@ -22,7 +22,6 @@ public:
                        // 0b00000100 means JIT_ON      mode
                        // 0b00001000 means AOT_ON      mode
     u1 inf;
-    EENDIAN e;
 
     explicit TeaFileParser(TeaFileReader * tfr);
     ~TeaFileParser();

@@ -37,14 +37,13 @@ typedef enum{
 
 class Constant {
 public:
-    EENDIAN e;
     ConstantType   type;
     ConstantStatus status;
 
     /// base constructor of all the constants
-    Constant(EDPARAM);
+    Constant();
     static int size_in_cp(Constant * c);
-    static Constant * convert_constant(u1 * value, EDPARAM);
+    static Constant * convert_constant(u1 * value);
 
     template<class T> static bool check_type(Constant *c);
 };
@@ -55,11 +54,11 @@ public:
     U8String * val;
 
     /// init an empty UTF8 Constant with nothing, usually used in MERGE_UTF8_Constant
-    UTF8_Constant(EDPARAM);
+    UTF8_Constant();
     /// init UTF8 Constant with source bytes
     /// @param size Size of bytes
     /// @param value Free it by caller! Method only do copying!
-    UTF8_Constant(u2 size, u1 * value, EDPARAM);
+    UTF8_Constant(u2 size, u1 * value);
     ~UTF8_Constant();
 
     /// concat param to end of self
@@ -80,7 +79,7 @@ public:
     UTF8_Constant * param_types;
 
     /// init the constant
-    METHOD_FUNCTION_Constant(u2 package_index, u2 result_index, u2 name_index, u2 param_types_index, EDPARAM);
+    METHOD_FUNCTION_Constant(u2 package_index, u2 result_index, u2 name_index, u2 param_types_index);
     ~METHOD_FUNCTION_Constant();
 
     /// detect if this object is equal to param
@@ -96,7 +95,7 @@ public:
     UTF8_Constant *name_cst;
     
     /// init the constant
-    CLASS_Constant(u2 pakg_idx, u2 name_idx, EDPARAM);
+    CLASS_Constant(u2 pakg_idx, u2 name_idx);
 };
 
 class MERGE_UTF8_Constant : public UTF8_Constant {
@@ -106,7 +105,7 @@ public:
     int size;
 
     /// init the constant
-    MERGE_UTF8_Constant(u2 members_count, u2 * members_idxs, EDPARAM);
+    MERGE_UTF8_Constant(u2 members_count, u2 * members_idxs);
     ~MERGE_UTF8_Constant();
 };
 
@@ -117,7 +116,7 @@ public:
     u2 name_idx;
     UTF8_Constant * name_utf8;
 
-    TYPE_AND_NAME_Constant(u2 type_idx, u2 name_idx, EDPARAM);
+    TYPE_AND_NAME_Constant(u2 type_idx, u2 name_idx);
 };
 
 

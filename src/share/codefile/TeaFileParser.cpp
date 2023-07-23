@@ -10,14 +10,13 @@ TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->is_TCF = false;
     this->status = RSINIT;
     this->file_size = tfr->get_file_size();
-    this->e = tfr->endian;
 }
 TeaFileParser::~TeaFileParser() {
     delete this->reader;
 }
 bool TeaFileParser::check_magic() {
     if(this->status < RSMAGIC) { // reader hasn't checked magic num
-        u4 m = reader->nextU4();
+        u4 m = reader->nextU4_fast();
         this->is_TCF = (m == 0xAE584448);
         this->status = RSMAGIC;
     }
@@ -28,9 +27,10 @@ void TeaFileParser::read_inf() {
         check_magic();
     }
 
-    this->inf = this->reader->nextU1();
+    this->inf = this->reader->nextU1_fast();
 
-    this->file_size       = this->reader->nextU4();
+    this->file_size       = this->reader->nextU4_fast();
+    this->reader->set_size(this->file_size);
 
     this->status          = RSINF;
 }
@@ -41,7 +41,7 @@ ConstantPool *TeaFileParser::read_cp() const {
     u1 * cp_bytes = this->reader->nextUn(size);
     u1 * cur = cp_bytes;
     for(int i = 0; i<count; i++) {
-        Constant * c = Constant::convert_constant(cur, e);
+        Constant * c = Constant::convert_constant(cur);
         cp->set_constant(i+1, c);
         cur += Constant::size_in_cp(c);
     }
