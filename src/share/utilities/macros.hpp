@@ -28,4 +28,29 @@
 
 #define QUIT(code) exit((code));
 
+
+#if defined(OS_WINDOWS)
+    #define WINDOWS_ONLY(code) code
+    #define NOT_WINDOWS(code)
+#else
+    #define WINDOWS_ONLY(code)
+    #define NOT_WINDOWS(code) code
+#endif
+
+#if defined(OS_LINUX) || defined(OS_AIX)
+    #define UNIX_ONLY(code) code
+    #define NOT_UNIX(code)
+#else
+    #define UNIX_ONLY(code)
+    #define NOT_UNIX(code) code
+#endif
+
+#if defined(OS_MACOS)
+    #define MAC_ONLY(code)
+    #define NOT_MAC(code)
+#else
+    #define MAC_ONLY(code)
+    #define NOT_MAC(code) code
+#endif
+
 #endif //MACROS
