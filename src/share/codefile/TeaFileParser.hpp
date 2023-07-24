@@ -14,7 +14,7 @@
 class TeaFileParser {
 public:
     TeaFileReader * reader;
-    ReaderStatus    status;
+    bool checked_magic;
     u4 file_size;
     bool is_TCF;
 //  u1 file_inf;       // 0b00000001 means FAST_METHOD mode that vm doesn't check result type

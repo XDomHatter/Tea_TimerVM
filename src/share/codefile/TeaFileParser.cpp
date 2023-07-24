@@ -9,17 +9,16 @@ TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->reader = tfr;
     tfr->guarantee_more(9); // magic + inf + size -> 4 + 1 + 4
     this->is_TCF = false;
-    this->status = RSINIT;
     this->file_size = tfr->get_file_size();
 }
 TeaFileParser::~TeaFileParser() {
     delete this->reader;
 }
 bool TeaFileParser::check_magic() {
-    if(this->status < RSMAGIC) { // reader hasn't checked magic num
+    if(!this->checked_magic) { // reader hasn't checked magic num
         u4 m = reader->nextU4_fast();
         this->is_TCF = (m == 0xAE584448);
-        this->status = RSMAGIC;
+        this->checked_magic = true;
     }
     return this->is_TCF;
 }
@@ -32,8 +31,6 @@ void TeaFileParser::read_inf() {
         TConsole::error("File isn't intact!\n");
     }
     this->reader->set_size(this->file_size);
-
-    this->status          = RSINF;
 }
 ConstantPool *TeaFileParser::read_cp() const {
     u2 count = this->reader->nextU2();
@@ -49,7 +46,7 @@ ConstantPool *TeaFileParser::read_cp() const {
     cp->init_constant();
     
     Memory::free_mem(cp_bytes);
-
+    
     return cp;
 }
 char ** TeaFileParser::read_pk_names(int count, ConstantPool *cp) const {
