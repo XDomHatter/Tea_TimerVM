@@ -6,7 +6,9 @@
 #include <asm/Memory.hpp>
 
 char *CSTRUtil::copy(char *dst, char *src) {
-    strcpy(dst, src);
+    if((dst != NULL) || (src != NULL))
+        strcpy(dst, src);
+    
     return dst;
 }
 
