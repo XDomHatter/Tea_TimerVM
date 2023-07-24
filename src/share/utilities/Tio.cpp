@@ -6,7 +6,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <asm/Memory.hpp>
+#include <utilities/cstr_utils.hpp>
 #include <utilities/macros.hpp> // for QUIT()
+
 
 void TConsole::input(char *buf) {
     char c = 0;
@@ -37,8 +40,52 @@ void TConsole::output_m(char *str, ...) {
         output(sto);
     }
     va_end(ap);
+}
 
-    return;
+void TConsole::output_f(char *str, ...) {
+    va_list args;
+    va_start(args, str);
+    int o_ttl = CSTRUtil::len(str) + 1;
+    char *o = Memory::alloc_mem<char>(o_ttl);
+    int o_cur = 0;
+    
+
+    while(*str != '\0') {
+        if(*str == '%') {
+            printf("%s", o);
+            Memory::set_mem((pointer) o, 0, o_ttl);
+            o_cur = 0;
+            
+            switch (*(++str)) {
+                case 's': {
+                    char *s = va_arg(args, char *);
+                    printf("%s", s);
+                    break;
+                }
+                case 'd': {
+                    int d = va_arg(args, int);
+                    printf("%d", d);
+                    break;
+                }
+                case 'x': {
+                    // u1 and u2 will be promoted to u4
+                    u4 _u4 = va_arg(args, u4);
+                    printf("%x", _u4);
+                    break;
+                }
+                default: {
+                    error("Unknown format");
+                }
+            }
+        } else {
+            sprintf(o+(o_cur++), "%c", *str);
+        }
+        str ++;
+    }
+    if(o_cur != 0) {
+        printf("%s", o);
+    }
+    Memory::free_mem(o);
 }
 
 void TConsole::error(char *str) {

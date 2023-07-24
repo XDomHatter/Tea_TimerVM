@@ -16,6 +16,10 @@ public:
     /// @param n strings count
     /// @param str c string for output
     static void output_m(char *str, ...);
+    /// print str in stdout, with format like `printf`
+    /// @param str format string
+    /// @param ... format params
+    static void output_f(char *str, ...);
     /// read a line from stdin
     /// @param buf buffer to store c string
     static void input(char *buf);
