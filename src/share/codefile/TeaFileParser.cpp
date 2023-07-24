@@ -24,10 +24,6 @@ bool TeaFileParser::check_magic() {
     return this->is_TCF;
 }
 void TeaFileParser::read_inf() {
-    if(this->status >= RSMAGIC) {
-        check_magic();
-    }
-
     this->inf = this->reader->nextU1_fast();
 
     this->file_size       = this->reader->nextU4_fast();
