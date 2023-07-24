@@ -57,7 +57,15 @@ void CMDParser::parse_cmd(int argc, char * argv[]) {
 
 
 void CMDParser::print_help() {
-    TConsole::output("help message");
+    char * msg =
+        "Usage: tea [options] [source files] [args] \n"
+        "Options:\n"
+        "    -v           print version\n"
+        "    -lp <path>   include a lib path\n"
+        "    -h           print help message\n"
+        ;
+    TConsole::output(msg);
+    QUIT(0);
 }
 
 
