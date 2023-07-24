@@ -51,6 +51,8 @@ ConstantPool *TeaFileParser::read_cp() const {
         cur += Constant::size_in_cp(c);
     }
     cp->init_constant();
+    
+    Memory::free_mem(cp_bytes);
 
     return cp;
 }
