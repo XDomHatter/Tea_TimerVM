@@ -7,7 +7,7 @@
 
 TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->reader = tfr;
-    tfr->guarantee_more(4 + 1 + 4); // magic + inf + size
+    tfr->guarantee_more(9); // magic + inf + size -> 4 + 1 + 4
     this->is_TCF = false;
     this->status = RSINIT;
     this->file_size = tfr->get_file_size();
@@ -24,7 +24,7 @@ bool TeaFileParser::check_magic() {
     return this->is_TCF;
 }
 void TeaFileParser::read_inf() {
-    if(!this->status < RSMAGIC) {
+    if(this->status >= RSMAGIC) {
         check_magic();
     }
 
