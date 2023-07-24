@@ -94,7 +94,7 @@ void TConsole::error(char *str) {
 }
 
 void TConsole::print_version() {
-    output("Tea_TimerVM v1.0.0 release");
+    output("Tea_TimerVM v1.0.0 release\n");
 }
 
 void TConsole::error(char *func, char *msg, char *paramerr) {
