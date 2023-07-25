@@ -12,7 +12,7 @@
 
 
 void TConsole::input(char *buf) {
-    char c = 0;
+    char c;
     int  i = 0;
     while((c = getc(stdin)) != '\n'){
         buf[i] = c;
@@ -72,6 +72,15 @@ void TConsole::output_f(char *str, ...) {
                     u4 _u4 = va_arg(args, u4);
                     printf("%x", _u4);
                     break;
+                }
+                case 'l': {
+                    if(*(str + 1) == 'x') {
+                        // print u8 hex
+                        u8 _u8 = va_arg(args, u8);
+                        printf("%llx", _u8);
+                        str++;
+                        break;
+                    }
                 }
                 default: {
                     error("Unknown format");
