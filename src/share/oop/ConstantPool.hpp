@@ -31,5 +31,15 @@ public:
     }
 };
 
+template<class T> T * ConstantPool::get_constant(u2 index) {
+    if((index - 1) < 0) return NULL;
+    if(index > this->count) return NULL;
+    Constant *res = get_constant_fast<T>(index);
+    if(!Constant::check_type<T>(res)){
+        TConsole::error("Constant type is wrong.");
+    };
+    return (T *) res;
+}
+
 
 #endif //$TEA_SRC_SHARE_OOP_CONSTANTPOOL_HPP
