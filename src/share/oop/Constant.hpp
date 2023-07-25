@@ -71,6 +71,7 @@ public:
 class METHOD_FUNCTION_Constant : public Constant{
 public:
     u2 pkg_idx;
+    UTF8_Constant *pkg_cst;
     u2 rslt_idx;
     UTF8_Constant * result_type;
     u2 name_idx;
@@ -91,6 +92,7 @@ public:
 class CLASS_Constant : public Constant {
 public:
     u2 pkg_idx;
+    UTF8_Constant *pkg_cst;
     u2 name_idx;
     UTF8_Constant *name_cst;
     

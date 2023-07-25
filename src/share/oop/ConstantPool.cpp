@@ -66,10 +66,14 @@ void ConstantPool::init_constant() {
                     // don't need to verify if the constant is inited.
                     // AND don't need to delete.
 
-                    if (verify(i, mf_c->name_idx) && verify(i, mf_c->prmt_idx) && verify(i, mf_c->rslt_idx)) {
-                        mf_c->name = get_constant<UTF8_Constant>(mf_c->name_idx);
+                    if (verify(i, mf_c->name_idx) &&
+                        verify(i, mf_c->prmt_idx) &&
+                        verify(i, mf_c->rslt_idx) &&
+                        verify(i, mf_c->pkg_idx)) {
+                        mf_c->name        = get_constant<UTF8_Constant>(mf_c->name_idx);
                         mf_c->param_types = get_constant<UTF8_Constant>(mf_c->prmt_idx);
                         mf_c->result_type = get_constant<UTF8_Constant>(mf_c->rslt_idx);
+                        mf_c->pkg_cst     = get_constant<UTF8_Constant>(mf_c->pkg_idx);
                     } else {
                         // constant has not been inited.
                         // set the flag to true to mark it.
@@ -79,9 +83,12 @@ void ConstantPool::init_constant() {
                 }
                 case CT_CLASS_CONSTANT: {
                     var cl_c = (CLASS_Constant *)temp_c;
-                    if(verify(i, cl_c->name_idx)) {
+                    if(verify(i, cl_c->name_idx) && verify(i, cl_c->pkg_idx)) {
                         cl_c->name_cst = get_constant_fast<UTF8_Constant>(
                             cl_c->name_idx
+                        );
+                        cl_c->pkg_cst = get_constant_fast<UTF8_Constant>(
+                            cl_c->pkg_idx
                         );
                     } else {
                         flag = true;
@@ -130,13 +137,4 @@ void ConstantPool::init_constant() {
 }
 void ConstantPool::set_constant(u2 index, Constant *constant) {
     this->constants[index - 1] = constant;
-}
-template<class T> T * ConstantPool::get_constant(u2 index) {
-    if((index - 1) < 0) return NULL;
-    if(index > this->count) return NULL;
-    Constant *res = get_constant_fast<T>(index);
-    if(!Constant::check_type<T>(res)){
-        return NULL;
-    };
-    return (T *) res;
 }
