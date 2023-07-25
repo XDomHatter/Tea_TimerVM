@@ -32,3 +32,7 @@ void CodeFileObj::read_pk(std::vector<char *> *lib_paths) {
     this->packages = r;
     set_status(STATUS_READEDPK);
 }
+
+void CodeFileObj::read_gv() {
+
+}
