@@ -31,7 +31,7 @@ public:
         return this->fsize;
     }
 
-    inline bool guarantee_more(int n) const {
+    inline void guarantee_more(int n) const {
         if((this->cur + n) > this->fsize) {
             TConsole::error("Doesn't have enough bytes to read!");
         }
