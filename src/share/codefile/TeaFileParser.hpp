@@ -6,10 +6,12 @@
 #define $TVM_SRC_SHARE_CODEFILE_TEAFILEPARSER_HPP
 
 #include <codefile/TeaFileReader.hpp>
-#include <utilities/STATUS.hpp>
-#include <utilities/macros.hpp>
 #include <oop/ConstantPool.hpp>
-#include <list>
+#include <runtime/teaFunction.hpp>
+#include <utilities/macros.hpp>
+#include <utilities/STATUS.hpp>
+#include <vector>
+
 
 class TeaFileParser {
 public:
@@ -35,6 +37,8 @@ public:
     /// read constant-about information
     ConstantPool *read_cp() const;
     char ** read_pk_names(int count, ConstantPool *cp) const;
+    METHOD_FUNCTION_Constant **read_method_func_info(ConstantPool *cp, int count) const;
+    TFunction **read_method_func(METHOD_FUNCTION_Constant **infos, ConstantPool *cp, int count) const;
 
     
 

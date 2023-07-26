@@ -4,6 +4,8 @@
 
 #include "TeaFileParser.hpp"
 #include <oop/ConstantPool.hpp>
+#include <runtime/teaVariable.hpp>
+#include <runtime/teaException.hpp>
 
 TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->reader = tfr;
@@ -62,4 +64,50 @@ char ** TeaFileParser::read_pk_names(int count, ConstantPool *cp) const {
         l[i] = temp_c->val->get_cstr();
     }
     return l;
+}
+METHOD_FUNCTION_Constant **TeaFileParser::read_method_func_info(ConstantPool *cp, int count) const {
+    var info = Memory::alloc_mem<METHOD_FUNCTION_Constant *>(count);
+    for(int i = 0; i<count; i++) {
+        info[i] = cp->get_constant_fast<METHOD_FUNCTION_Constant>(
+            reader->nextU2()
+        );
+    }
+}
+TFunction ** TeaFileParser::read_method_func(METHOD_FUNCTION_Constant **infos, ConstantPool *cp, int count) const {
+    var res = Memory::alloc_mem<TFunction *>(count);
+    for(int i = 0; i<count; i++) {
+        reader->guarantee_more(5); // acc_flag + lv_count + handled_exception_count
+
+        u1 acc_flag                = reader->nextU1_fast();
+        // read local variable
+        u2 lv_count                = reader->nextU2_fast();
+        var local_vars = new TeaVariableSet(lv_count);
+        // read exception handler
+        u2 handled_exception_count = reader->nextU2_fast();
+        var handlers = Memory::alloc_mem<TExceptionHandler *>(handled_exception_count);
+        for(int i = 0; i<handled_exception_count; i++) {
+            u2 constant_index = reader->nextU2_fast();
+            u2 handle_pc = reader->nextU2_fast();
+            handlers[i] = new TExceptionHandler(
+                cp->get_constant<CLASS_Constant>(constant_index),
+                handle_pc
+            );
+        }
+        var ehs = new TExceptionHandlers(handled_exception_count, handlers);
+        // max stack size
+        u1 max_stack_size = reader->nextU2_fast();
+        // read opcode
+        u4 opcode_size = reader->nextU2_fast();
+        u1 *opcodes = reader->nextUn(opcode_size);
+
+        res[i] = new TFunction(
+            infos[i],
+            acc_flag,
+            local_vars,
+            ehs,
+            max_stack_size,
+            opcode_size,
+            opcodes
+        );
+    }
 }
