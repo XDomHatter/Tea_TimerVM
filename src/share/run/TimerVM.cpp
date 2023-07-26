@@ -53,8 +53,7 @@ void TimerVM::parse_files(CMDParser *cmdParser) {
     int length  = cmdParser->codefile_count;
     for(int i = 0; i < length; i++) {
         itCFO = this->code_files->at(i);
-
-
+        
         // check file
         itCFO->check_mg();
         // read information
@@ -63,5 +62,7 @@ void TimerVM::parse_files(CMDParser *cmdParser) {
         itCFO->read_cp();
         // read packages map
         itCFO->read_pk(libpaths);
+        // read global variable
+        itCFO->read_gv();
     }
 }

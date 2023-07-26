@@ -20,17 +20,19 @@ public:
     static const u1 STATUS_READEDCP = 2;
     static const u1 STATUS_READEDPK = 4;
 
+    char          *filename;
     TeaFileParser *parser;
     ConstantPool  *cp;
-    char          *filename;
     std::vector<CodeFileObj *> *packages;
+    TeaVariableSet *global_var;
 
     inline CodeFileObj(char *filename = NULL) {
-        this->_status = 0;
-        this->parser = NULL;
-        this->cp     = NULL;
-        this->filename = filename;
+        this->_status     = 0;
+        this->parser      = NULL;
+        this->cp          = NULL;
+        this->filename    = filename;
         this->packages    = NULL;
+        this->global_var  = NULL;
     }
 
 
@@ -66,6 +68,11 @@ public:
     }
     /// read packages
     void read_pk(std::vector<char *> *lib_paths);
+    /// read global variables
+    inline void read_gv() {
+        int count = parser->reader->nextU2();
+        this->global_var = new TeaVariableSet(count);
+    }
 
     inline CodeFileObj *get_pkg(int index) const {
         return this->packages->at(index);
