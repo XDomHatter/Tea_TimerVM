@@ -148,29 +148,6 @@ METHOD_FUNCTION_Constant::~METHOD_FUNCTION_Constant() {
     delete this->name;
     delete this->result_type;
 }
-u1 METHOD_FUNCTION_Constant::equal(METHOD_FUNCTION_Constant obj) const{
-    if(!this->name->equal(*obj.name)){
-        return CTES_NoE;
-    } else {
-        if (this->name->equal(*obj.name) &&
-            this->param_types->equal(*obj.param_types) &&
-            this->result_type->equal(*obj.result_type)) {
-            return CTES_EQl; // completely equal
-        }
-        if (this->name->equal(*obj.name) &&
-            this->param_types->equal(*obj.param_types)) {
-            return CTES_NPE; // only result type isn't equal
-        }
-        if (this->name->equal(*obj.name) &&
-            this->result_type->equal(*obj.result_type)) {
-            return CTES_NRE; // param types isn't equal
-        }
-        if (this->name->equal(*obj.name)) {
-            return CTES_NaE; // only name is equal
-        }
-    }
-    return CTES_NoE;
-}
 
 /////////////////////////////////////////
 ////////// CLASS_Constant ///////////////

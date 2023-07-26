@@ -86,7 +86,14 @@ public:
     /// detect if this object is equal to param
     /// @param obj object to detect
     /// @return CTES_EQl/CTES_NaE/CTES_NPE/CTES_NoE
-    u1 equal(METHOD_FUNCTION_Constant obj) const;
+    inline bool equal(METHOD_FUNCTION_Constant obj) const {
+        return (
+            pkg_cst    ->equal(*obj.pkg_cst)     &&
+            result_type->equal(*obj.result_type) &&
+            name       ->equal(*obj.name)        &&
+            param_types->equal(*obj.param_types)
+        );
+    }
 };
 
 class CLASS_Constant : public Constant {
@@ -98,6 +105,11 @@ public:
     
     /// init the constant
     CLASS_Constant(u2 pakg_idx, u2 name_idx);
+    inline bool equal(CLASS_Constant *obj) const {
+        return
+            name_cst->equal(*obj->name_cst) &&
+            pkg_cst->equal(*obj->pkg_cst);
+    }
 };
 
 class MERGE_UTF8_Constant : public UTF8_Constant {
