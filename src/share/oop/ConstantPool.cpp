@@ -56,8 +56,8 @@ void ConstantPool::init_constant() {
     };
 
     do { // init constant
-        for (int i = 0; i < this->count; i++) {
-            temp_c = get_constant_fast<Constant>(i + 1);
+        for (int i = 1; i < this->count; i++) {
+            temp_c = get_constant_fast<Constant>(i);
             if (temp_c->status == CTSINITED) continue; // constant has been inited.
             switch (temp_c->type) {
                 case CT_METHOD_FUNCTION_CONSTANT: {
@@ -66,10 +66,14 @@ void ConstantPool::init_constant() {
                     // don't need to verify if the constant is inited.
                     // AND don't need to delete.
 
+                    // If package index is 0, the method/func is member of current file
+                    // And i always >= 0, so don't have to check particular case
+
                     if (verify(i, mf_c->name_idx) &&
                         verify(i, mf_c->prmt_idx) &&
                         verify(i, mf_c->rslt_idx) &&
-                        verify(i, mf_c->pkg_idx)) {
+                        verify(i, mf_c->pkg_idx)
+                        ) {
                         mf_c->name        = get_constant<UTF8_Constant>(mf_c->name_idx);
                         mf_c->param_types = get_constant<UTF8_Constant>(mf_c->prmt_idx);
                         mf_c->result_type = get_constant<UTF8_Constant>(mf_c->rslt_idx);
