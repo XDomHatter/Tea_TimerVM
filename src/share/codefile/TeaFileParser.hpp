@@ -11,6 +11,8 @@
 #include <utilities/macros.hpp>
 #include <utilities/STATUS.hpp>
 #include <vector>
+#include <list>
+#include <map>
 
 
 class TeaFileParser {
@@ -37,10 +39,9 @@ public:
     /// read constant-about information
     ConstantPool *read_cp() const;
     char ** read_pk_names(int count, ConstantPool *cp) const;
-    METHOD_FUNCTION_Constant **read_method_func_info(ConstantPool *cp, int count) const;
-    TFunction **read_method_func(METHOD_FUNCTION_Constant **infos, ConstantPool *cp, int count) const;
-
-    
+    std::list<METHOD_FUNCTION_Constant *> * read_method_func_info(ConstantPool *cp, int count) const;
+    std::map<METHOD_FUNCTION_Constant *, TFunction *>
+        *read_method_func(std::list<METHOD_FUNCTION_Constant *> *infos, ConstantPool *cp) const;
 
     inline bool FAST_METHOD_MODE() const {
         return inf & 1;
