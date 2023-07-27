@@ -120,7 +120,7 @@ UTF8_Constant *UTF8_Constant::join(UTF8_Constant *v) {
     return this;
 }
 bool UTF8_Constant::equal(const UTF8_Constant& obj) const{
-    return cstr_EQUAL((char *) obj.val, (char *) this->val);
+    return cstr_EQUAL(obj.val->get_cstr(), this->val->get_cstr());
 }
 
 
