@@ -27,10 +27,10 @@ public:
         this->slots[index] = value;
     }
     inline void set_u4(u2 index, u4 value) {
-        *((u4 *) (this->slots + index * 2)) = value;
+        this->slots[index] = value;
     }
     inline void set_u8(u2 index, u8 value) {
-        *((u8 *) (this->slots + index * 2)) = value;
+        *((u8 *) (this->slots + index * 4)) = value;
     }
 
     inline u1 get_u1(u2 index) {
@@ -40,10 +40,10 @@ public:
         return slots[index];
     }
     inline u4 get_u4(u2 index) {
-        return *((u4 *) (this->slots + index * 2));
+        return slots[index];
     }
     inline u8 get_u8(u2 index) {
-        return *((u8 *) (this->slots + index * 2));
+        return *((u8 *) (this->slots + index * 4));
     }
 };
 
