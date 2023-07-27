@@ -101,7 +101,7 @@ void ConstantPool::init_constant() {
                 }
                 case CT_MERGE_UTF8_CONSTANT: {
                     var *mu_c = (MERGE_UTF8_Constant *) temp_c;
-                    var *r = new U8String();
+                    var r = new U8String();
                     int soc = 0;
                     UTF8_Constant *temp;
                     for (int j = 0; j < mu_c->members_count; j++) {
@@ -120,6 +120,7 @@ void ConstantPool::init_constant() {
                         mu_c->val = r;
                         mu_c->size = soc;
                     }
+                    delete r;
                     break;
                 }
                 case CT_TYPE_AND_NAME_CONSTANT: {
