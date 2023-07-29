@@ -90,10 +90,15 @@ std::map<METHOD_FUNCTION_Constant *, TFunction *> *
         u2 handled_exception_count = reader->nextU2_fast();
         var handlers = new std::list<TExceptionHandler *>();
         for(int i = 0; i<handled_exception_count; i++) {
+            reader->guarantee_more(8);
             u2 constant_index = reader->nextU2_fast();
+            u2 start_pc = reader->nextU2_fast();
+            u2 end_pc   = reader->nextU2_fast();
             u2 handle_pc = reader->nextU2_fast();
             handlers->push_back(new TExceptionHandler(
                 cp->get_constant<CLASS_Constant>(constant_index),
+                start_pc,
+                end_pc,
                 handle_pc
             ));
         }
