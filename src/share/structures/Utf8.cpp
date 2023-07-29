@@ -75,7 +75,7 @@ char *UTF8Char::cstr_of(UTF8Char *cs, int length) {
 int UTF8Char::length_of_utf8String(char *cstr) {
     int res = 0;
     char c = *cstr;
-    for(int i = 0; c != '\0'; i++) {
+    for(int i = 0; c != '\0';) {
         i += size_of_utf8Char(c);
         res ++;
         c = cstr[i];
