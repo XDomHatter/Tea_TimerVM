@@ -33,6 +33,8 @@ public:
         memset(ptr, value, size);
     }
     /// move source -> dest
-    static void copy(pointer source, pointer dest, size_t size);
+    inline static void copy(pointer source, pointer dest, size_t size) {
+        memcpy(dest, source, size);
+    }
 };
 #endif //$TVM_SRC_SHARE_ASM_MEMORY_HPP

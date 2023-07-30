@@ -14,9 +14,4 @@ pointer Memory::realloc_mem_keep_data(pointer *ptr, size_t size_of_old_ptr, size
     *ptr = newptr;
     return newptr;
 }
-void Memory::copy(pointer source, pointer dest, size_t size) {
-    for(int i = 0; i < size; i++) {
-        dest[i] = source[i];
-    }
-}
 
