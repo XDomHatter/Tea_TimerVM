@@ -102,7 +102,7 @@ std::map<METHOD_FUNCTION_Constant *, TFunction *> *
                 handle_pc
             ));
         }
-        var ehs = new TExceptionHandlers(handled_exception_count, handlers);
+        var ehs = new TExceptionHandlerSet(handled_exception_count, handlers);
         // max stack size
         u1 max_stack_size = reader->nextU2_fast();
         // read opcode
