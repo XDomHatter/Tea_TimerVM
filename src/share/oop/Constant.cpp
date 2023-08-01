@@ -80,7 +80,7 @@ int Constant::size_in_cp(Constant * c) {
             struct_size = 8;
             break;
         case CT_CLASS_CONSTANT:
-            struct_size = 0; // CLASS_Constant is disabled
+            struct_size = 4;
             break;
         case CT_MERGE_UTF8_CONSTANT:
             struct_size = (2 +
