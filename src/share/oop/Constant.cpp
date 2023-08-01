@@ -153,7 +153,8 @@ METHOD_FUNCTION_Constant::~METHOD_FUNCTION_Constant() {
 ////////// CLASS_Constant ///////////////
 /////////////////////////////////////////
 CLASS_Constant::CLASS_Constant(u2 pakg_idx, u2 name_idx) : Constant() {
-    this->pkg_idx = pkg_idx;
+    this->type     = CT_CLASS_CONSTANT;
+    this->pkg_idx  = pakg_idx;
     this->name_idx = name_idx;
     this->name_cst = NULL;
 }
