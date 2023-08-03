@@ -5,6 +5,7 @@
 #include "cstr_utils.hpp"
 #include <asm/Memory.hpp>
 
+#define DEF *str1
 char *CSTRUtil::copy(char *dst, char *src) {
     if((dst != NULL) || (src != NULL))
         strcpy(dst, src);
@@ -92,4 +93,33 @@ bool CSTRUtil::unsafe_end_with(char *src, char *obj, int len_of_src, int len_of_
     }
     return true;
 }
+char *CSTRUtil::replace(char *str, char *find, char *replace) {
+    int find_len = len(find);
+    int replace_len = len(replace);
 
+    char *occurrence = strstr(str, find);
+    int occurrences = 0;
+    while (occurrence != NULL) {
+        occurrences++;
+        occurrence = strstr(occurrence + 1, find);
+    }
+    int original_len = len(str);
+    int newLen = original_len + occurrences * (replace_len - find_len) + 1;
+
+    char *result = (char *) malloc(newLen);
+
+    char *src = str;
+    char *dest = result;
+
+    while (*src) {
+        if (strstr(src, find) == src) {
+            strcpy(dest, replace);
+            dest += replace_len;
+            src += find_len;
+        } else {
+            *dest++ = *src++;
+        }
+    }
+    *dest = '\0';
+    return result;
+}
