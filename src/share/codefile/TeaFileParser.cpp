@@ -109,7 +109,7 @@ std::map<METHOD_FUNCTION_Constant *, TFunction *> *
         u4 opcode_size = reader->nextU2_fast();
         u1 *opcodes = reader->nextUn(opcode_size);
 
-        res->at(info) = new TFunction(
+        res->operator[](info) = new TFunction(
             acc_flag,
             local_vars,
             ehs,
