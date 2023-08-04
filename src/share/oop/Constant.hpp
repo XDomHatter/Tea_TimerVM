@@ -151,6 +151,10 @@ bool Constant::check_type(Constant *c) {
         // method_function constant
         return c->type == CT_METHOD_FUNCTION_CONSTANT;
     }
+    else if(std::is_same<typename std::decay<T>::type, CLASS_Constant>          ::value) {
+        // class constant
+        return c->type == CT_CLASS_CONSTANT;
+    }
     else if(std::is_same<typename std::decay<T>::type, MERGE_UTF8_Constant>     ::value) {
         // merge utf8 constant
         return c->type == CT_MERGE_UTF8_CONSTANT;
