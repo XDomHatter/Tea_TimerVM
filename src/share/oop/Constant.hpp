@@ -12,6 +12,7 @@
 #include <utilities/STATUS.hpp>
 #include <utilities/macros.hpp>
 #include <type_traits>
+#include <memory>
 
 // 00000001(1) means complete equal
 #define CTES_EQl 1
@@ -66,6 +67,9 @@ public:
     UTF8_Constant *join(UTF8_Constant * v);
     char *get_cstr() const;
     bool equal(const UTF8_Constant& obj) const;
+    inline size_t get_hashcode() const {
+        return std::hash<char *>{}(get_cstr());
+    }
 };
 
 class METHOD_FUNCTION_Constant : public Constant{
@@ -93,6 +97,24 @@ public:
             name       ->equal(*obj.name)        &&
             param_types->equal(*obj.param_types)
         );
+    }
+    /// get hash code of object
+    inline size_t get_hashcode() const {
+        if (this->status != CTSINITED) {
+            return -1;
+        }
+        return (result_type->get_hashcode() ^
+            name->get_hashcode() ^
+            param_types->get_hashcode() ^
+            (pkg_cst == NULL ? 0xDEAD : pkg_cst->get_hashcode())
+        );
+    }
+
+    inline bool operator<(const METHOD_FUNCTION_Constant& other) const {
+        return this->get_hashcode() < other.get_hashcode();
+    }
+    inline bool operator==(const METHOD_FUNCTION_Constant& other) const {
+        return this->equal(other);
     }
 };
 
