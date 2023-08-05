@@ -56,7 +56,7 @@ void ConstantPool::init_constant() {
     };
 
     do { // init constant
-        for (int i = 1; i < this->count; i++) {
+        for (int i = 1; i <= this->count; i++) {
             temp_c = get_constant_fast<Constant>(i);
             if (temp_c->status == CTSINITED) continue; // constant has been inited.
             switch (temp_c->type) {
