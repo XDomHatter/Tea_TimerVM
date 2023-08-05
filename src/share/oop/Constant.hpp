@@ -14,20 +14,6 @@
 #include <type_traits>
 #include <memory>
 
-// 00000001(1) means complete equal
-#define CTES_EQl 1
-// 00000010(2) means only ::name is equal that obj is method/function 's override
-#define CTES_NaE 2
-// 00000100(4) means only result type isn't equal
-#define CTES_NPE 4
-// 00001000(8) means only param types are not equal
-#define CTES_NRE 8
-// 00010000(16) means complete not equal
-#define CTES_NoE 16
-
-#define CstTypePARAM ConstantType cst_type
-
-
 typedef enum{
     CT_UTF8_CONSTANT            = 0x00,
     CT_METHOD_FUNCTION_CONSTANT = 0x01,
