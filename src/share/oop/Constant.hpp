@@ -67,9 +67,8 @@ public:
     UTF8_Constant *join(UTF8_Constant * v);
     char *get_cstr() const;
     bool equal(const UTF8_Constant& obj) const;
-    inline size_t get_hashcode() const {
-        return std::hash<char *>{}(get_cstr());
-    }
+    /// BKDRHash algorithm
+    size_t get_hashcode() const;
 };
 
 class METHOD_FUNCTION_Constant : public Constant{

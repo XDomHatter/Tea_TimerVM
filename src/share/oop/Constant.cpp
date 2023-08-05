@@ -122,6 +122,17 @@ UTF8_Constant *UTF8_Constant::join(UTF8_Constant *v) {
 bool UTF8_Constant::equal(const UTF8_Constant& obj) const{
     return cstr_EQUAL(obj.val->get_cstr(), this->val->get_cstr());
 }
+size_t UTF8_Constant::get_hashcode() const {
+    unsigned int seed = 131; // 31 131 1313 13131 131313 etc..
+    unsigned int hash = 0;
+    char *str = this->get_cstr();
+
+    while (*str) {
+        hash = hash * seed + (*str++);
+    }
+
+    return (hash & 0x7FFFFFFF);
+}
 
 
 /////////////////////////////////////////
