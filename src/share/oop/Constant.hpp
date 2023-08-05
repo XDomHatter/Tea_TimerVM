@@ -116,6 +116,15 @@ public:
     inline bool operator==(const METHOD_FUNCTION_Constant& other) const {
         return this->equal(other);
     }
+    static inline METHOD_FUNCTION_Constant *main_func_cst() {
+        var *main_func_cst = new METHOD_FUNCTION_Constant(0, 0, 0, 0);
+        main_func_cst->pkg_idx     = 0;
+        main_func_cst->pkg_cst     = NULL;
+        main_func_cst->result_type = new UTF8_Constant(2, (u1 *) "4");
+        main_func_cst->name        = new UTF8_Constant(5, (u1 *) "main");
+        main_func_cst->param_types = new UTF8_Constant(3, (u1 *) "[U");
+        return main_func_cst;
+    }
 };
 
 class CLASS_Constant : public Constant {
