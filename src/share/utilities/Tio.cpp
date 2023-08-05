@@ -47,8 +47,8 @@ void TConsole::output_f(char *str, ...) {
     va_start(args, str);
     int o_ttl = CSTRUtil::len(str) + 1;
     char *o = Memory::alloc_mem<char>(o_ttl);
+    o[0] = '\0';
     int o_cur = 0;
-    
 
     while(*str != '\0') {
         if(*str == '%') {
