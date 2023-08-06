@@ -74,7 +74,7 @@ public:
 
     /// detect if this object is equal to param
     /// @param obj object to detect
-    inline bool equal(METHOD_FUNCTION_Constant obj) const {
+    inline bool equal(const METHOD_FUNCTION_Constant& obj) const {
         return (
             result_type->equal(*obj.result_type) &&
             name       ->equal(*obj.name)        &&
