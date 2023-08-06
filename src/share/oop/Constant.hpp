@@ -74,13 +74,14 @@ public:
 
     /// detect if this object is equal to param
     /// @param obj object to detect
-    /// @return CTES_EQl/CTES_NaE/CTES_NPE/CTES_NoE
     inline bool equal(METHOD_FUNCTION_Constant obj) const {
         return (
-            pkg_cst    ->equal(*obj.pkg_cst)     &&
             result_type->equal(*obj.result_type) &&
             name       ->equal(*obj.name)        &&
-            param_types->equal(*obj.param_types)
+            param_types->equal(*obj.param_types) &&
+            (pkg_cst == NULL ?
+                 obj.pkg_cst == NULL : pkg_cst->equal(*obj.pkg_cst)
+            )
         );
     }
     /// get hash code of object
