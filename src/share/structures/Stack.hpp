@@ -7,34 +7,74 @@
 
 #include <asm/BytesUtils.hpp> //for u1,u2,u4
 
-class Stack_u4 {
+class Stack {
+public:
+    virtual void push1(u1 value) = 0;
+    virtual void push2(u2 value) = 0;
+    virtual void push4(u4 value) = 0;
+    virtual void push8(u8 value) = 0;
+    virtual u1 pop1() = 0;
+    virtual u2 pop2() = 0;
+    virtual u4 pop4() = 0;
+    virtual u8 pop8() = 0;
+};
+
+class Stack_u4 : public Stack{
 private:
     u4 * start_address; // the start address of stack
     u4 * current      ; // current address
     int max_stack_size; // the datas' num !not data's size!'
     int current_size  ;
+    bool full;
 
 public:
-    bool full         ;
-    Stack_u4 (int max_stack_size);
-    u4 push  (u4 data)           ;
-    u4 push2 ();
-    u4 pop   (void   )           ;
-    ~Stack_u4(       )           ;
+    explicit Stack_u4(int max_stack_size);
+    ~Stack_u4();
+    inline void check_full() {
+        if(this->current_size == this->max_stack_size){
+            this->full = true;
+        }
+    }
+    inline bool is_full() const {
+        return this->full;
+    }
+    void push1(u1 value) override;
+    void push2(u2 value) override;
+    void push4(u4 value) override;
+    void push8(u8 value) override;
+    u1 pop1() override;
+    u2 pop2() override;
+    u4 pop4() override;
+    u8 pop8() override;
 };
 
-class Stack_u2 {
+class Stack_u2 : public Stack {
 private:
     u2 * start_address; // the start address of stack
     u2 * current      ; // current address
     int max_stack_size; // the datas' num !not data's size!'
     int current_size  ;
+    bool full;
+
 public:
-    bool full         ;
-    Stack_u2 (int max_stack_size);
-    u2 push  (u2 data)           ;
-    u2 pop   (void   )           ;
-    ~Stack_u2(       )           ;
+    Stack_u2(int max_stack_size);
+    ~Stack_u2();
+    inline void check_full() {
+        if(this->current_size == this->max_stack_size){
+            this->full = true;
+        }
+    }
+    inline bool is_full() const {
+        return this->full;
+    }
+    void push1(u1 value) override;
+    void push2(u2 value) override;
+    void push4(u4 value) override;
+    void push8(u8 value) override;
+    u1 pop1() override;
+    u2 pop2() override;
+    u4 pop4() override;
+    u8 pop8() override;
 };
 
 
