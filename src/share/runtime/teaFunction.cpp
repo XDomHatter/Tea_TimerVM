@@ -5,13 +5,15 @@
 #include "teaFunction.hpp"
 
 TFunction::TFunction(
-    u1                        acc_flag,
-    TeaVariableSet           *local_vars,
-    TExceptionHandlerSet     *exception_handlers,
-    u1                        max_stack_size,
-    int                       opcode_size,
-    u1                       *opcodes
+    METHOD_FUNCTION_Constant *info,
+    u1 acc_flag,
+    TeaVariableSet *local_vars,
+    TExceptionHandlerSet *exception_handlers,
+    u1 max_stack_size,
+    int opcode_size,
+    u1 *opcodes
 ) {
+    this->info               = info;
     this->acc_flag           = acc_flag;
     this->local_vars         = local_vars;
     this->exception_handlers = exception_handlers;

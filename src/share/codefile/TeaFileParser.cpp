@@ -110,6 +110,7 @@ std::map<METHOD_FUNCTION_Constant, TFunction *> *
         u1 *opcodes = reader->nextUn(opcode_size);
 
         res->operator[](*info) = new TFunction(
+            info,
             acc_flag,
             local_vars,
             ehs,

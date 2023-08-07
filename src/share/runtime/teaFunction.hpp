@@ -13,18 +13,22 @@
 #include <structures/Stack.hpp>
 
 class TFunction {
+    METHOD_FUNCTION_Constant *info;
     u1                        acc_flag;
     TeaVariableSet           *local_vars;
     TExceptionHandlerSet     *exception_handlers;
     Stack                    *operand_stack;
     OpCodeSet                *opcode_set;
 public:
-    TFunction(u1 acc_flag,
-              TeaVariableSet *local_vars,
-              TExceptionHandlerSet *exception_handlers,
-              u1 max_stack_size,
-              int opcode_size,
-              u1 *opcodes);
+    TFunction(
+        METHOD_FUNCTION_Constant *info,
+        u1 acc_flag,
+        TeaVariableSet *local_vars,
+        TExceptionHandlerSet *exception_handlers,
+        u1 max_stack_size,
+        int opcode_size,
+        u1 *opcodes
+    );
 };
 
 #endif //$TEA_SRC_SHARE_RUNTIME_TEAFUNCTION_HPP
