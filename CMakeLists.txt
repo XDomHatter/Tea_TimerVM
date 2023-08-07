@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 
+add_compile_options(-Wno-write-strings)
+
 include_directories(src/share)
 include_directories(src/os)
 
@@ -135,5 +137,8 @@ add_executable(tea
         src/share/oop/ConstantPool.cpp src/share/oop/ConstantPool.hpp
 
         # runtime
-        )
+        src/share/runtime/teaVariable.hpp
+        src/share/runtime/teaFunction.hpp src/share/runtime/teaFunction.cpp
+        src/share/runtime/opCode.hpp
+        src/share/runtime/teaException.hpp )
 
