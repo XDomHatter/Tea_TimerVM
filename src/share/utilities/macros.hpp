@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef void * UtilType;
+
 #define var auto
 
 #define FAST_FUNC(func_name) func_name##_fast
