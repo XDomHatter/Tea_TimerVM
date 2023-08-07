@@ -15,8 +15,8 @@
 class TFunction {
     u1                        acc_flag;
     TeaVariableSet           *local_vars;
-    TExceptionHandlerSet       *exception_handlers;
-    Stack_u4                 *operand_stack;
+    TExceptionHandlerSet     *exception_handlers;
+    Stack                    *operand_stack;
     OpCodeSet                *opcode_set;
 public:
     TFunction(u1 acc_flag,
