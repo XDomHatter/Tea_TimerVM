@@ -12,19 +12,18 @@
 
 class TimerVM {
 private:
-
     int codefiles_count;
     std::vector<char *> *libpaths;
-
     std::vector<CodeFileObj *> *code_files;
+    TFunction *main_function;
 
     VMStatus status;
     bool recompile;
 
 public:
     CMDParser *parse_cmd(int argc, char *argv[]);
-    void open_files (CMDParser *cmdParser);
-    void parse_files(CMDParser *cmdParser);
+    void open_files(CMDParser *cmdParser);
+    void parse_files();
     inline CodeFileObj *get_code_file(int index) const {
         return code_files->at(index);
     }

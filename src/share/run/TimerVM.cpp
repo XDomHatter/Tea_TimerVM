@@ -25,12 +25,12 @@ void TimerVM::open_files(CMDParser *cmdParser) {
     // package files
     this->code_files = new std::vector<CodeFileObj *>();
     std::vector<char *> * _list = cmdParser->main_codefile;
-    int length = cmdParser->codefile_count;
+    int length = codefiles_count;
     TeaFileParser * itParser;
     FILE          * itFile;
     CodeFileObj   * itCFO;
     for(int i = 0; i < length; i++) {
-        itFile = fopen(_list->at(i), "rb+");
+        itFile = fopen(_list->at(i), "rb");
         if(itFile == NULL) {
             // file doesn't exists
             TConsole::output_f("fatal error: file \'%s\' doesn't exists", _list->at(i));
@@ -48,9 +48,11 @@ void TimerVM::open_files(CMDParser *cmdParser) {
     }
 }
 
-void TimerVM::parse_files(CMDParser *cmdParser) {
+void TimerVM::parse_files() {
     CodeFileObj *itCFO = nullptr;
-    int length  = cmdParser->codefile_count;
+    int length  = codefiles_count;
+    TFunction *main_func = NULL;
+
     for(int i = 0; i < length; i++) {
         itCFO = this->code_files->at(i);
         
@@ -64,5 +66,19 @@ void TimerVM::parse_files(CMDParser *cmdParser) {
         itCFO->read_pk(libpaths);
         // read global variable
         itCFO->read_gv();
+        // read global functions info
+        itCFO->read_gf_info();
+        if(itCFO->has_main_func()) {
+            if(main_func != NULL) {
+                // there's already a main function
+                TConsole::error("Multiple main functions found. \n");
+            }
+            itCFO->read_global_funcs();
+            main_func = itCFO->get_gf_fast(METHOD_FUNCTION_Constant::main_func_cst());
+        }
     }
+    if(main_func == NULL) {
+        QUIT(0);
+    }
+    this->main_function = main_func;
 }
