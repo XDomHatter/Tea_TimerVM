@@ -75,10 +75,10 @@ std::list<METHOD_FUNCTION_Constant *> * TeaFileParser::read_method_func_info(Con
     }
     return info;
 }
-std::map<METHOD_FUNCTION_Constant *, TFunction *> *
+std::map<METHOD_FUNCTION_Constant, TFunction *> *
     TeaFileParser::read_method_func(std::list<METHOD_FUNCTION_Constant *> *infos, ConstantPool *cp) const {
 
-    var res = new std::map<METHOD_FUNCTION_Constant *, TFunction *>();
+    var res = new std::map<METHOD_FUNCTION_Constant, TFunction *>();
     for(METHOD_FUNCTION_Constant *info : *infos) {
         reader->guarantee_more(5); // acc_flag + lv_count + handled_exception_count
 
@@ -104,12 +104,12 @@ std::map<METHOD_FUNCTION_Constant *, TFunction *> *
         }
         var ehs = new TExceptionHandlerSet(handled_exception_count, handlers);
         // max stack size
-        u1 max_stack_size = reader->nextU2_fast();
+        u1 max_stack_size = reader->nextU1_fast();
         // read opcode
-        u4 opcode_size = reader->nextU2_fast();
+        u4 opcode_size = reader->nextU4_fast();
         u1 *opcodes = reader->nextUn(opcode_size);
 
-        res->operator[](info) = new TFunction(
+        res->operator[](*info) = new TFunction(
             acc_flag,
             local_vars,
             ehs,
