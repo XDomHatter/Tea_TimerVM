@@ -57,17 +57,22 @@ void TConsole::output_f(char *str, ...) {
             o_cur = 0;
             
             switch (*(++str)) {
-                case 's': {
+                case 'c': { // character
+                    char c = va_arg(args, int);
+                    printf("%c", c);
+                    break;
+                }
+                case 's': { // string
                     char *s = va_arg(args, char *);
                     printf("%s", s);
                     break;
                 }
-                case 'd': {
+                case 'd': { // integer
                     int d = va_arg(args, int);
                     printf("%d", d);
                     break;
                 }
-                case 'x': {
+                case 'x': { // hex
                     // u1 and u2 will be promoted to u4
                     u4 _u4 = va_arg(args, u4);
                     printf("%x", _u4);
