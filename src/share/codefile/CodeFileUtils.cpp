@@ -13,6 +13,9 @@ FILE *CodeFileUtils::find_file(char *filename, std::vector<char *> *lib_paths) {
     WINDOWS_ONLY(
         char *filename_fmt = CSTRUtil::replace(filename, "/", PATH_SEPARATOR);
     );
+    NOT_WINDOWS(
+        char *filename_fmt = filename;
+    );
     char *full_path = NULL;
     char *may_full_path = NULL;
     FILE *f = NULL;
