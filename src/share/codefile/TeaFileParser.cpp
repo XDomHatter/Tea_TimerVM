@@ -85,7 +85,6 @@ std::map<METHOD_FUNCTION_Constant, TFunction *> *
         u1 acc_flag                = reader->nextU1_fast();
         // read local variable
         u2 lv_count                = reader->nextU2_fast();
-        var local_vars = new TeaVariableSet(lv_count);
         // read exception handler
         u2 handled_exception_count = reader->nextU2_fast();
         var handlers = new std::list<TExceptionHandler *>();
@@ -112,7 +111,7 @@ std::map<METHOD_FUNCTION_Constant, TFunction *> *
         res->operator[](*info) = new TFunction(
             info,
             acc_flag,
-            local_vars,
+            lv_count,
             ehs,
             max_stack_size,
             opcode_size,
