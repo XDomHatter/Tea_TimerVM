@@ -187,5 +187,7 @@ char * U8String::get_utf8_char_at(int index) {
     return res;
 }
 char *U8String::get_cstr() {
-    return _chars;
+    char *res = Memory::alloc_mem<char>(this->_so_chars);
+    CSTRUtil::copy(res, _chars);
+    return res;
 }
