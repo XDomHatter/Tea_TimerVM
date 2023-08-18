@@ -11,6 +11,7 @@
 #include <codefile/TeaFileReader.hpp>
 #include <utilities/STATUS.hpp>
 #include <utilities/macros.hpp>
+#include <utilities/cstr_utils.hpp>
 #include <type_traits>
 #include <memory>
 
@@ -86,14 +87,23 @@ public:
     }
     /// get hash code of object
     inline size_t get_hashcode() const {
-        if (this->status != CTSINITED) {
-            return -1;
-        }
-        return (result_type->get_hashcode() ^
-            name->get_hashcode() ^
-            param_types->get_hashcode() ^
-            (pkg_cst == NULL ? 0xDEAD : pkg_cst->get_hashcode())
+        char *bin_name = (char *) Memory::alloc_mem<char> (
+            this->result_type->size +   // result type
+            1 +                         // :
+            this->name->size +          // name
+            1 +                         // (
+            this->param_types->size +   // param_types
+            1 +                         // )
+            1                           // '\0'
         );
+        sprintf(bin_name, "%s:%s(%s)",
+                this->result_type->get_cstr(),
+                this->name->get_cstr(),
+                this->param_types->get_cstr()
+        );
+        size_t res = CSTRUtil::get_hashcode(bin_name);
+        Memory::free_mem(bin_name);
+        return res;
     }
 
     inline bool operator<(const METHOD_FUNCTION_Constant& other) const {
