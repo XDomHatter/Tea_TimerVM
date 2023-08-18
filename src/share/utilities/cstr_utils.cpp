@@ -123,3 +123,14 @@ char *CSTRUtil::replace(char *str, char *find, char *replace) {
     *dest = '\0';
     return result;
 }
+size_t CSTRUtil::get_hashcode(char *str) {
+    unsigned int seed = 131; // 31 131 1313 13131 131313 etc..
+    unsigned int hash = 0;
+    char *sstr = str;
+
+    while (*sstr) {
+        hash = hash * seed + (*sstr++);
+    }
+
+    return (hash & 0x7FFFFFFF);
+}

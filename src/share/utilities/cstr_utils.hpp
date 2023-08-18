@@ -37,6 +37,8 @@ public:
         return unsafe_end_with(src, obj, len(src), len(obj));
     }
     static char *replace(char *str, char *find, char *replace);
+    /// BKDRHash algorithm
+    static size_t get_hashcode(char *str);
 };
 
 #endif //$TEA_SRC_SHARE_UTILITIES_CSTR_UTILS_HPP
