@@ -7,7 +7,11 @@
 
 #include <asm/BytesUtils.hpp>
 #include <string.h>
+#ifdef MALLOC_H_EXIST
+#include <malloc.h>
+#else
 #include <stdlib.h>
+#endif
 
 class Memory {
 public:
