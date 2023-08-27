@@ -9,9 +9,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef   u1 *     pointer;
-typedef void * address;
-
 class Memory {
 public:
     /// same perform as malloc

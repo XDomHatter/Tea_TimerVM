@@ -16,9 +16,8 @@ typedef signed short     s2;
 typedef signed int       s4;
 typedef signed long long s8;
 
-
-
-
+typedef   u1 * pointer;
+typedef void * address;
 
 class ByteUtils{
 public:
