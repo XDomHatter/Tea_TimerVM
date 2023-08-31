@@ -6,7 +6,6 @@
 #include <oop/ConstantPool.hpp>
 #include <runtime/teaVariable.hpp>
 #include <runtime/teaException.hpp>
-#include <hash_map>
 
 TeaFileParser::TeaFileParser(TeaFileReader * tfr) {
     this->reader = tfr;
