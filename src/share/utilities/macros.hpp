@@ -55,4 +55,13 @@ typedef void * UtilType;
     #define NOT_MAC(code) code
 #endif
 
+
+#if defined(BITARCH64)
+    #define BITARCH64_ONLY(code) code
+    #define BITARCH32_ONLY(code)
+#else
+    #define BITARCH64_ONLY(code)
+    #define BITARCH32_ONLY(code) code
+#endif
+
 #endif //MACROS
