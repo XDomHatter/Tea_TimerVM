@@ -51,16 +51,19 @@ public:
     static u8 cast_u8(u1 * arr);
 
     static inline void put_u1(address ptr, int idx, u1 value) {
-        ((u1 *)ptr)[idx] = value;
+        *((u1 *)(((u1 *)ptr) + idx)) = value;
     }
     static void put_u2(address ptr, int idx, u2 value) {
-        ((u2 *)ptr)[idx] = value;
+        *((u2 *)(((u2 *)ptr) + idx)) = value;
     }
     static void put_u4(address ptr, int idx, u4 value) {
-        ((u4 *)ptr)[idx] = value;
+        *((u4 *)(((u1 *)ptr) + idx)) = value;
     }
     static void put_u8(address ptr, int idx, u8 value) {
-        ((u8 *)ptr)[idx] = value;
+        *((u8 *)(((u1 *)ptr) + idx)) = value;
+    }
+    static void put_ptr(address ptr, int idx, pointer value) {
+        *((pointer *)(((u1 *)ptr) + idx)) = value;
     }
 };
 
