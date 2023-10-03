@@ -25,11 +25,12 @@ void ConstantPool::init_constant() {
     bool flag = false; // if the constant inited failed
     int failed_init_count = 0; // count of constants which init failed
 
-    // NETHOD_FUNCTION_Constant, CLASS_Constant, MERGE_UTF8_Constant and TYPE_AND_NAME_Constant needs to be init again.
-    // They refer other constants. And the referred constants may not be read. And also,
-    //  when the referred constant is MERGE_UTF8_Constant, it maybe hasn't inited.
-    // A simple example, C0(TYPE_AND_NAME_Constant) refers C1(MERGE_UTF8_Constant),
-    // initializing it will be failed. So we should verify if there's a failed initializing and init again.
+    /** NETHOD_FUNCTION_Constant, CLASS_Constant, MERGE_UTF8_Constant and TYPE_AND_NAME_Constant needs to be init again.
+        They refer other constants. And the referred constants may not be read. And also,
+        when the referred constant is MERGE_UTF8_Constant, it maybe hasn't inited.
+        A simple example, C0(TYPE_AND_NAME_Constant) refers C1(MERGE_UTF8_Constant),
+        initializing it will be failed. So we should verify if there's a failed initializing and init again.
+    */
 
     // verify if index is able to get
     auto verify = [this](int i,u2 idx) -> bool {
