@@ -136,27 +136,36 @@ U8String::U8String(const char* chars) {
     this->_so_chars = CSTRUtil::len((char *) chars);
     this->length = UTF8Char::length_of_utf8String((char *) chars);
 }
-U8String::U8String(char *chars, int length) {
-    if (chars[length - 1] == '\0') { // str end with '\0'
-        this->_chars = (char *) Memory::alloc_mem(length);
+U8String::U8String(char *chars, int size) {
+    if (chars[size - 1] == '\0') { // str end with '\0'
+        this->_chars = (char *) Memory::alloc_mem(size);
         //  this->_chars = chars;
         CSTRUtil::copy(this->_chars, chars);
-        this->_so_chars = length;
+        this->_so_chars = size;
         this->length = UTF8Char::length_of_utf8String(chars);
-    } else {                         // string is without '\0'
-        this->_chars = (char *) Memory::alloc_mem(length + 1);
-        Memory::copy((pointer) chars, (pointer) this->_chars, length);
-        this->_chars[length] = 0;
-        this->_so_chars = length + 1; // +1 cuz '\0'
+    } else { // string is without '\0'
+        this->_chars = (char *) Memory::alloc_mem(size + 1);
+        Memory::copy((pointer) chars, (pointer) this->_chars, size);
+        this->_chars[size] = 0;
+        this->_so_chars = size + 1; // +1 cuz '\0'
         this->length = UTF8Char::length_of_utf8String(this->_chars);
     }
-
 }
 U8String::U8String(UTF8Char *chars, int length) {
     this->_so_chars = UTF8Char::cstr_size_of(chars, length);
     this->_chars = UTF8Char::cstr_of(chars, length);
     this->length = length;
 }
+U8String::U8String(const U8String &other) {
+    this->_so_chars = other._so_chars;
+    this->length = other.length;
+//  this->_chars = other._chars :
+        this->_chars = Memory::alloc_mem<char>(
+            _so_chars
+        );
+        CSTRUtil::copy(this->_chars, other._chars);
+}
+
 bool U8String::isEmpty() {
     return this->_chars == NULL  ||
            cstr_EQUAL(this->_chars, "") || // this->_chars == ""

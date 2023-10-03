@@ -65,7 +65,6 @@ private:
 public:
     int _so_chars; // size of _chars
 
-
     /// Create an empty string
     U8String();
     /// Init by utf8 characters
@@ -75,7 +74,9 @@ public:
     /// Init by c string constant
     U8String(const char *chars);
     /// Init by c string
-    U8String(char *chars, int length);
+    U8String(char *chars, int size);
+    /// Copy constructor
+    U8String(const U8String &other);
 
     /// Concat a string at the end of self
     U8String *join(U8String *str);
