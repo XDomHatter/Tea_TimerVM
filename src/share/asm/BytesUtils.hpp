@@ -6,20 +6,6 @@
 #include <asm/Endian.hpp>
 #include <utilities/types.hpp>
 
-//	BASIC TYPES
-typedef tubyte     u1;
-typedef tushort    u2;
-typedef tuint      u4;
-typedef tulong     u8;
-
-typedef tsbyte     s1;
-typedef tsshort    s2;
-typedef tsint      s4;
-typedef tslong     s8;
-
-typedef   u1 * pointer;
-typedef void * address;
-
 class ByteUtils{
 public:
     static u2 make_u2(u1 src[2]);

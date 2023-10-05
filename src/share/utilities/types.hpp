@@ -20,6 +20,7 @@ typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
 typedef unsigned long uint64_t;
 #endif
+// basic types
 typedef int8_t tsbyte;
 typedef int16_t tsshort;
 typedef int32_t tsint;
@@ -29,6 +30,20 @@ typedef uint8_t tubyte;
 typedef uint16_t tushort;
 typedef uint32_t tuint;
 typedef uint64_t tulong;
+// byte types
+typedef tubyte     u1;
+typedef tushort    u2;
+typedef tuint      u4;
+typedef tulong     u8;
+
+typedef tsbyte     s1;
+typedef tsshort    s2;
+typedef tsint      s4;
+typedef tslong     s8;
+// pointer types
+typedef   u1 * pointer;
+typedef void * address;
+
 typedef enum {
     TType_STR=0,
 
