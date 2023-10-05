@@ -8,6 +8,8 @@
 #include <utilities/macros.hpp>
 #include <oop/ConstantPool.hpp>
 
+void TimerVM::initialize() {}
+
 CMDParser *TimerVM::parse_cmd(int argc, char * argv[]) {
     this->status = VMINIT;
     // parse arguments
@@ -81,4 +83,18 @@ void TimerVM::parse_files() {
         QUIT(0);
     }
     this->main_function = main_func;
+}
+
+int TimerVM::exec_main_func(int argc, char **argv) {
+    TeaValue args_in_tea = TeaValue::create_by_oop(
+        InstanceArray::package_values<char*>(
+            argv, argc, Klass::utf8_klass,
+            [](char *v){
+                return InstanceString(v);
+            }),
+        heap
+    );
+    // @TODO pack arguments
+    Interpreter::interpret_func(this->heap, main_function, &args_in_tea);
+    return 0;
 }
