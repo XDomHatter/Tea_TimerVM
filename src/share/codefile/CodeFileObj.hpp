@@ -12,6 +12,7 @@
 #include <utilities/cstr_utils.hpp>
 #include <vector>
 #include <list>
+#include <runtime/teaVariable.hpp>
 
 struct CodeFileObj {
 private:
