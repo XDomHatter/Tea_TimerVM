@@ -7,10 +7,27 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -save-temps=obj")
 
+include(CheckIncludeFiles)
+
 add_compile_options(-Wno-write-strings)
 
 include_directories(src/share)
 include_directories(src/os)
+
+CHECK_INCLUDE_FILES(stdint.h STDINT_H_EXIST)
+CHECK_INCLUDE_FILES(malloc.h MALLOC_H_EXIST)
+if (STDINT_H_EXIST)
+    message("TEA: stdint.h found")
+    add_definitions(-DSTDINT_H_EXIST)
+else ()
+    message("TEA: stdint.h not found")
+endif ()
+if (MALLOC_H_EXIST)
+    message("TEA: malloc.h found")
+    add_definitions(-DMALLOC_H_EXIST)
+else ()
+    message("TEA: malloc.h not found")
+endif ()
 
 # detect endian
 if (CMAKE_CXX_BYTE_ORDER STREQUAL "BIG_ENDIAN")
@@ -92,12 +109,9 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
     message("TEA: Configuring on/for IBM AIX")
     add_definitions(-DOS_AIX)
     include_directories(src/os/aix)
-
 else()
     message(ERROR "UNKNOWN OS")
 endif()
-
-message("\n")
 
 add_executable(tea
         main.cpp
@@ -108,6 +122,7 @@ add_executable(tea
         src/share/utilities/cstr_utils.hpp src/share/utilities/cstr_utils.cpp
         src/share/utilities/Tio.cpp src/share/utilities/Tio.hpp
         src/share/utilities/cint_utils.hpp src/share/utilities/cint_utils.cpp
+        src/share/utilities/types.hpp
 
         # asm
         src/share/asm/Memory.hpp src/share/asm/Memory.cpp
@@ -139,6 +154,10 @@ add_executable(tea
         # runtime
         src/share/runtime/teaVariable.hpp
         src/share/runtime/teaFunction.hpp src/share/runtime/teaFunction.cpp
-        src/share/runtime/opCode.hpp
-        src/share/runtime/teaException.hpp )
+        src/share/runtime/opCode.hpp src/share/runtime/opCode.cpp
+        src/share/runtime/teaException.hpp
+        src/share/runtime/interpreter.cpp src/share/runtime/interpreter.hpp
+        src/share/runtime/teaValue.cpp src/share/runtime/teaValue.hpp
+        src/share/runtime/heap.cpp src/share/runtime/heap.hpp
+        src/share/runtime/object.hpp src/share/runtime/object.cpp)
 
