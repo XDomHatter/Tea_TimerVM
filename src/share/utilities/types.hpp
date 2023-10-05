@@ -5,8 +5,6 @@
 #ifndef $TEA_SRC_SHARE_UTILITIES_TYPES_HPP
 #define $TEA_SRC_SHARE_UTILITIES_TYPES_HPP
 
-#include <asm/Memory.hpp>
-
 #ifdef STDINT_H_EXIST
 #include <stdint.h>
 #endif
@@ -28,7 +26,7 @@ typedef int32_t tsint;
 typedef int64_t tslong;
 
 typedef uint8_t tubyte;
-typedef uint16_t tushout;
+typedef uint16_t tushort;
 typedef uint32_t tuint;
 typedef uint64_t tulong;
 typedef enum {
