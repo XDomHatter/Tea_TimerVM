@@ -4,17 +4,18 @@
 #define $TVM_SRC_SHARE_TYPES_BYTE_HPP
 
 #include <asm/Endian.hpp>
+#include <utilities/types.hpp>
 
 //	BASIC TYPES
-typedef unsigned char      u1;
-typedef unsigned short     u2;
-typedef unsigned int       u4;
-typedef unsigned long long u8;
+typedef tubyte     u1;
+typedef tushort    u2;
+typedef tuint      u4;
+typedef tulong     u8;
 
-typedef signed char      s1;
-typedef signed short     s2;
-typedef signed int       s4;
-typedef signed long long s8;
+typedef tsbyte     s1;
+typedef tsshort    s2;
+typedef tsint      s4;
+typedef tslong     s8;
 
 typedef   u1 * pointer;
 typedef void * address;
