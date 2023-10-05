@@ -6,29 +6,33 @@
 #define $TEA_SRC_SHARE_RUNTIME_TEAFUNCTION_HPP
 
 #include <asm/BytesUtils.hpp>
-#include <runtime/teaVariable.hpp>
 #include <runtime/teaException.hpp>
-#include <runtime/opCode.hpp>
 #include <oop/Constant.hpp>
-#include <structures/Stack.hpp>
+#include <utilities/types.hpp>
 
 class TFunction {
     METHOD_FUNCTION_Constant *info;
     u1                        acc_flag;
-    TeaVariableSet           *local_vars;
+    u2                        lv_slot_count;
     TExceptionHandlerSet     *exception_handlers;
-    Stack                    *operand_stack;
-    OpCodeSet                *opcode_set;
+    u1                        max_stack_size;
+    tuint                     opcode_size;
+    u1                       *opcodes;
+    tuint                     argc;
+
+    friend class Interpreter;
 public:
     TFunction(
         METHOD_FUNCTION_Constant *info,
         u1 acc_flag,
-        TeaVariableSet *local_vars,
+        u2 lv_slot_count,
         TExceptionHandlerSet *exception_handlers,
         u1 max_stack_size,
-        int opcode_size,
+        tuint opcode_size,
         u1 *opcodes
     );
+
+    static tuint compute_arg_count(METHOD_FUNCTION_Constant *info);
 };
 
 #endif //$TEA_SRC_SHARE_RUNTIME_TEAFUNCTION_HPP
