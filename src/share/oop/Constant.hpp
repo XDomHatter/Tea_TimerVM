@@ -159,6 +159,29 @@ public:
     UTF8_Constant * name_utf8;
 
     TYPE_AND_NAME_Constant(u2 type_idx, u2 name_idx);
+
+    inline size_t get_hashcode() const {
+        char *binn = (char *) Memory::alloc_mem(
+            name_utf8->size +    // name
+            1 +                  // :
+            type_utf8->size +    // type
+            1                    // '\0'
+        );
+        sprintf(binn, "%s:%s", name_utf8->get_cstr(), type_utf8->get_cstr());
+        return CSTRUtil::get_hashcode(binn);
+    }
+    inline bool equal(const TYPE_AND_NAME_Constant &other) const {
+        return (
+            type_utf8->equal(*other.type_utf8) &&
+            name_utf8->equal(*other.name_utf8)
+        );
+    }
+    inline bool operator<(const TYPE_AND_NAME_Constant& other) const {
+        return this->get_hashcode() < other.get_hashcode();
+    }
+    inline bool operator==(const TYPE_AND_NAME_Constant& other) const {
+        return this->equal(other);
+    }
 };
 
 
