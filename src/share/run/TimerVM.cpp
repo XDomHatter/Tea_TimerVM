@@ -94,7 +94,6 @@ int TimerVM::exec_main_func(int argc, char **argv) {
             }),
         heap
     );
-    // @TODO pack arguments
     Interpreter::interpret_func(this->heap, main_function, &args_in_tea);
     return 0;
 }
