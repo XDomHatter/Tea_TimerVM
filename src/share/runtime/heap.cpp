@@ -15,7 +15,7 @@ TeaHeap::TeaHeap() {
 }
 u4 TeaHeap::add_object(InstanceOOP *object) {
     this->_map->operator[](token++) = object;
-    return token;
+    return token-1;
 }
 InstanceOOP *TeaHeap::get_object(u4 index) {
     InstanceOOP *res;
