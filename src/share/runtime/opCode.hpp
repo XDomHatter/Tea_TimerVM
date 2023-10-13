@@ -10,15 +10,17 @@
 #include <utilities/macros.hpp>
 #include <utilities/Tio.hpp>
 #include <runtime/teaVariable.hpp>
+#include <runtime/heap.hpp>
 
 #define OPCODE_FUNC_PARAM EnvFrame *env, u1 *param
 
 struct EnvFrame{
     Stack *stack;
     TeaVariableSet *local_vars;
+    TeaHeap *heap;
     int pc;
-    EnvFrame(Stack *stack, TeaVariableSet *local_vars) :
-        stack(stack), local_vars(local_vars), pc(0) {}
+    EnvFrame(Stack *stack, TeaVariableSet *local_vars, TeaHeap *heap) :
+        stack(stack), local_vars(local_vars), heap(heap), pc(0) {}
 };
 
 /// OPCode behaviour

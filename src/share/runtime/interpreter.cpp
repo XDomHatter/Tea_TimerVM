@@ -56,7 +56,7 @@ void Interpreter::interpret_func(TeaHeap *heap, TFunction *func, TeaValue *args)
             }
         );
     }
-    var *env = new EnvFrame(stack, lv);
+    var *env = new EnvFrame(stack, lv, heap);
 
     ocs->execute(env);
 }
