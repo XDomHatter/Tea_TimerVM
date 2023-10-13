@@ -17,30 +17,33 @@ enum CMD_TYPE {
 
 class CMDParser {
 public:
-    int codefile_count;
-    std::vector<char *> *main_codefile;
+    char *main_codefile;
     int libpath_count;
     std::vector<char *> *lib_paths;
 
+    std::vector<char *> *usr_args;
+
+    int argc;
     char **argv;
+
     bool recompile;
-    CMDParser(int argc, char ** argv);
+    CMDParser(int argc, char **argv);
 
     /// get type of arg ( now is -h -v -d )
     /// @param arg a single arg
     /// @return type of cmd
-    static enum CMD_TYPE decide_cmd_type(char * arg);
+    static enum CMD_TYPE decide_cmd_type(char *arg);
     /// decide if 'arg' is a cmd
     /// @param arg a single arg
     /// @return if the arg is a command like '-h' '-v' etc.
-    static bool          is_a_cmd       (char * arg);
+    static bool is_a_cmd(char *arg);
     /// print help message
-    static void          print_help     (          );
+    static void print_help();
 
     /// parse cmd and do it
     /// @param argc count of arg
     /// @param argv value of arg
-    void parse_cmd(int argc, char *argv[]);
+    void parse_cmd();
 
     /// do the specific operation for an single arg
     /// @param single_arg the param to parse

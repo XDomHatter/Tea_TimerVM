@@ -10,13 +10,14 @@
 CMDParser::CMDParser(int argc, char **argv) {
     // init
     this->recompile = false;
-    this->main_codefile = new std::vector<char *>();
+    this->main_codefile = NULL;
     this->lib_paths = new std::vector<char *>();
     this->libpath_count = 0;
-    this->codefile_count = 0;
+    this->usr_args = new std::vector<char *>();
+    this->argc = argc;
     this->argv = argv;
 
-    parse_cmd(argc, argv);
+    parse_cmd();
 }
 
 bool CMDParser::is_a_cmd(char *arg) {
@@ -24,7 +25,7 @@ bool CMDParser::is_a_cmd(char *arg) {
 }
 
 enum CMD_TYPE CMDParser::decide_cmd_type(char *arg) {
-    if        (cstr_EQUAL(arg, "-h") || cstr_EQUAL(arg, "-H")) {
+    if (cstr_EQUAL(arg, "-h") || cstr_EQUAL(arg, "-H")) {
         return CMDT_HELPMSG;
     } else if (cstr_EQUAL(arg, "-v") || cstr_EQUAL(arg, "-V")) {
         return CMDT_VERSION;
@@ -37,7 +38,7 @@ enum CMD_TYPE CMDParser::decide_cmd_type(char *arg) {
     }
 }
 
-void CMDParser::parse_cmd(int argc, char * argv[]) {
+void CMDParser::parse_cmd() {
     switch (argc) {
         case 1:
             print_help();
@@ -72,9 +73,9 @@ void CMDParser::print_help() {
 void CMDParser::do_cmd(int *i) {
     char *single_arg; // the arg to parse
     single_arg = this->argv[
-            ((i == NULL) ? 1 : (*i))
-            // if i is NULL, use the first arg
-            // or use the the value of i
+        ((i == NULL) ? 1 : (*i))
+        // if i is NULL, use the first arg
+        // or use the value of i
     ];
     if (is_a_cmd(single_arg)) {
         switch (decide_cmd_type(single_arg)) {
@@ -100,14 +101,18 @@ void CMDParser::do_cmd(int *i) {
                 this->libpath_count++;
                 break;
             case CMDT_UNKNOWN:
-                TConsole::output("unknown command: ");
-                TConsole::output(single_arg);
-                exit(1);
+                TConsole::output_f("unknown command: %s", single_arg);
+                QUIT(1);
                 break;
         }
     } else {
-        this->main_codefile->push_back(single_arg);
-        this->codefile_count ++;
+        this->main_codefile = single_arg;
+        if (i == NULL) {
+            return;
+        }
+        for((*i)++;*i < argc; (*i)++) {
+            this->usr_args->push_back(argv[*i]);
+        }
     }
 }
 

@@ -23,63 +23,60 @@ CMDParser *TimerVM::parse_cmd(int argc, char * argv[]) {
 }
 
 void TimerVM::open_files(CMDParser *cmdParser) {
-    this->codefiles_count = cmdParser->codefile_count;
     // package files
-    this->code_files = new std::vector<CodeFileObj *>();
-    std::vector<char *> * _list = cmdParser->main_codefile;
-    int length = codefiles_count;
-    TeaFileParser * itParser;
-    FILE          * itFile;
-    CodeFileObj   * itCFO;
-    for(int i = 0; i < length; i++) {
-        itFile = fopen(_list->at(i), "rb");
-        if(itFile == NULL) {
-            // file doesn't exists
-            TConsole::output_f("fatal error: file \'%s\' doesn't exists", _list->at(i));
+    char *codefile_name = cmdParser->main_codefile;
+    this->code_file = NULL;
+
+    if(codefile_name != NULL) {
+        TeaFileParser * main_tfp;
+        FILE          * main_fo;
+        CodeFileObj   * main_cfo;
+
+        main_fo = fopen(codefile_name, "rb");
+        if(main_fo == NULL) {
+            // cannot open file
+            TConsole::output_f("fatal error: cannot open file \'%s\'", codefile_name);
             QUIT(1);
         }
         // file exists, create Parser object
-        itParser = new TeaFileParser(
-                new TeaFileReader(itFile)
+        main_tfp = new TeaFileParser(
+                new TeaFileReader(main_fo)
         );
 
-        itCFO = new CodeFileObj();
-        itCFO->parser = itParser;
-        itCFO->filename = _list->at(i);
-        this->code_files->push_back(itCFO);
+        main_cfo = new CodeFileObj();
+        main_cfo->parser = main_tfp;
+        main_cfo->filename = codefile_name;
+        this->code_file = main_cfo;
+    } else {
+        QUIT(0);
     }
 }
 
 void TimerVM::parse_files() {
-    CodeFileObj *itCFO = nullptr;
-    int length  = codefiles_count;
+    int length = codefiles_count;
     TFunction *main_func = NULL;
 
-    for(int i = 0; i < length; i++) {
-        itCFO = this->code_files->at(i);
-        
-        // check file
-        itCFO->check_mg();
-        // read information
-        itCFO->read_inf();
-        // read constant pool
-        itCFO->read_cp();
-        // read packages map
-        itCFO->read_pk(libpaths);
-        // read global variable
-        itCFO->read_gv();
-        // read global functions info
-        itCFO->read_gf_info();
-        if(itCFO->has_main_func()) {
-            if(main_func != NULL) {
-                // there's already a main function
-                TConsole::error("Multiple main functions found. \n");
-            }
-            itCFO->read_global_funcs();
-            main_func = itCFO->get_gf_fast(METHOD_FUNCTION_Constant::main_func_cst());
+    // check file
+    code_file->check_mg();
+    // read information
+    code_file->read_inf();
+    // read constant pool
+    code_file->read_cp();
+    // read packages map
+    code_file->read_pk(libpaths);
+    // read global variable
+    code_file->read_gv();
+    // read global functions info
+    code_file->read_gf_info();
+    if (code_file->has_main_func()) {
+        if (main_func != NULL) {
+            // there's already a main function
+            TConsole::error("Multiple main functions found. \n");
         }
+        code_file->read_global_funcs();
+        main_func = code_file->get_gf_fast(METHOD_FUNCTION_Constant::main_func_cst());
     }
-    if(main_func == NULL) {
+    if (main_func == NULL) {
         QUIT(0);
     }
     this->main_function = main_func;
@@ -89,8 +86,8 @@ int TimerVM::exec_main_func(int argc, char **argv) {
     TeaValue args_in_tea = TeaValue::create_by_oop(
         InstanceArray::package_values<char*>(
             argv, argc, Klass::utf8_klass,
-            [](char *v){
-                return InstanceString(v);
+            [](char *v) -> InstanceOOP *{
+                return new InstanceString(v);
             }),
         heap
     );

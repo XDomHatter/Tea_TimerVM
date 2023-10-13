@@ -15,7 +15,7 @@ class TimerVM {
 private:
     int codefiles_count;
     std::vector<char *> *libpaths;
-    std::vector<CodeFileObj *> *code_files;
+    CodeFileObj *code_file;
     TFunction *main_function;
     TeaHeap *heap;
 
@@ -34,8 +34,8 @@ public:
     /// Execute the main function
     int exec_main_func(int argc, char **argv);
     /// Get the loaded code file
-    inline CodeFileObj *get_code_file(int index) const {
-        return code_files->at(index);
+    inline CodeFileObj *get_code_file() const {
+        return code_file;
     }
 };
 
