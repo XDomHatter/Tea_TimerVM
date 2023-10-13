@@ -71,15 +71,17 @@ class InstanceArray : public InstanceOOP {
     int dimension;
     int *size_in_each_dim;
     int total_size;
-    InstanceOOP *values;
+    InstanceOOP **values;
 public:
-    InstanceArray(Klass *cls, int dimension, const int *size_in_each_dim, InstanceOOP *values);
+    InstanceArray(Klass *cls, int dimension, const int *size_in_each_dim, InstanceOOP **values);
+
+    InstanceOOP *get_element_by_index(int index);
 
     template<typename DataType>
     static InstanceArray *package_values(
-        DataType *data, int count, Klass *target_cls, std::function<InstanceOOP(DataType)> func
+        DataType *data, int count, Klass *target_cls, std::function<InstanceOOP*(DataType)> func
     ) {
-        var *v = Memory::alloc_mem<InstanceOOP>(count);
+        var *v = Memory::alloc_mem<InstanceOOP *>(count);
         for(int i = 0; i < count; i++) {
             v[i] = func(data[i]);
         }
@@ -89,7 +91,9 @@ public:
 class InstanceString : public InstanceOOP {
     char *str;
 public:
+    InstanceString(const InstanceString &other) noexcept;
     explicit InstanceString(char *str);
+    char *get_cstr();
     ~InstanceString() {
 //      super_destructor();   // auto call
         Memory::free_mem(str);

@@ -47,7 +47,7 @@ InstanceOOP::InstanceOOP(Klass *cls) {
     this->cls = cls;
 }
 
-InstanceArray::InstanceArray(Klass *cls, int dimension, const int *size_in_each_dim, InstanceOOP *values)
+InstanceArray::InstanceArray(Klass *cls, int dimension, const int *size_in_each_dim, InstanceOOP **values)
     : InstanceOOP(cls) {
     this->dimension = dimension;
 //  this->size_in_each_dim = size_in_each_dim :
@@ -62,6 +62,27 @@ InstanceArray::InstanceArray(Klass *cls, int dimension, const int *size_in_each_
     }
     this->values = values;
 }
+InstanceOOP *InstanceArray::get_element_by_index(int index) {
+    if(index >= this->total_size) {
+        // out of bounds
+        TConsole::output_f("tea.base.OutOfBoundsException: index %d out of bounds %d\n",
+                           index, this->total_size);
+        QUIT(-1);
+    }
+    return values[index];
+}
 
+InstanceString::InstanceString(const InstanceString &other) noexcept:
+    InstanceOOP(Klass::utf8_klass) {
+    this->str = other.str;
+}
 InstanceString::InstanceString(char *str):
-    InstanceOOP(Klass::utf8_klass), str(str) {}
+    InstanceOOP(Klass::utf8_klass) {
+    this->str = Memory::alloc_mem<char>(CSTRUtil::len(str));
+    CSTRUtil::copy(this->str, str);
+}
+char *InstanceString::get_cstr() {
+    char *res = Memory::alloc_mem<char>(CSTRUtil::len(str));
+    CSTRUtil::copy(res, str);
+    return res;
+}
